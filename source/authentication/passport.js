@@ -1,3 +1,5 @@
+//WIP
+
 var bCrypt = require('bcrypt');
  
 module.exports = function(passport, user) {
