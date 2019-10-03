@@ -4,10 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
-// var passport   = require('passport')
-// var session    = require('express-session')
-
-var db = require('./models/db')
 
 var app = express();
 
@@ -16,19 +12,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// For Passport
-// app.use(session({ secret: 'basicsecretkey',resave: true, saveUninitialized:true})); // session secret
-// app.use(passport.initialize());
-// app.use(passport.session()); // persistent login sessions
-// Public directories
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, './client/build')));
-
-// var usersRouter = require('./routes/users')(passport);
-// app.use('/api/u', usersRouter);
 
 if(app.settings.env === 'production')
 {
+  app.use(express.static(path.join(__dirname, './client/build')));
   app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, './client/build', 'index.html'));
   })
