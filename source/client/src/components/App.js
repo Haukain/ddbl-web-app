@@ -1,6 +1,13 @@
 import React from 'react';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import HomePage from './HomePage';
+import NoMatch from './NoMatch';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 class App extends React.Component {
   
@@ -8,27 +15,28 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      signUpAuthenticationForm : true
     }
-
-    this.setAuthenticationForm = this.setAuthenticationForm.bind(this);
-    this.getAuthenticationForm = this.getAuthenticationForm.bind(this);
-  }
-
-  setAuthenticationForm() {
-    this.setState({signUpAuthenticationForm:!this.state.signUpAuthenticationForm})
-  }
-
-  getAuthenticationForm() {
-    return (
-      this.state.signUpAuthenticationForm?<SignUp switchForm={this.setAuthenticationForm}></SignUp>:<SignIn switchForm={this.setAuthenticationForm}></SignIn>
-    )
   }
 
   render() {
     return (
       <div className="App">
-        {this.getAuthenticationForm()}
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <HomePage/>
+            </Route>
+            <Route exact path="/signin">
+              <SignIn/>
+            </Route>
+            <Route exact path="/signup">
+              <SignUp/>
+            </Route>
+            <Route path="*">
+              <NoMatch/>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
