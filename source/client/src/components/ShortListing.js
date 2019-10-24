@@ -1,13 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import ShortListingBoard from './ShortListingBoard'
 
 const useStyles = makeStyles(theme => ({
-  root : {
-  },
-  test : {
-    margin : theme.spacing(20,0,20,0),
+  board : {
   }
 }));
 
@@ -15,10 +11,10 @@ export default function ShortListing(props) {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root}>
-      <div className={classes.test}>
+    <div>
+      <div className={classes.board}>
         <ShortListingBoard/>
       </div>
-    </Container>
+    </div>
   );
 }

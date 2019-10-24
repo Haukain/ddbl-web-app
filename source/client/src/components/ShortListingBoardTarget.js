@@ -1,48 +1,102 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import Draggable from 'react-draggable';
+import clsx from 'clsx'
 
 const useStyles = makeStyles(theme => ({
-  target: {
-    height : 400,
-    border : '1px black solid'
+  targetRoot : {
+    position: 'relative',
+    border : 'solid 1px black',
+    height : 500,
+    width : 800,
   },
-  grid : {
-    height : '100%'
+  targetCell : {
+    float : 'left',
+    width : '50%',
+    height : '50%'
   },
   cell00 : {
-    backgroundColor : 'yellow',
-    height: '50%'
+    display: 'inline-block',
+    backgroundColor : '#FFFC85'
   },
   cell01 : {
-    backgroundColor : 'green',
-    height: '50%'
+    display: 'inline-block',
+    backgroundColor : '#8BFF79'
   },
   cell10 : {
-    backgroundColor : 'red',
-    height: '50%'
+    display: 'inline-block',
+    backgroundColor : '#FF7F8C'
   },
   cell11 : {
-    backgroundColor : 'yellow',
-    height: '50%'
+    display: 'inline-block',
+    backgroundColor : '#FFFC85'
+  },
+  targetToken : {
+    position: 'absolute',
+    zIndex : '6',
+    border : 'solid 1px black',
+    borderRadius : 2020,
+    backgroundColor : '#FF3A44',
+    height : 30,
+    width : 30
+  },
+  targetTokenText : {
+    textAlign : 'center',
+    color : 'white'
+  },
+  hidden : {
+    display : 'none'
+  },
+  hovered : {
+    backgroundColor : 'blue',
   }
 }));
+
+function generateTargetTokens(classes,items,positionHandler) {
+
+  let targetTokens = []
+  for (let i =0; i<items.length; i++) {
+    targetTokens.push(
+        <Draggable onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent'>
+          <div className={clsx(classes.targetToken,items[i].hidden && classes.hidden,items[i].hovered && classes.hovered)}>
+            <div className={classes.targetTokenText}>{i+1}</div>
+          </div>
+        </Draggable>
+      )
+  }
+  return targetTokens
+}
 
 export default function ShortListingBoardTarget(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.target}>
-      <Grid container className={classes.grid}>
-        <Grid item xs={6} className={classes.cell00}>
-        </Grid>
-        <Grid item xs={6} className={classes.cell01}>
-        </Grid>
-        <Grid item xs={6} className={classes.cell10}>
-        </Grid>
-        <Grid item xs={6} className={classes.cell11}>
-        </Grid>
-      </Grid>
+    <div className={classes.targetRoot}>
+      <div className={clsx(classes.targetCell,classes.cell00)}>
+      </div>
+      <div className={clsx(classes.targetCell,classes.cell01)}>
+      </div>
+      <div className={clsx(classes.targetCell,classes.cell10)}>
+      </div>
+      <div className={clsx(classes.targetCell,classes.cell11)}>
+      </div>
+      {generateTargetTokens(classes,props.items,props.positionHandler)}
     </div>
+    // <div className="box" style={{height: '500px', width: '500px', position: 'relative', overflow: 'auto', padding: '0'}}>
+    //       <div style={{height: '1000px', width: '1000px', padding: '10px'}}>
+    //         <Draggable bounds="parent">
+    //           <div className="box">
+    //             I can only be moved within my offsetParent.<br /><br />
+    //             Both parent padding and child margin work properly.
+    //           </div>
+    //         </Draggable>
+    //         <Draggable bounds="parent">
+    //           <div className="box">
+    //             I also can only be moved within my offsetParent.<br /><br />
+    //             Both parent padding and child margin work properly.
+    //           </div>
+    //         </Draggable>
+    //       </div>
+    //     </div>
   );
 }
