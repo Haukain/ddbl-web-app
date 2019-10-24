@@ -8,6 +8,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Longlist from './Longlist';
 
 class App extends React.Component {
   
@@ -31,6 +32,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/signup">
               <SignUp/>
+            </Route>
+            <Route exact path="/longlist">
+              <Longlist/>
             </Route>
             <Route path="*">
               <NoMatch/>
