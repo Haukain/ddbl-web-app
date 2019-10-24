@@ -9,6 +9,7 @@ import {
   Route
 } from "react-router-dom";
 import Longlist from './Longlist';
+import ShortListing from './ShortListing';
 
 class App extends React.Component {
   
@@ -35,6 +36,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/longlist">
               <Longlist/>
+            </Route>
+            <Route exact path="/shortListing">
+              <ShortListing/>
             </Route>
             <Route path="*">
               <NoMatch/>
