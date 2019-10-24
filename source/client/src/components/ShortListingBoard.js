@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import ShortListingBoardTarget from './ShortListingBoardTarget';
 import ShortListingBoardList from './ShortListingBoardList';
+<<<<<<< HEAD
 import { Grid, Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import kpiListJSON from "../test/resources/kpiList.json"; 
@@ -10,6 +11,12 @@ const styles = theme => ({
     buttonRow : {
       textAlign : 'right'
     }
+=======
+import { Grid } from '@material-ui/core';
+import update from 'immutability-helper'
+
+const styles = theme => ({
+>>>>>>> Better implementation
   });
 
 const kpiList = kpiListJSON;
