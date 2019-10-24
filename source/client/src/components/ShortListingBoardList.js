@@ -1,21 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { ListItem, List, IconButton, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
+import { ListItem, List, IconButton, ListItemText } from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
     listRoot : {
-        border : 'solid 1px black'
+        height : 500,
     },
-    listItem : {
-        border : 'solid 1px black'
-    },
-    listItemAdd : {
-        margin : 50,
-    },
-    listItemDelete : {
-        margin : 25,
+    list : {
+        overflow: 'auto',
+        maxHeight: '100%',
     }
 }));
 
@@ -24,7 +19,7 @@ function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler) 
     let listItems = []
     for (let i =0; i<items.length; i++) {
         listItems.push(
-            <ListItem className={classes.listItem} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)}>
+            <ListItem key={i} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)}>
                 <ListItemText
                 primary={(i+1)+": "+items[i]}
                 />
@@ -44,8 +39,8 @@ export default function ShortListingBoardList(props) {
   const classes = useStyles();
 
   return (
-    <div>
-        <List className={classes.listRoot}> 
+    <div className={classes.listRoot}>
+        <List disablePadding className={classes.list}> 
             {generateListItems(classes,props.items,props.addHandler,props.deleteHandler,props.hoverHandler)}
         </List>
     </div>

@@ -6,7 +6,6 @@ import clsx from 'clsx'
 const useStyles = makeStyles(theme => ({
   targetRoot : {
     position: 'relative',
-    border : 'solid 1px black',
     height : 500,
     width : 800,
   },
@@ -33,8 +32,6 @@ const useStyles = makeStyles(theme => ({
   },
   targetToken : {
     position: 'absolute',
-    zIndex : '6',
-    border : 'solid 1px black',
     borderRadius : 2020,
     backgroundColor : '#FF3A44',
     height : 30,
@@ -57,7 +54,7 @@ function generateTargetTokens(classes,items,positionHandler) {
   let targetTokens = []
   for (let i =0; i<items.length; i++) {
     targetTokens.push(
-        <Draggable onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent'>
+        <Draggable key={i} onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent'>
           <div className={clsx(classes.targetToken,items[i].hidden && classes.hidden,items[i].hovered && classes.hovered)}>
             <div className={classes.targetTokenText}>{i+1}</div>
           </div>

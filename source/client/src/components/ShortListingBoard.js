@@ -2,10 +2,13 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import ShortListingBoardTarget from './ShortListingBoardTarget';
 import ShortListingBoardList from './ShortListingBoardList';
-import { Grid } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import update from 'immutability-helper'
 
 const styles = theme => ({
+    buttonRow : {
+      textAlign : 'right'
+    }
   });
 
 class ShortListingBoard extends React.Component {
@@ -16,48 +19,6 @@ class ShortListingBoard extends React.Component {
     this.state = {
         kpis :
           [
-            {
-              name : "Kpi Name 1",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            },
-            {
-              name : "Kpi Name 2",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            },
-            {
-              name : "Kpi Name 3",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            },
-            {
-              name : "Kpi Name 4",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            },
-            {
-              name : "Kpi Name 5",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            },
-            {
-              name : "Kpi Name 6",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            },
-            {
-              name : "Kpi Name 7",
-              hidden : true,
-              hovered : false,
-              position : {x: 0, y:0}
-            }
           ]
     }
 
@@ -65,12 +26,29 @@ class ShortListingBoard extends React.Component {
     this.addHandler = this.addHandler.bind(this)
     this.deleteHandler = this.deleteHandler.bind(this)
     this.hoverHandler = this.hoverHandler.bind(this)
+    this.saveHandler = this.saveHandler.bind(this)
+  }
+
+  componentDidMount() {
+    // TODO: Remove this manual insertion
+    let kpisToInsert = []
+    for(let i=0;i<9;i++){
+      kpisToInsert.push(
+        
+        {
+          name : "Kpi Name "+(i+1),
+          hidden : true,
+          hovered : false,
+          position : {x: 0, y:0}
+        }
+      )
+    }
+    this.setState({kpis:kpisToInsert})
   }
 
   positionHandler(id,ui) {
     let {x, y} = this.state.kpis[id].position;
     this.setState({kpis : update(this.state.kpis, {[id]: {position: {$set: {x:(x + ui.deltaX),y:(y + ui.deltaY)}}}})});
-    //console.log(this.state.kpis[id].position)
   }
 
   addHandler(id) {
@@ -85,12 +63,21 @@ class ShortListingBoard extends React.Component {
     this.setState({kpis : update(this.state.kpis, {[id]: {hovered: {$set: hover}}})});
   }
 
+  saveHandler() {
+    let kpisToSave = this.state.kpis.filter(e => !e.hidden)
+    let message = `Saving ${kpisToSave.length} KPIs to the Database`
+    for(const  k of kpisToSave){
+      message += `\n${k.name} : ${k.position.x},${k.position.y}`
+    }
+    alert(message)
+  }
+
   render() {
     const { classes } = this.props;
 
     return (
         <div>
-          <Grid container>
+          <Grid container spacing={3}>
             <Grid item>
               <ShortListingBoardList items={this.state.kpis.map(e => e.name)}
               addHandler={this.addHandler}
@@ -99,6 +86,9 @@ class ShortListingBoard extends React.Component {
             </Grid>
             <Grid item>
               <ShortListingBoardTarget items={this.state.kpis.map(e => ({hidden:e.hidden,hovered:e.hovered}))} positionHandler={this.positionHandler}/>
+            </Grid>
+            <Grid item xs={12} className={classes.buttonRow}>
+              <Button variant='contained' color='primary' onClick={this.saveHandler}>save</Button>
             </Grid>
           </Grid>
         </div>
