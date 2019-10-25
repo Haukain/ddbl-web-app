@@ -10,7 +10,7 @@ export default function Longlist(props) {
   const classes = useStyles();
 
   return (
-    <Container>
+    <Container maxWidth='sm'>
         <LonglistXMLImport/>
     </Container>
   );
