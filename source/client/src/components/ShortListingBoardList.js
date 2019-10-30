@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
     listRoot : {
-        height : 500,
+        height : 500
     },
     list : {
         overflow: 'auto',
