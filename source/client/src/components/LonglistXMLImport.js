@@ -20,6 +20,8 @@ const styles = theme => ({
   }
 });
 
+const LOCALSTORAGE_KEY = 'kpiList'
+
 class LonglistXMLImport extends React.Component {
   
   constructor(props) {
@@ -103,6 +105,12 @@ class LonglistXMLImport extends React.Component {
       message += `\n ${k.name}`
     }
     alert(message)
+
+    const kpisJson = JSON.parse(JSON.stringify(kpisToSave.filter(e=>e.isChecked)))
+    window.localStorage.setItem(
+      LOCALSTORAGE_KEY,
+      kpisJson
+    )
   }
 
   render() {
