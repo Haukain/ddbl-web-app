@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/styles';
 import { List, ListItem, ListItemText, ListItemIcon, Checkbox, Typography, IconButton } from '@material-ui/core';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import { Button } from '@material-ui/core';
-import update from 'immutability-helper'
+import update from 'immutability-helper';
+import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
   fileInput : {
@@ -33,7 +34,7 @@ class LonglistXMLImport extends React.Component {
     this.handleChecked = this.handleChecked.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.extractSchema = this.extractSchema.bind(this);
-    this.saveHandler = this.saveHandler.bind(this)
+    this.saveHandler = this.saveHandler.bind(this);
   }
 
   handleChecked (id) {
@@ -99,18 +100,22 @@ class LonglistXMLImport extends React.Component {
   }
 
   saveHandler() {
+    let kpis =[]
     let kpisToSave = this.state.kpiList
     let message = `Saving ${kpisToSave.filter(e=>e.isChecked).length} KPIs to the Database`
     for(const  k of kpisToSave.filter(e=>e.isChecked)){
       message += `\n ${k.name}`
+      kpis.push(k.name)
     }
     alert(message)
 
-    const kpisJson = JSON.parse(JSON.stringify(kpisToSave.filter(e=>e.isChecked)))
     window.localStorage.setItem(
       LOCALSTORAGE_KEY,
-      kpisJson
+      JSON.stringify(kpis)
     )
+
+    let path = `/shortlisting`;
+    this.props.history.push(path);
   }
 
   render() {
@@ -144,4 +149,4 @@ class LonglistXMLImport extends React.Component {
   }
 }
 
-export default withStyles(styles)(LonglistXMLImport);
+export default withRouter(withStyles(styles)(LonglistXMLImport));

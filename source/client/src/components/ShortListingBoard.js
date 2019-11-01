@@ -4,15 +4,12 @@ import ShortListingBoardTarget from './ShortListingBoardTarget';
 import ShortListingBoardList from './ShortListingBoardList';
 import { Grid, Button } from '@material-ui/core';
 import update from 'immutability-helper';
-import kpiListJSON from "../test/resources/kpiList.json"; 
 
 const styles = theme => ({
     buttonRow : {
       textAlign : 'right'
     }
   });
-
-const kpiList = kpiListJSON;
 
 class ShortListingBoard extends React.Component {
   
@@ -34,7 +31,7 @@ class ShortListingBoard extends React.Component {
 
   componentDidMount() {
     // TODO: Remove this manual insertion
-    console.log(kpiList)
+    let kpiList = JSON.parse(localStorage.getItem('kpiList'))
     let kpisToInsert = []
     for(let i of kpiList){
       kpisToInsert.push(
