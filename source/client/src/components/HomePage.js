@@ -24,33 +24,30 @@ export default function SignIn(props) {
     <Container component="main" maxWidth="xs">
     <CssBaseline />
     <Grid container>
-        
-        <RouterLink to="/signup">
-            <Grid item xs>
-                <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                >
-                Sign Up
-                </Button>
-            </Grid>
-        </RouterLink>
-        <RouterLink to="/signin">
-            <Grid item xs>
-                <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                >
-                Sign In
-                </Button>
-            </Grid>
-        </RouterLink>
+          <Grid item xs>
+              <Button
+              component={ RouterLink } to="/signup"
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              >
+              Sign Up
+              </Button>
+          </Grid>
+        <Grid item xs>
+            <Button
+            component={ RouterLink } to="/signin"
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            >
+            Sign In
+            </Button>
+        </Grid>
     </Grid>
     </Container>
   );

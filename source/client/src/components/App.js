@@ -3,6 +3,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import HomePage from './HomePage';
 import NoMatch from './NoMatch';
+import StepSelectionPage from './StepSelectionPage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,6 +32,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/signup">
               <SignUp/>
+            </Route>
+            <Route exact path="/steps">
+              <StepSelectionPage/>
             </Route>
             <Route path="*">
               <NoMatch/>

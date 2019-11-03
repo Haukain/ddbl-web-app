@@ -93,6 +93,7 @@ export default function SignIn(props) {
             label="Remember me"
           />
           <Button
+            component={ RouterLink } to="/steps"
             type="submit"
             fullWidth
             variant="contained"
