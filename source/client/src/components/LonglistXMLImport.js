@@ -3,6 +3,9 @@ import Parser from 'xml2js';
 import { withStyles } from '@material-ui/styles';
 import { List, ListItem, ListItemText, ListItemIcon, Checkbox, Typography, IconButton } from '@material-ui/core';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import { Button } from '@material-ui/core';
+import update from 'immutability-helper';
+import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
   fileInput : {
@@ -18,6 +21,8 @@ const styles = theme => ({
   }
 });
 
+const LOCALSTORAGE_KEY = 'kpiList'
+
 class LonglistXMLImport extends React.Component {
   
   constructor(props) {
@@ -26,9 +31,15 @@ class LonglistXMLImport extends React.Component {
     this.state = {
         kpiList : []
     }
-
+    this.handleChecked = this.handleChecked.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.extractSchema = this.extractSchema.bind(this);
+    this.saveHandler = this.saveHandler.bind(this);
+  }
+
+  handleChecked (id) {
+    let currentState = this.state.kpiList[id].isChecked
+    this.setState({kpiList : update(this.state.kpiList, {[id]: {isChecked: {$set: !currentState}}})});
   }
 
   handleChange(event) {
@@ -59,7 +70,7 @@ class LonglistXMLImport extends React.Component {
         , [])
 
         for(let i of previousIndexes) {
-            kpiList.push(schema.Report['VisRpt:VisioReport'][0].Group[0].GroupField[0].RowItem[i+1].Field[0].Val[0]._)
+            kpiList.push({name:schema.Report['VisRpt:VisioReport'][0].Group[0].GroupField[0].RowItem[i+1].Field[0].Val[0]._,isChecked:true})
         }
         this.setState({kpiList:kpiList})
     }
@@ -68,23 +79,43 @@ class LonglistXMLImport extends React.Component {
 
   generateKpiList() {
       let kpiList = []
-      for(let k of this.state.kpiList)
+      for(let [i,k] of this.state.kpiList.entries())
       {
           kpiList.push(
             <ListItem>
               <ListItemText
-                primary={k}
+                primary={k.name}
               />
               <ListItemIcon>
                 <Checkbox
                   disableRipple
-                  checked={true}
+                  onChange={ () => this.handleChecked(i) }
+                  checked={k.isChecked}
                 />
               </ListItemIcon>
             </ListItem>,
           )
       }
       return kpiList
+  }
+
+  saveHandler() {
+    let kpis =[]
+    let kpisToSave = this.state.kpiList
+    let message = `Saving ${kpisToSave.filter(e=>e.isChecked).length} KPIs to the Database`
+    for(const  k of kpisToSave.filter(e=>e.isChecked)){
+      message += `\n ${k.name}`
+      kpis.push(k.name)
+    }
+    alert(message)
+
+    window.localStorage.setItem(
+      LOCALSTORAGE_KEY,
+      JSON.stringify(kpis)
+    )
+
+    let path = `/shortlisting`;
+    this.props.history.push(path);
   }
 
   render() {
@@ -112,9 +143,10 @@ class LonglistXMLImport extends React.Component {
           <List className={classes.list}>
             {this.generateKpiList()}
           </List>
+          <Button variant='contained' disabled={this.state.kpiList.length==0} color='primary' onClick={this.saveHandler}>save</Button>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(LonglistXMLImport);
+export default withRouter(withStyles(styles)(LonglistXMLImport));

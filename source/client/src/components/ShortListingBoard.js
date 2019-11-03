@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/styles';
 import ShortListingBoardTarget from './ShortListingBoardTarget';
 import ShortListingBoardList from './ShortListingBoardList';
 import { Grid, Button } from '@material-ui/core';
-import update from 'immutability-helper'
+import update from 'immutability-helper';
 
 const styles = theme => ({
     buttonRow : {
@@ -31,12 +31,13 @@ class ShortListingBoard extends React.Component {
 
   componentDidMount() {
     // TODO: Remove this manual insertion
+    let kpiList = JSON.parse(localStorage.getItem('kpiList'))
     let kpisToInsert = []
-    for(let i=0;i<9;i++){
+    for(let i of kpiList){
       kpisToInsert.push(
         
         {
-          name : "Kpi Name "+(i+1),
+          name : i,
           hidden : true,
           hovered : false,
           position : {x: 0, y:0}
