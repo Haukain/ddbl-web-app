@@ -36,6 +36,7 @@ class App extends React.Component {
             </Route>
             <Route exact path="/longlist">
               <Longlist/>
+            </Route>
             <Route exact path="/steps">
               <StepSelectionPage/>
             </Route>
