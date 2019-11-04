@@ -121,6 +121,7 @@ export default function SignUp(props) {
             </Grid>
           </Grid>
           <Button
+            component={ RouterLink } to="/steps"
             type="submit"
             fullWidth
             variant="contained"
