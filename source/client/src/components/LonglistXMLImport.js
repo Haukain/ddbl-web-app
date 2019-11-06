@@ -37,7 +37,7 @@ class LonglistXMLImport extends React.Component {
         , [])
 
         for(let i of previousIndexes) {
-            kpiList.push({name:schema.Report['VisRpt:VisioReport'][0].Group[0].GroupField[0].RowItem[i+1].Field[0].Val[0]._,isChecked:true})
+            kpiList.push(schema.Report['VisRpt:VisioReport'][0].Group[0].GroupField[0].RowItem[i+1].Field[0].Val[0]._)
         }
         this.props.importKpis(kpiList)
     }

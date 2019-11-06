@@ -1,9 +1,7 @@
 import React from 'react';
-import Parser from 'xml2js';
 import { withStyles } from '@material-ui/styles';
 import { TextField, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const styles = theme => ({
     element:{
@@ -28,7 +26,7 @@ class LonglistManualImport extends React.Component {
 	})
 
     addField(event) {
-        this.props.addKpis({name:this.state.name,isChecked:true})
+        this.props.addKpis(this.state.name)
     }
 
     render() {
@@ -45,7 +43,7 @@ class LonglistManualImport extends React.Component {
                 label="KPI's name"
                 margin="normal"
                 />
-                <Fab size="small" color="primary" aria-label="add" onClick={this.addField} className={classes.element}>
+                <Fab size="small" color="primary" aria-label="add" disabled={this.state.name==""} onClick={this.addField} className={classes.element}>
                     <AddIcon />
                 </Fab>
             </div>

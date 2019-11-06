@@ -1,8 +1,6 @@
 import React from 'react';
-import Parser from 'xml2js';
 import { withStyles } from '@material-ui/styles';
-import { Container, Grid, List, ListItem, ListItemText, ListItemIcon, Checkbox, Typography, IconButton } from '@material-ui/core';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import { Grid, List, ListItem, ListItemText, ListItemIcon, Checkbox, Typography } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
@@ -35,8 +33,8 @@ class LonglistBoard extends React.Component {
     }
     this.handleChecked = this.handleChecked.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
-    this.kpiImport = this.kpiImport.bind(this);
-    this.kpiAdd = this.kpiAdd.bind(this)
+    this.importKpis = this.importKpis.bind(this);
+    this.addKpis = this.addKpis.bind(this)
   }
 
   handleChecked (id) {
@@ -46,7 +44,6 @@ class LonglistBoard extends React.Component {
 
   generateKpiList() {
       let kpiList = []
-      console.log(this.state.kpiList)
       for(let [i,k] of this.state.kpiList.entries())
       {
           kpiList.push(
@@ -82,15 +79,13 @@ class LonglistBoard extends React.Component {
     )
   }
 
-  kpiImport(list) {
-    for(let i of list){
-      this.setState({1:{kpiList: this.state.kpiList.push(i)}})
-    }
-    //this.setState({kpiList: list})
+  importKpis(list) {
+    this.setState({kpiList : update(this.state.kpiList, {$push: list.map(e=>({name:e,isChecked:true})) })});
   }
 
-  kpiAdd(name) {
-    this.setState({1:{kpiList: this.state.kpiList.push(name)}})
+  addKpis(name) {
+    let newKpi = {name: name, isChecked:true}
+    this.setState({kpiList : update(this.state.kpiList, {$push: [newKpi]})});
   }
 
   render() {
@@ -99,7 +94,7 @@ class LonglistBoard extends React.Component {
     return (
         <div className={classes.listRoot}>
             <Typography variant='h2' gutterBottom>
-                {this.state.kpiList.length!=0?this.state.kpiList.length+' KPIs found':'Please import a KPI'}
+                {this.state.kpiList.length!=0?this.state.kpiList.length+' KPIs found':'Please import some KPIs'}
             </Typography>
         
             <Grid container spacing={10}>
@@ -107,7 +102,7 @@ class LonglistBoard extends React.Component {
                     <Typography variant='h5' gutterBottom>
                         {'Add KPI manually'}
                     </Typography>
-                    <LonglistManualImport addKpis={this.kpiAdd}/>
+                    <LonglistManualImport addKpis={this.addKpis}/>
                 </Grid>
                 <Grid item key={1} xs={4}>
                     <List className={classes.list}>
@@ -119,7 +114,7 @@ class LonglistBoard extends React.Component {
                     <Typography variant='h5' gutterBottom>
                         {'Import a KPI file'}
                     </Typography>
-                    <LonglistXMLImport importKpis={this.kpiImport}/>
+                    <LonglistXMLImport importKpis={this.importKpis}/>
                 </Grid>
             </Grid>
         </div>
