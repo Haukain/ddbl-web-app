@@ -21,7 +21,7 @@ export default function SignIn(props) {
   const classes = useStyles();
 
   return (
-      <Container>
+      <Container maxWidth="xl">
         <Grid container spacing={10}>
             <Grid item key={1} xs={4}>
                 <Card className={classes.card}> 
