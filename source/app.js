@@ -6,20 +6,8 @@ var logger = require('morgan');
 var cors = require('cors')
 
 const db = require('./models').sequelize;
-db
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
 
-var companyRouter = require('./routes/company')
-var roleRouter = require('./routes/role')
-var userRouter = require('./routes/user')
 var kpiRouter = require('./routes/kpi')
-var kpiDefinitionRouter = require('./routes/kpiDefinition')
 
 var app = express();
 
@@ -37,11 +25,16 @@ if(app.settings.env === 'production')
   })
 }
 
-app.use('/c', companyRouter)
-app.use('/r', roleRouter)
-app.use('/u', userRouter)
-app.use('/k', kpiRouter)
-app.use('/d', kpiDefinitionRouter)
+app.use('/kpi', kpiRouter)
+
+db
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

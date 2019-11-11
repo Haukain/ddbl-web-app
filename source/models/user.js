@@ -11,8 +11,8 @@ module.exports = function (sequelize, DataTypes) {
 	});
 	
 	User.associate = function(models) {
-		models.user.belongsTo(models.company)
-		models.user.belongsTo(models.role)
+		models.user.belongsTo(models.company, {foreignKey: { allowNull: false }})
+		models.user.belongsTo(models.role, {foreignKey: { allowNull: false }})
 	  };
 
 	return User;

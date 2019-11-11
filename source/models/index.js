@@ -15,7 +15,8 @@ if(process.env.DATABASE_URL) {
 else {
     sequelize = new Sequelize('ddbl_web_app', 'ddbl_web_app', 'ddbl', {
         host: 'localhost',
-        dialect: 'postgres'
+        dialect: 'postgres',
+        logging: console.log
     });
 }
 
@@ -37,10 +38,40 @@ Object.keys(db).forEach(modelName => {
 });
 
 // Uncomment for synchronisation with the database (with force:true drop the tables beforehand)
-// sequelize.sync({ force: process.env.DATABASE_URL ? false : true })
-//   .then(() => {
-//     console.log(`Database & tables created!`)
-//   })
+let force = true
+sequelize.sync({ force: force })
+  .then(() => {
+    console.log(`Database & tables created!`)
+    if(force) console.log(`Force update enabled, table were dropped`)
+
+    //TEST USERS TO BE REMOVED
+    if(force){
+      let c = db.company.create({
+        name: 'test-company',
+      }).then(function(c) {
+        return c
+      })
+      
+      let r = db.role.create({
+        name: 'test-role',
+      }).then(function(r) {
+        return r
+      })
+      
+      let u = Promise.all([c,r]).then(function(e){
+        defaultUser = db.user.create({
+              email: 'test-email',
+              firstName: 'test-firstname',
+              lastName: 'test-lastname',
+              password: 'test-password',
+              companyId: e[0].id,
+              roleId: e[1].id
+        }).then(function(u) {
+          return u
+        })
+      })
+    }
+  })
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
