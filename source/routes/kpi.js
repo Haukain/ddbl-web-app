@@ -68,6 +68,7 @@ router.post('*', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   let promises = []
+  //TODO: Don't save KPI if it has the same company and name
   for(let k of req.body.kpis){
     promises.push(Kpi.create({
       name: k.name,
