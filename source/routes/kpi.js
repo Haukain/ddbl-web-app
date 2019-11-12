@@ -12,7 +12,7 @@ function checkUser(userId,res,next){
     }
     else{
       res.status(404);
-      res.send('User unknown');
+      res.send({error:'User unknown'});
     }
   })
   .catch(function (err) {
@@ -28,7 +28,7 @@ function checkCompany(companyId,res,next){
     }
     else{
       res.status(404);
-      res.send('Company unknown');
+      res.send({error:'Company unknown'});
     }
   })
   .catch(function (err) {
@@ -47,12 +47,13 @@ router.param('userId', function (req, res, next, param) {
 
 // Check company on post routes
 router.post('*', function (req, res, next) {
+  console.log(req.body)
   if(req.body.companyId){
     checkCompany(req.body.companyId,res,next)
   }
   else{
     res.status(400);
-    res.send('No CompanyId provided');
+    res.send({error:'No CompanyId provided'});
   }
 })
 // Check user pn post routes
@@ -62,7 +63,7 @@ router.post('*', function (req, res, next) {
   }
   else{
     res.status(400);
-    res.send('No UserId provided');
+    res.send({error:'No UserId provided'});
   }
 })
 
@@ -81,7 +82,7 @@ router.post('/', function (req, res, next) {
     }))
   }
   Promise.all(promises).then(function(e){
-    res.send(`Created and stored ${req.body.kpis.length} Kpis`)
+    res.send({success:e})
   })
   .catch(function (err) {
     next(err)

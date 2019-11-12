@@ -19,27 +19,36 @@ class LonglistManualImport extends React.Component {
       }
 
       this.addField = this.addField.bind(this);
+      this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleChange = (e) => this.setState({
 		name: e.target.value
-	})
+    })
+    
+    handleKeyPress = (event) => {
+        if(event.key === 'Enter'){
+            this.addField()
+        }
+      }
 
     addField(event) {
         this.props.addKpis(this.state.name)
+        this.setState({name:""})
     }
 
     render() {
         const { classes } = this.props;
         
         return (
-          <div className={classes.listRoot}>
+          <div>
               <div>
                 <TextField
                 id="standard-basic"
                 className={classes.element}
                 value={this.state.name}
                 onChange={this.handleChange}
+                onKeyPress={this.handleKeyPress}
                 label="KPI's name"
                 margin="normal"
                 />

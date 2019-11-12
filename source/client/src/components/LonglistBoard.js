@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport'
+import Snackbar from './Snackbar'
 
 const styles = theme => ({
   listRoot : {
@@ -16,25 +17,33 @@ const styles = theme => ({
   }
 });
 
-const LOCALSTORAGE_KEY = 'kpiList'
-
 class LonglistBoard extends React.Component {
   
   constructor(props) {
     super(props);
 
     this.state = {
-        kpiList : []
+        kpiList : [],
+        snackbar : {
+          opened : false,
+          msg : "",
+          error : false
+        }
     }
     this.handleChecked = this.handleChecked.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.importKpis = this.importKpis.bind(this);
-    this.addKpis = this.addKpis.bind(this)
+    this.addKpis = this.addKpis.bind(this);
+    this.handleSnackbarClose = this.handleSnackbarClose.bind(this);
   }
 
   handleChecked (id) {
     let currentState = this.state.kpiList[id].isChecked
     this.setState({kpiList : update(this.state.kpiList, {[id]: {isChecked: {$set: !currentState}}})});
+  }
+
+  handleSnackbarClose () {
+    this.setState({snackbar:{opened:false,msg:"",error:false}})
   }
 
   generateKpiList() {
@@ -60,18 +69,32 @@ class LonglistBoard extends React.Component {
   }
 
   saveHandler() {
-    let kpisToSave = this.state.kpiList
-    let message = `Saving ${kpisToSave.filter(e=>e.isChecked).length} KPIs to the Database`
-    for(const  k of kpisToSave.filter(e=>e.isChecked)){
-      message += `\n ${k.name}`
-    }
-    alert(message)
+    let kpisToSave = this.state.kpiList.filter(e=>e.isChecked).map(e=>({name:e.name}))
+    let jsonPayload = JSON.stringify({
+      "companyId": 1,
+      "userId": 1,
+      "kpis": kpisToSave
+    })
 
-    const kpisJson = JSON.parse(JSON.stringify(kpisToSave.filter(e=>e.isChecked)))
-    window.localStorage.setItem(
-      LOCALSTORAGE_KEY,
-      kpisJson
-    )
+    fetch('/kpi/', {
+      method: 'post',
+      body: jsonPayload,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then((response) => {
+      return response.json();
+    }).then((data) => {
+      if(data.success){
+        this.setState({snackbar:{opened:true,msg:`${data.success.length} KPI(s) have been saved`,error:false}})
+        this.setState({kpiList:[]})
+      }
+      else {
+        console.error(data.error)
+        this.setState({snackbar:{opened:true,msg:"An error ocurred while saving the KPIs",error:true}})
+      }
+    })
   }
 
   importKpis(list) {
@@ -91,7 +114,6 @@ class LonglistBoard extends React.Component {
             <Typography variant='h2' gutterBottom>
                 {this.state.kpiList.length!==0?this.state.kpiList.length+' KPIs found':'Please import some KPIs'}
             </Typography>
-        
             <Grid container spacing={10}>
                 <Grid item xs={4}>
                     <Typography variant='h5' gutterBottom>
@@ -104,6 +126,7 @@ class LonglistBoard extends React.Component {
                         {this.generateKpiList()}
                     </List>
                     <Button variant='contained' disabled={this.state.kpiList.length===0} color='primary' onClick={this.saveHandler}>save</Button>
+                    <Snackbar snack={this.state.snackbar} handleClose={this.handleSnackbarClose}></Snackbar>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography variant='h5' gutterBottom>

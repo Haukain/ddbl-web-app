@@ -49,7 +49,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.send('respond with the error log :' + error.status + " ; " + message);
+  res.send({error:'respond with the error log :' + error.status + " ; " + message});
 });
 
 module.exports = app;
