@@ -43,7 +43,7 @@ class LonglistManualImport extends React.Component {
                 label="KPI's name"
                 margin="normal"
                 />
-                <Fab size="small" color="primary" aria-label="add" disabled={this.state.name==""} onClick={this.addField} className={classes.element}>
+                <Fab size="small" color="primary" aria-label="add" disabled={this.state.name===""} onClick={this.addField} className={classes.element}>
                     <AddIcon />
                 </Fab>
             </div>

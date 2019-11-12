@@ -1,17 +1,10 @@
 import React from 'react';
 import Parser from 'xml2js';
 import { withStyles } from '@material-ui/styles';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Fab } from '@material-ui/core';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const styles = theme => ({
-  fileInput : {
-    border : 'solid 2px lightblue'
-  },
-  listRoot : {
-    textAlign : 'center',
-    height : 400,
-  }
 });
 
 class LonglistXMLImport extends React.Component {
@@ -58,10 +51,9 @@ class LonglistXMLImport extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
     
     return (
-      <div className={classes.listRoot}>
+      <div>
           <input
             hidden
             type='file'
@@ -71,10 +63,9 @@ class LonglistXMLImport extends React.Component {
             variant='contained' color='primary'
           />
           <label htmlFor='file-input'>
-            <IconButton component='span' className={classes.fileInput}
-          color="primary">
-              <NoteAddIcon/>
-            </IconButton>
+          <Fab component='span' size="medium" color="primary">
+              <NoteAddIcon />
+            </Fab>
           </label>
       </div>
     );

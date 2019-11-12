@@ -7,7 +7,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Longlist(props) {
-  const classes = useStyles();
 
   return (
     <Container>

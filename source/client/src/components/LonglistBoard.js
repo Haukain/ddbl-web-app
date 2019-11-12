@@ -7,17 +7,12 @@ import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport'
 
 const styles = theme => ({
-  fileInput : {
-    border : 'solid 2px lightblue'
-  },
   listRoot : {
     textAlign : 'center',
-    height : 400,
   },
   list : {
-      height : 400,
       overflow: 'auto',
-      maxHeight: '100%',
+      maxHeight: 400,
   }
 });
 
@@ -47,7 +42,7 @@ class LonglistBoard extends React.Component {
       for(let [i,k] of this.state.kpiList.entries())
       {
           kpiList.push(
-            <ListItem>
+            <ListItem key={i}>
               <ListItemText
                 primary={k.name}
               />
@@ -94,23 +89,23 @@ class LonglistBoard extends React.Component {
     return (
         <div className={classes.listRoot}>
             <Typography variant='h2' gutterBottom>
-                {this.state.kpiList.length!=0?this.state.kpiList.length+' KPIs found':'Please import some KPIs'}
+                {this.state.kpiList.length!==0?this.state.kpiList.length+' KPIs found':'Please import some KPIs'}
             </Typography>
         
             <Grid container spacing={10}>
-                <Grid item key={1} xs={4}>
+                <Grid item xs={4}>
                     <Typography variant='h5' gutterBottom>
                         {'Add KPI manually'}
                     </Typography>
                     <LonglistManualImport addKpis={this.addKpis}/>
                 </Grid>
-                <Grid item key={1} xs={4}>
+                <Grid item xs={4}>
                     <List className={classes.list}>
                         {this.generateKpiList()}
                     </List>
-                    <Button variant='contained' disabled={this.state.kpiList.length==0} color='primary' onClick={this.saveHandler}>save</Button>
+                    <Button variant='contained' disabled={this.state.kpiList.length===0} color='primary' onClick={this.saveHandler}>save</Button>
                 </Grid>
-                <Grid item key={1} xs={4}>
+                <Grid item xs={4}>
                     <Typography variant='h5' gutterBottom>
                         {'Import a KPI file'}
                     </Typography>
