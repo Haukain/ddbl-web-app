@@ -1,19 +1,19 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import deepOrange from '@material-ui/core/colors/deepOrange';
+import red from '@material-ui/core/colors/red';
 import clsx from 'clsx';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     close: {
       padding: theme.spacing(0.5),
     },
     error: {
-        backgroundColor: deepOrange[700],
+        backgroundColor: red[700],
     },
   }),
 );
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function SimpleSnackbar(props) {
   const classes = useStyles();
 
-  const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
+  const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -36,7 +36,7 @@ export default function SimpleSnackbar(props) {
           vertical: 'bottom',
           horizontal: 'center',
         }}
-        open={props.snack.opened}
+        open={true}
         autoHideDuration={5000}
         onClose={handleClose}
       >

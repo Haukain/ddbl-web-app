@@ -5,7 +5,6 @@ import { Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport'
-import Snackbar from './Snackbar'
 
 const styles = theme => ({
   listRoot : {
@@ -23,27 +22,17 @@ class LonglistBoard extends React.Component {
     super(props);
 
     this.state = {
-        kpiList : [],
-        snackbar : {
-          opened : false,
-          msg : "",
-          error : false
-        }
+        kpiList : []
     }
     this.handleChecked = this.handleChecked.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.importKpis = this.importKpis.bind(this);
     this.addKpis = this.addKpis.bind(this);
-    this.handleSnackbarClose = this.handleSnackbarClose.bind(this);
   }
 
   handleChecked (id) {
     let currentState = this.state.kpiList[id].isChecked
     this.setState({kpiList : update(this.state.kpiList, {[id]: {isChecked: {$set: !currentState}}})});
-  }
-
-  handleSnackbarClose () {
-    this.setState({snackbar:{opened:false,msg:"",error:false}})
   }
 
   generateKpiList() {
@@ -87,12 +76,12 @@ class LonglistBoard extends React.Component {
       return response.json();
     }).then((data) => {
       if(data.success){
-        this.setState({snackbar:{opened:true,msg:`${data.success.length} KPI(s) have been saved`,error:false}})
+        this.props.openSnackbar(`${data.success.length} KPI(s) have been saved`,false)
         this.setState({kpiList:[]})
       }
       else {
         console.error(data.error)
-        this.setState({snackbar:{opened:true,msg:"An error ocurred while saving the KPIs",error:true}})
+        this.props.openSnackbar("An error ocurred while saving the KPIs",true)
       }
     })
   }
@@ -126,13 +115,12 @@ class LonglistBoard extends React.Component {
                         {this.generateKpiList()}
                     </List>
                     <Button variant='contained' disabled={this.state.kpiList.length===0} color='primary' onClick={this.saveHandler}>save</Button>
-                    <Snackbar snack={this.state.snackbar} handleClose={this.handleSnackbarClose}></Snackbar>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography variant='h5' gutterBottom>
                         {'Import a KPI file'}
                     </Typography>
-                    <LonglistXMLImport importKpis={this.importKpis}/>
+                    <LonglistXMLImport importKpis={this.importKpis} openSnackbar={this.props.openSnackbar}/>
                 </Grid>
             </Grid>
         </div>

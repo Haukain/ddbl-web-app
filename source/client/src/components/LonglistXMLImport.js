@@ -1,11 +1,7 @@
 import React from 'react';
 import Parser from 'xml2js';
-import { withStyles } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
-
-const styles = theme => ({
-});
 
 class LonglistXMLImport extends React.Component {
   constructor(props) {
@@ -35,9 +31,10 @@ class LonglistXMLImport extends React.Component {
           }
           this.props.importKpis(kpiList)
       }
-      else throw 'No text field in the report';
+      else throw new Error('No text field in the report')
     }
     catch(error){
+      this.props.openSnackbar("Error while extracting the schema from the XML file",true)
       console.error(`Error while extracting the schema from the XML file. Please ensure than the imported XML file is a Visio report: ${error}`)
     }
   }
@@ -52,11 +49,12 @@ class LonglistXMLImport extends React.Component {
           })
       }
       reader.onerror = (evt) => {
-        throw evt
+        throw new Error('FileReader error')
       }
     }
     catch(error){
-      console.error(`Error while reading the file: ${error}`);
+      this.props.openSnackbar("Error while reading the imported file",true)
+      console.error(`Error while reading the imported file: ${error}`);
     }
   }
 
@@ -82,4 +80,4 @@ class LonglistXMLImport extends React.Component {
   }
 }
 
-export default withStyles(styles)(LonglistXMLImport);
+export default (LonglistXMLImport);
