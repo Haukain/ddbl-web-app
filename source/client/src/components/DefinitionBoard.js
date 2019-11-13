@@ -1,22 +1,21 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import { AppBar, Toolbar, Grid, ListItemIcon, Checkbox, Typography, IconButton, Button } from '@material-ui/core';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Grid, Typography, Button } from '@material-ui/core';
 import DefinitionList from './DefinitionList';
 import DefinitionCard from './DefinitionCard';
-import update from 'immutability-helper'
+import update from 'immutability-helper';
+import kpiList from '../test/resources/kpiList.json'
 
 const styles = theme => ({
   list: {
-    'margin-top': 25,
-    'margin-right': 25,
+    marginRight: 25,
     'float' : 'left',
      width : '25%',
      height : 700,
      overflow: 'auto', 
   },
   container: {
-    marginTop: 25,
+    marginTop: 5,
     width : '70%',
     'float': 'left'
   },
@@ -25,56 +24,87 @@ const styles = theme => ({
   }
 });
 
-var kpiList = [
-  "Market price comparator, by product", 
-  "Weighted market price comparator, by product",
-  "Percentage of required certificates presented",
-  "Percentage of self-certification checked",
-  "Total procurement admin cos",
-  "Audit fail percentage",
-  "Process losses caused by supplied materials",
-  "Quality defects identified during production",
-  "Total cost of supplier quality issues",
-  "Number of outstanding disputes",
-  "Number of quality issues identified in deliveries",
-  "Number of outstanding quality complaint",
-  "Value of outstanding quality complaints",
-  "Number of chase ups from suppliers for payment",
-  "Number of suppliers who will not deal with us",
-  "Average days payment deviation from the agreed terms"
-]
-
 class DefinitionBoard extends React.Component {
   
   constructor(props) {
     super(props);
 
     this.state = {
-      KpiList : kpiList,
+      kpiList : [],
       kpiSelected: null
     }
     this.updateSelected = this.updateSelected.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.saveHandler = this.saveHandler.bind(this);
+  }
+
+  componentDidMount() {
+    // TODO: Remove this manual insertion
+    let kpisToInsert = []
+    for(let i of kpiList){
+      kpisToInsert.push(
+        {
+          name : i,
+          defined : false,
+          definitionField: 
+            new Map([
+              ["purpose",""],
+              ["customer",""],
+              ["datasource",""],
+              ["definition",""],
+              ["resources",""],
+              ["problem",""],
+              ["target",""],
+              ["outcome",""],
+              ["cost",""],
+            ])
+          
+        }
+      )
+    }
+    this.setState({kpiList:kpisToInsert})
   }
 
   updateSelected(selectedIndex) {
     this.setState({kpiSelected: update(this.state.kpiSelected, {$set: selectedIndex})});
   }
 
+  handleChange = (e,i,n) => {
+    this.setState({kpiList: update(this.state.kpiList, {[i]:{definitionField:{[n]:{$set: e.target.value}}}})})
+  }
+
+  saveHandler() {
+    let kpisToSave = this.state.kpiList[this.state.kpiSelected]
+    let message = `Saving KPI's definition to the Database
+                Name : ${kpisToSave.name}
+                Purpose : ${kpisToSave.definitionField.get("purpose")}
+                Customer : ${kpisToSave.definitionField.get("customer")}
+                Data Sources : ${kpisToSave.definitionField.get("datasource")}
+                Definition or Formula : ${kpisToSave.definitionField.get("definition")}
+                Production Resources : ${kpisToSave.definitionField.get("resources")}
+                Problems & Errors : ${kpisToSave.definitionField.get("problem")}
+                Targets : ${kpisToSave.definitionField.get("target")}
+                Targets Outcomes : ${kpisToSave.definitionField.get("outcome")}
+                Production Cost : ${kpisToSave.definitionField.get("cost")}`
+    alert(message)
+    
+    this.setState({kpiList: update(this.state.kpiList, {[this.state.kpiSelected] :{defined:{$set: true}}})})
+  }
+
   render() {
     const { classes } = this.props;
-
     return (
       <div >
         <div className={classes.list}>
-          <DefinitionList ListKpis={this.state} updateSelected={this.updateSelected}/>
+          <DefinitionList listKpis={this.state.kpiList} kpiSelected={this.state.kpiSelected} updateSelected={this.updateSelected}/>
         </div>
-        {this.state.kpiSelected != null ? (
-        <div className={classes.container} >
-          <DefinitionCard />
-          <Grid item xs={12}>
-            <Button variant='contained' className={classes.button} color='primary' >SAVE</Button>
-          </Grid>
-        </div>
+        {this.state.kpiSelected !== null ? (
+          <div className={classes.container} >
+            <DefinitionCard listKpis={this.state.kpiList[this.state.kpiSelected]} kpiSelected={this.state.kpiSelected} handleChange={(e,name) =>{this.handleChange(e,this.state.kpiSelected,name)}}/>
+            <Grid item xs={12}>
+              <Button variant='contained' className={classes.button} onClick={this.saveHandler} color='primary'>SAVE</Button>
+            </Grid>
+          </div>
         ):(<Typography variant='h2' gutterBottom align='center'>Please choose a KPI</Typography>)}
       </div>
     );

@@ -1,40 +1,31 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import Grid from '@material-ui/core/Grid';
-import { SvgIcon } from '@material-ui/core';
-import Icon from '@material-ui/core/Icon';
 
-const useStyles = makeStyles({
-  card: {
-    minWidth: 275,
-  },
+import { Card, Typography, CardContent, TextField, Grid, Icon } from '@material-ui/core';
+
+const styles = theme => ({
+    img : {
+        width:40,
+        'float':'right'
+    },
+    card : {
+        marginBottom: 10
+    }
 });
 
 class DefinitionCard extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            cardList : []
-        }
-        this.createCard = this.createCard.bind(this);
+    handleChange(e,name){
+        this.props.handleChange(e,name)
     }
 
     createCard(icon,name,text,labels){
         const { classes } = this.props;
         return(
-            <Card style={{'margin-bottom':15}}>
+            <Card className={classes.card}>
                 <CardContent>
                     <Icon>
-                        <img style={{width:40,'float':'right'}} src={`/content/svg_icon/${icon}.svg`}/>
+                        <img className={classes.img} src={`/content/svg_icon/${icon}.svg`} alt={name}/>
                     </Icon>
                     <Typography variant="h5" component="h2">
                         {name}
@@ -43,9 +34,11 @@ class DefinitionCard extends React.Component {
                         {text}
                     </Typography>
                     <TextField
+                        onChange={(e)=>this.handleChange(e,icon)} 
                         id="standard-basic"
                         label = {labels}
                         margin="normal"
+                        value= {this.props.listKpis.definitionField.get(icon)}
                     />
                 </CardContent>
             </Card>
@@ -53,10 +46,25 @@ class DefinitionCard extends React.Component {
     }
 
     generateCard() {
+        const { classes } = this.props;
         return (
             <Grid container spacing={1}>
+            <Grid item xs={12}>
+            <Card className={classes.card}>
+                <CardContent>
+                    <Icon>
+                        <img className={classes.img} src={`/content/svg_icon/name.svg`} alt="KPI Name"/>
+                    </Icon>
+                    <Typography variant="h5" component="h2">
+                        KPI Name
+                    </Typography>
+                    <Typography color="textSecondary">
+                        {this.props.listKpis.name}
+                    </Typography>
+                </CardContent>
+            </Card>
+            </Grid>
             <Grid item xs={4}>
-                {this.createCard("name","KPI Name",null, "KPI example 7")}
                 {this.createCard("purpose","Purpose","Why should we measure this?", "Type here")}
                 {this.createCard("customer","Customer","Who will use this KPI?", "Type here")}
                 {this.createCard("datasource","Data Sources","Where will the KPI data come from?", "Type here")}
@@ -79,7 +87,7 @@ class DefinitionCard extends React.Component {
             {this.createCard("outcome","Targets Outcomes",
                             "What score do we want to achieve? (if already know)", 
                             "Type here")}
-            {this.createCard("money","Production Cost",
+            {this.createCard("cost","Production Cost",
                             "What is the cost of implementing and producing the KPI?", 
                             "Type here")}
             </Grid>
@@ -96,4 +104,4 @@ class DefinitionCard extends React.Component {
     };
 }
 
-export default DefinitionCard;
+export default withStyles(styles)(DefinitionCard);

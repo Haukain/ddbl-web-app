@@ -1,7 +1,7 @@
 import React from 'react';
 import Parser from 'xml2js';
 import { withStyles } from '@material-ui/styles';
-import { IconButton, Fab } from '@material-ui/core';
+import { Fab } from '@material-ui/core';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const styles = theme => ({
