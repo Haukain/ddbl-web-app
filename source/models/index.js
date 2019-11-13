@@ -38,7 +38,7 @@ Object.keys(db).forEach(modelName => {
 });
 
 // Uncomment for synchronisation with the database (with force:true drop the tables beforehand)
-let force = true
+let force = false
 sequelize.sync({ force: force })
   .then(() => {
     console.log(`Database & tables created!`)
