@@ -47,7 +47,6 @@ router.param('userId', function (req, res, next, param) {
 
 // Check company on post routes
 router.post('*', function (req, res, next) {
-  console.log(req.body)
   if(req.body.companyId){
     checkCompany(req.body.companyId,res,next)
   }

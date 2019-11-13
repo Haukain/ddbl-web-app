@@ -61,7 +61,7 @@ class LonglistBoard extends React.Component {
   saveHandler() {
     let kpisToSave = this.state.kpiList.filter(e=>e.isChecked).map(e=>({name:e.name}))
     let jsonPayload = JSON.stringify({
-      "companyId": 0,
+      "companyId": 1,
       "userId": 1,
       "kpis": kpisToSave
     })
