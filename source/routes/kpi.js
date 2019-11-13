@@ -12,7 +12,7 @@ function checkUser(userId,res,next){
     }
     else{
       res.status(404);
-      res.send({error:'User unknown'});
+      res.send({error:'UserId unknown'});
     }
   })
   .catch(function (err) {
@@ -28,7 +28,7 @@ function checkCompany(companyId,res,next){
     }
     else{
       res.status(404);
-      res.send({error:'Company unknown'});
+      res.send({error:'CompanyId unknown'});
     }
   })
   .catch(function (err) {

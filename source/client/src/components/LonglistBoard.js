@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport'
+import Api from '../utils/Api'
 
 const styles = theme => ({
   listRoot : {
@@ -60,29 +61,19 @@ class LonglistBoard extends React.Component {
   saveHandler() {
     let kpisToSave = this.state.kpiList.filter(e=>e.isChecked).map(e=>({name:e.name}))
     let jsonPayload = JSON.stringify({
-      "companyId": 1,
+      "companyId": 0,
       "userId": 1,
       "kpis": kpisToSave
     })
-
-    fetch('/kpi/', {
-      method: 'post',
-      body: jsonPayload,
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    }).then((response) => {
-      return response.json();
-    }).then((data) => {
-      if(data.success){
-        this.props.openSnackbar(`${data.success.length} KPI(s) have been saved`,false)
+    
+    Api.post('/kpi',jsonPayload)
+    .then((success)=>{
+        this.props.openSnackbar(`${success.length} KPI(s) have been saved`,false)
         this.setState({kpiList:[]})
-      }
-      else {
-        console.error(data.error)
+    })
+    .catch((error)=>{
+        console.error(error)
         this.props.openSnackbar("An error ocurred while saving the KPIs",true)
-      }
     })
   }
 
