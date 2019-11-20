@@ -10,7 +10,6 @@
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
-    "react-window": "^1.8.5",
     "xml2js": "^0.4.22"
   },
   "proxy": "http://localhost:4000/",

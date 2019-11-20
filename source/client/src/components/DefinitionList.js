@@ -12,11 +12,19 @@ class DefinitionList extends React.Component {
             <ListItemText
               primary={k.name}
             />
-            {this.props.listKpis[i].defined ? (
-            <Typography color="textSecondary">
-                Defined
+            {this.props.listKpis[i].defined === 1 ? (
+            <Typography align='right' color="textSecondary">
+              Partially defined
             </Typography>
-            ):(null)}
+            ): this.props.listKpis[i].defined === 2 ? (
+            <Typography align='right' color="textSecondary">
+              Defined
+            </Typography>  
+            ):(
+            <Typography align='right' color="textSecondary">
+              Undefined
+            </Typography> 
+            )}
           </ListItem>,
         )
     }
