@@ -9,17 +9,17 @@ import kpiList from '../test/resources/kpiList.json'
 const styles = theme => ({
   list: {
     marginRight: 25,
-    'float' : 'left',
-     width : '25%',
-     overflow: 'auto', 
+    float : 'left',
+    width : '25%',
+    overflow: 'auto', 
   },
   gridContainer: {
     marginTop: 5,
     width : '70%',
-    'float': 'left'
+    float: 'left'
   },
   button: {
-    'float' : 'right',
+    float : 'right',
     margin : '1%'
   },
 });

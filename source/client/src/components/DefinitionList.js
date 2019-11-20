@@ -8,7 +8,7 @@ class DefinitionList extends React.Component {
     for(let [i,k] of this.props.listKpis.entries())
     {
         kpiList.push(
-          <ListItem button selected={this.props.kpiSelected === i} onClick={() => this.props.updateSelected(i)}>
+          <ListItem key={i} button selected={this.props.kpiSelected === i} onClick={() => this.props.updateSelected(i)}>
             <ListItemText
               primary={k.name}
             />

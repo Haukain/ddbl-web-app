@@ -4,7 +4,7 @@ import { Grid, Button } from '@material-ui/core';
 import DefinitionBoard from './DefinitionBoard'
 
 const useStyles = makeStyles(theme => ({
-  position: {
+  centeredButton: {
     left : '50%'
   },
   grid : {
@@ -20,7 +20,7 @@ export default function Definition(props) {
           <DefinitionBoard/>
       </Grid>
       <Grid item xs={12}>
-        <Button variant='contained' color='primary' className={classes.position}>Open Visualization</Button>
+        <Button variant='contained' color='primary' className={classes.centeredButton}>Open Visualization</Button>
       </Grid>
     </div>
   );
