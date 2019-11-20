@@ -11,6 +11,7 @@ import {
   Route
 } from "react-router-dom";
 import Longlist from './Longlist';
+import Definition from './Definition';
 import Snackbar from './Snackbar';
 import Header from './Header';
 
@@ -67,6 +68,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/longlist">
               <Longlist openSnackbar={this.handleSnackbarOpening}/>
+            </Route>
+            <Route exact path="/definition">
+              <Definition/>
             </Route>
             <Route exact path="/steps">
               <StepSelectionPage/>
