@@ -1,4 +1,5 @@
 import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import HomePage from './HomePage';
@@ -11,6 +12,8 @@ import {
 } from "react-router-dom";
 import Longlist from './Longlist';
 import Definition from './Definition';
+import Snackbar from './Snackbar';
+import Header from './Header';
 
 class App extends React.Component {
   
@@ -18,13 +21,41 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      snackbars : [
+      ]
     }
+
+    this.handleSnackbarOpening = this.handleSnackbarOpening.bind(this);
+    this.handleSnackbarClosing = this.handleSnackbarClosing.bind(this);
+    this.generateSnackbars = this.generateSnackbars.bind(this)
+  }
+
+  handleSnackbarOpening (msg,error) {
+    let snackbars = this.state.snackbars
+    snackbars.push({msg:msg,error:error})
+    this.setState({snackbars:snackbars})
+  }
+
+  handleSnackbarClosing (i) {
+    let snackbars = this.state.snackbars
+    snackbars.splice(i)
+    this.setState({snackbars:snackbars})
+  }
+
+  generateSnackbars() {
+    let snackbars = []
+    for(let [i,s] of this.state.snackbars.entries()){
+      snackbars.push(<Snackbar key={i} snack={s} handleClose={() => this.handleSnackbarClosing(i)}/>)
+    }
+    return snackbars
   }
 
   render() {
     return (
       <div className="App">
+        <CssBaseline />
         <Router>
+          <Header/>
           <Switch>
             <Route exact path="/">
               <HomePage/>
@@ -36,7 +67,7 @@ class App extends React.Component {
               <SignUp/>
             </Route>
             <Route exact path="/longlist">
-              <Longlist/>
+              <Longlist openSnackbar={this.handleSnackbarOpening}/>
             </Route>
             <Route exact path="/definition">
               <Definition/>
@@ -49,6 +80,7 @@ class App extends React.Component {
             </Route>
           </Switch>
         </Router>
+        {this.generateSnackbars()}
       </div>
     );
   }

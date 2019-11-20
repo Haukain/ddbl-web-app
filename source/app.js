@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
 
+const db = require('./models').sequelize;
+
+var kpiRouter = require('./routes/kpi')
+
 var app = express();
 
 app.use(cors())
@@ -21,6 +25,17 @@ if(app.settings.env === 'production')
   })
 }
 
+app.use('/kpi', kpiRouter)
+
+db
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -34,7 +49,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.send('respond with the error log :' + error.status + " ; " + message);
+  res.send({error:'respond with the error log :' + error.status + " ; " + message});
 });
 
 module.exports = app;

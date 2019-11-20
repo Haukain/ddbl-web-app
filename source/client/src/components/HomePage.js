@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -22,7 +21,6 @@ export default function SignIn(props) {
 
   return (
     <Container component="main" maxWidth="xs">
-    <CssBaseline />
     <Grid container>
           <Grid item xs>
               <Button

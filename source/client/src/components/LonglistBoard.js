@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport'
+import Api from '../utils/Api'
 
 const styles = theme => ({
   listRoot : {
@@ -15,8 +16,6 @@ const styles = theme => ({
       maxHeight: 400,
   }
 });
-
-const LOCALSTORAGE_KEY = 'kpiList'
 
 class LonglistBoard extends React.Component {
   
@@ -29,7 +28,7 @@ class LonglistBoard extends React.Component {
     this.handleChecked = this.handleChecked.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.importKpis = this.importKpis.bind(this);
-    this.addKpis = this.addKpis.bind(this)
+    this.addKpis = this.addKpis.bind(this);
   }
 
   handleChecked (id) {
@@ -60,18 +59,22 @@ class LonglistBoard extends React.Component {
   }
 
   saveHandler() {
-    let kpisToSave = this.state.kpiList
-    let message = `Saving ${kpisToSave.filter(e=>e.isChecked).length} KPIs to the Database`
-    for(const  k of kpisToSave.filter(e=>e.isChecked)){
-      message += `\n ${k.name}`
-    }
-    alert(message)
-
-    const kpisJson = JSON.parse(JSON.stringify(kpisToSave.filter(e=>e.isChecked)))
-    window.localStorage.setItem(
-      LOCALSTORAGE_KEY,
-      kpisJson
-    )
+    let kpisToSave = this.state.kpiList.filter(e=>e.isChecked).map(e=>({name:e.name}))
+    let jsonPayload = JSON.stringify({
+      "companyId": 1,
+      "userId": 1,
+      "kpis": kpisToSave
+    })
+    
+    Api.post('/kpi',jsonPayload)
+    .then((success)=>{
+        this.props.openSnackbar(`${success.length} KPI(s) have been saved`,false)
+        this.setState({kpiList:[]})
+    })
+    .catch((error)=>{
+        console.error(error)
+        this.props.openSnackbar("An error ocurred while saving the KPIs",true)
+    })
   }
 
   importKpis(list) {
@@ -91,7 +94,6 @@ class LonglistBoard extends React.Component {
             <Typography variant='h2' gutterBottom>
                 {this.state.kpiList.length!==0?this.state.kpiList.length+' KPIs found':'Please import some KPIs'}
             </Typography>
-        
             <Grid container spacing={10}>
                 <Grid item xs={4}>
                     <Typography variant='h5' gutterBottom>
@@ -109,7 +111,7 @@ class LonglistBoard extends React.Component {
                     <Typography variant='h5' gutterBottom>
                         {'Import a KPI file'}
                     </Typography>
-                    <LonglistXMLImport importKpis={this.importKpis}/>
+                    <LonglistXMLImport importKpis={this.importKpis} openSnackbar={this.props.openSnackbar}/>
                 </Grid>
             </Grid>
         </div>
