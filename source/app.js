@@ -3,32 +3,30 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors')
+var cors = require('cors');
 
 const db = require('./models').sequelize;
 
-var kpiRouter = require('./routes/kpi')
+var kpiRouter = require('./routes/kpi');
 
 var app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // for production
-if(app.settings.env === 'production')
-{
+if (app.settings.env === 'production') {
   app.use(express.static(path.join(__dirname, './client/build')));
-  app.get('/*', function (req, res) {
+  app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, './client/build', 'index.html'));
-  })
+  });
 }
 
-app.use('/kpi', kpiRouter)
+app.use('/kpi', kpiRouter);
 
-db
-  .authenticate()
+db.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
   })
@@ -49,7 +47,9 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.send({error:'respond with the error log :' + error.status + " ; " + message});
+  res.send({
+    error: 'respond with the error log :' + error.status + ' ; ' + message
+  });
 });
 
 module.exports = app;

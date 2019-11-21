@@ -7,15 +7,15 @@ import CloseIcon from '@material-ui/icons/Close';
 import red from '@material-ui/core/colors/red';
 import clsx from 'clsx';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     close: {
-      padding: theme.spacing(0.5),
+      padding: theme.spacing(0.5)
     },
     error: {
-        backgroundColor: red[700],
-    },
-  }),
+      backgroundColor: red[700]
+    }
+  })
 );
 
 export default function SimpleSnackbar(props) {
@@ -26,7 +26,7 @@ export default function SimpleSnackbar(props) {
       return;
     }
 
-    props.handleClose()
+    props.handleClose();
   };
 
   return (
@@ -34,28 +34,28 @@ export default function SimpleSnackbar(props) {
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'center',
+          horizontal: 'center'
         }}
         open={true}
         autoHideDuration={5000}
         onClose={handleClose}
       >
-          <SnackbarContent
-            className={clsx(props.snack.error && classes.error)}
-            aria-describedby={'message-id'}
-            message={<span id="message-id">{props.snack.msg}</span>}
-            action={[
-                <IconButton
-                key="close"
-                aria-label="close"
-                color="inherit"
-                className={classes.close}
-                onClick={handleClose}
-                >
-                <CloseIcon />
-                </IconButton>,
-            ]}>
-          </SnackbarContent>
+        <SnackbarContent
+          className={clsx(props.snack.error && classes.error)}
+          aria-describedby={'message-id'}
+          message={<span id='message-id'>{props.snack.msg}</span>}
+          action={[
+            <IconButton
+              key='close'
+              aria-label='close'
+              color='inherit'
+              className={classes.close}
+              onClick={handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          ]}
+        ></SnackbarContent>
       </Snackbar>
     </div>
   );
