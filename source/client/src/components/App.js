@@ -1,7 +1,5 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
 import HomePage from './HomePage';
 import NoMatch from './NoMatch';
 import StepSelectionPage from './StepSelectionPage';
@@ -59,12 +57,6 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/'>
               <HomePage />
-            </Route>
-            <Route exact path='/signin'>
-              <SignIn />
-            </Route>
-            <Route exact path='/signup'>
-              <SignUp />
             </Route>
             <Route exact path='/longlist'>
               <Longlist openSnackbar={this.handleSnackbarOpening} />

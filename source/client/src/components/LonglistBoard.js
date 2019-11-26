@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import {
   Grid,
   List,
@@ -21,7 +21,8 @@ const styles = theme => ({
   },
   list: {
     overflow: 'auto',
-    maxHeight: 400
+    maxHeight: 400,
+    marginBottom: theme.spacing(2)
   }
 });
 
