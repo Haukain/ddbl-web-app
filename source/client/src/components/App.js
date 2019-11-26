@@ -70,7 +70,7 @@ class App extends React.Component {
               <Longlist openSnackbar={this.handleSnackbarOpening} />
             </Route>
             <Route exact path='/definition'>
-              <Definition />
+              <Definition openSnackbar={this.handleSnackbarOpening} />
             </Route>
             <Route exact path='/steps'>
               <StepSelectionPage />

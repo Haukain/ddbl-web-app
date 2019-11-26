@@ -20,7 +20,7 @@ const styles = theme => ({
   }
 });
 
-class DefinitionCard extends React.Component {
+class DefinitionCards extends React.Component {
   handleChange(e, name) {
     this.props.handleChange(e, name);
   }
@@ -47,14 +47,14 @@ class DefinitionCard extends React.Component {
             id='standard-basic'
             label='Type here'
             margin='normal'
-            value={this.props.listKpis.definitionField.get(key)}
+            value={this.props.kpiList.definitionField.get(key)||''}
           />
         </CardContent>
       </Card>
     );
   }
 
-  generateCard() {
+  generateCards() {
     const { classes } = this.props;
     return (
       <Grid container spacing={1}>
@@ -70,7 +70,7 @@ class DefinitionCard extends React.Component {
               </Icon>
               <Typography variant='h6'>KPI Name</Typography>
               <Typography variant='subtitle2'>
-                {this.props.listKpis.name}
+                {this.props.kpiList.name}
               </Typography>
             </CardContent>
           </Card>
@@ -80,20 +80,20 @@ class DefinitionCard extends React.Component {
         </Grid>
         <Grid item xs={4}>
           {this.createCard(
-            'definition',
+            'formula',
             'Definition or Formula',
             "If there's any calculation, how the measure is worked out? What is and is not included in the values used?"
           )}
         </Grid>
         <Grid item xs={4}>
           {this.createCard(
-            'target',
+            'targets',
             'Targets',
             'What score do we want to achieve? (if already know)'
           )}
         </Grid>
         <Grid item xs={4}>
-          {this.createCard('customer', 'Customer', 'Who will use this KPI?')}
+          {this.createCard('customers', 'Customer', 'Who will use this KPI?')}
         </Grid>
         <Grid item xs={4}>
           {this.createCard(
@@ -104,21 +104,21 @@ class DefinitionCard extends React.Component {
         </Grid>
         <Grid item xs={4}>
           {this.createCard(
-            'outcome',
+            'outcomes',
             'Targets Outcomes',
             'What score do we want to achieve? (if already know)'
           )}
         </Grid>
         <Grid item xs={4}>
           {this.createCard(
-            'datasource',
+            'datasources',
             'Data Sources',
             'Where will the KPI data come from?'
           )}
         </Grid>
         <Grid item xs={4}>
           {this.createCard(
-            'problem',
+            'problems',
             'Problems and Errors',
             'What are the known issues with KPI production & accuracy?'
           )}
@@ -135,8 +135,8 @@ class DefinitionCard extends React.Component {
   }
 
   render() {
-    return <div>{this.generateCard()}</div>;
+    return <div>{this.generateCards()}</div>;
   }
 }
 
-export default withStyles(styles)(DefinitionCard);
+export default withStyles(styles)(DefinitionCards);
