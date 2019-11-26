@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
 import DefinitionList from './DefinitionList';
 import DefinitionCards from './DefinitionCards';
@@ -10,15 +10,20 @@ import Fab from '@material-ui/core/Fab';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const styles = theme => ({
+  form: {
+    paddingTop: theme.spacing(1)
+  },
   list: {
     float: 'left',
     width: '25%',
-    height: "655px",
-    overflow: 'auto'
+    height: "650px",
+    overflow: 'auto',
+    marginRight: theme.spacing(2),
   },
   gridContainer: {
+    float: 'left',
     width: '70%',
-    height: "655px",
+    height: "650px",
     overflow: 'hidden',
   },
   button: {
@@ -183,7 +188,7 @@ class DefinitionBoard extends React.Component {
             updateSelected={this.updateSelected}
           />
         </div>
-        <div>
+        <div className={classes.form}>
           {this.state.selectedKpi !== null ? (
             <div className={classes.gridContainer}>
               <DefinitionCards
@@ -199,7 +204,7 @@ class DefinitionBoard extends React.Component {
             </Typography>
           )}
         </div>
-        {this.state.selectedKpi && (
+        {this.state.selectedKpi!== null && (
         <Fab color="primary" className={classes.saveButton} onClick={this.saveHandler} variant="extended">
           SAVE
         </Fab>)}
