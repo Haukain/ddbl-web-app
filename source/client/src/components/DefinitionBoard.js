@@ -2,25 +2,36 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
 import DefinitionList from './DefinitionList';
-import DefinitionCard from './DefinitionCard';
+import DefinitionCards from './DefinitionCards';
 import update from 'immutability-helper';
-import kpiList from '../test/resources/kpiList.json';
+import Api from '../utils/Api';
+import KpiDefinitionState from '../utils/utils'
+import Fab from '@material-ui/core/Fab';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const styles = theme => ({
   list: {
-    marginRight: 25,
     float: 'left',
     width: '25%',
+    height: "655px",
     overflow: 'auto'
   },
   gridContainer: {
-    marginTop: 5,
     width: '70%',
-    float: 'left'
+    height: "655px",
+    overflow: 'hidden',
   },
   button: {
-    float: 'right',
+    left: '50%',
     margin: '1%'
+  },
+  saveButton: {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
   }
 });
 
@@ -30,13 +41,7 @@ class DefinitionBoard extends React.Component {
 
     this.state = {
       kpiList: [],
-      kpiSelected: null
-    };
-
-    this.kpiState = {
-      UNDEFINED: 0,
-      PARTIALLY_DEFINED: 1,
-      DEFINED: 2
+      selectedKpi: null
     };
 
     this.updateSelected = this.updateSelected.bind(this);
@@ -45,97 +50,126 @@ class DefinitionBoard extends React.Component {
   }
 
   componentDidMount() {
-    // TODO: Remove this manual insertion
     let kpisToInsert = [];
-    for (let i of kpiList) {
-      kpisToInsert.push({
-        name: i,
-        defined: this.kpiState.UNDEFINED,
-        definitionField: new Map([
-          ['purpose', ''],
-          ['customer', ''],
-          ['datasource', ''],
-          ['definition', ''],
-          ['resources', ''],
-          ['problem', ''],
-          ['target', ''],
-          ['outcome', ''],
-          ['cost', '']
-        ])
-      });
+    let companyId=1;
+    let userId=1;
+    Api.get(`/kpi/${companyId}/${userId}/`)
+    .then(data => {
+      for(let k of data){
+        kpisToInsert.push({
+          id:k.id,
+          name:k.name,
+          defined:this.getDefinitionState(k),
+          definitionField: new Map([
+            ['purpose', k.purpose],
+            ['customers', k.customers],
+            ['datasources', k.datasources],
+            ['formula', k.formula],
+            ['resources', k.resources],
+            ['problems', k.problems],
+            ['targets', k.targets],
+            ['outcomes', k.outcomes],
+            ['cost', k.cost]
+          ])
+        })
+      }
+      this.setState({ kpiList: kpisToInsert });
+    })
+    .catch(error => {
+      console.error(error);
+      this.props.openSnackbar('An error ocurred while loading the KPIs', true);
+    });
+  }
+
+  getDefinitionState(data) {
+    let fields = [data.purpose,
+      data.customers,
+      data.datasources,
+      data.formula,
+      data.resources,
+      data.problems,
+      data.targets,
+      data.outcomes,
+      data.cost
+    ]
+    
+    if(fields.every((e)=>e!==null)){
+      return KpiDefinitionState.DEFINED
     }
-    this.setState({ kpiList: kpisToInsert });
+    else if(fields.every((e)=>e===null)){
+      return KpiDefinitionState.UNDEFINED
+    }
+    else {
+      return KpiDefinitionState.PARTIALLY_DEFINED
+    }
   }
 
   updateSelected(selectedIndex) {
     this.setState({
-      kpiSelected: update(this.state.kpiSelected, { $set: selectedIndex })
+      selectedKpi: update(this.state.selectedKpi, { $set: selectedIndex })
     });
   }
 
   handleChange = (e, i, n) => {
+    let newValue = e.target.value===''?null:e.target.value
     this.setState({
       kpiList: update(this.state.kpiList, {
-        [i]: { definitionField: { [n]: { $set: e.target.value } } }
+        [i]: { definitionField: { [n]: { $set: newValue } } }
       })
     });
   };
 
   saveHandler() {
-    let kpisToSave = this.state.kpiList[this.state.kpiSelected];
-    let message = `Saving KPI's definition to the Database
-                Name : ${kpisToSave.name}
-                Purpose : ${kpisToSave.definitionField.get('purpose')}
-                Customer : ${kpisToSave.definitionField.get('customer')}
-                Data Sources : ${kpisToSave.definitionField.get('datasource')}
-                Definition or Formula : ${kpisToSave.definitionField.get(
-                  'definition'
-                )}
-                Production Resources : ${kpisToSave.definitionField.get(
-                  'resources'
-                )}
-                Problems & Errors : ${kpisToSave.definitionField.get('problem')}
-                Targets : ${kpisToSave.definitionField.get('target')}
-                Targets Outcomes : ${kpisToSave.definitionField.get('outcome')}
-                Production Cost : ${kpisToSave.definitionField.get('cost')}`;
-    alert(message);
+    let kpiToSave = this.state.kpiList[this.state.selectedKpi];
 
-    var notDefined = false;
-    for (var i of kpisToSave.definitionField.values()) {
-      if (i === '') {
-        notDefined = true;
-        break;
+    let jsonPayload = JSON.stringify({
+      companyId: "1",
+      userId: "1",
+      kpiId: kpiToSave.id,
+      definition: {
+        purpose: kpiToSave.definitionField.get('purpose'),
+        customers: kpiToSave.definitionField.get('customers'),
+        datasources: kpiToSave.definitionField.get('datasources'),
+        formula: kpiToSave.definitionField.get('formula'),
+        resources: kpiToSave.definitionField.get('resources'),
+        problems: kpiToSave.definitionField.get('problems'),
+        targets: kpiToSave.definitionField.get('targets'),
+        outcomes: kpiToSave.definitionField.get('outcomes'),
+        cost: kpiToSave.definitionField.get('cost')
       }
-    }
+    })
 
-    if (notDefined === false) {
+    Api.post('/kpi/definition',jsonPayload)
+    .then(data=>{
+      let updatedKpi = {
+        id:data.id,
+        name:data.name,
+        defined:this.getDefinitionState(data),
+        definitionField: new Map([
+          ['purpose', data.purpose],
+          ['customers', data.customers],
+          ['datasources', data.datasources],
+          ['formula', data.formula],
+          ['resources', data.resources],
+          ['problems', data.problems],
+          ['targets', data.targets],
+          ['outcomes', data.outcomes],
+          ['cost', data.cost]
+        ])
+      }
       this.setState({
         kpiList: update(this.state.kpiList, {
-          [this.state.kpiSelected]: { defined: { $set: this.kpiState.DEFINED } }
+          [this.state.selectedKpi]:  { $set: updatedKpi }
         })
-      });
-    } else {
-      this.setState({
-        kpiList: update(this.state.kpiList, {
-          [this.state.kpiSelected]: {
-            defined: { $set: this.kpiState.PARTIALLY_DEFINED }
-          }
-        })
-      });
-    }
-  }
+      })
+      this.props.openSnackbar('KPI definition saved');
+    })
+    .catch(err=>{
+      console.error(err)
+      this.props.openSnackbar('An error ocurred while saving this KPI definition', true);
+    })
 
-  checkEmptyDefinition() {
-    var disable = true;
-    for (var i of this.state.kpiList[
-      this.state.kpiSelected
-    ].definitionField.values()) {
-      if (i !== '') {
-        disable = false;
-        break;
-      }
-    }
-    return disable;
+    
   }
 
   render() {
@@ -144,32 +178,20 @@ class DefinitionBoard extends React.Component {
       <div>
         <div className={classes.list}>
           <DefinitionList
-            listKpis={this.state.kpiList}
-            kpiSelected={this.state.kpiSelected}
+            kpiList={this.state.kpiList.map(k => ({name:k.name,defined:k.defined}))}
+            selectedKpi={this.state.selectedKpi}
             updateSelected={this.updateSelected}
           />
         </div>
         <div>
-          {this.state.kpiSelected !== null ? (
+          {this.state.selectedKpi !== null ? (
             <div className={classes.gridContainer}>
-              <DefinitionCard
-                listKpis={this.state.kpiList[this.state.kpiSelected]}
-                kpiSelected={this.state.kpiSelected}
+              <DefinitionCards
+                kpiList={this.state.kpiList[this.state.selectedKpi]}
                 handleChange={(e, name) => {
-                  this.handleChange(e, this.state.kpiSelected, name);
+                  this.handleChange(e, this.state.selectedKpi, name);
                 }}
               />
-              <Grid item xs={12}>
-                <Button
-                  variant='contained'
-                  className={classes.button}
-                  disabled={this.checkEmptyDefinition()}
-                  onClick={this.saveHandler}
-                  color='primary'
-                >
-                  SAVE
-                </Button>
-              </Grid>
             </div>
           ) : (
             <Typography variant='h2' gutterBottom align='center'>
@@ -177,6 +199,10 @@ class DefinitionBoard extends React.Component {
             </Typography>
           )}
         </div>
+        {this.state.selectedKpi && (
+        <Fab color="primary" className={classes.saveButton} onClick={this.saveHandler} variant="extended">
+          SAVE
+        </Fab>)}
       </div>
     );
   }

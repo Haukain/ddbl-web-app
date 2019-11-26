@@ -78,9 +78,9 @@ class LonglistBoard extends React.Component {
     });
 
     Api.post('/kpi', jsonPayload)
-      .then(success => {
+      .then(data => {
         this.props.openSnackbar(
-          `${success.length} KPI(s) have been saved`,
+          `${data.length} KPI(s) have been saved`,
           false
         );
         this.setState({ kpiList: [] });
