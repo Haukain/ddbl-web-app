@@ -1,17 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import LonglistXMLImport from './LonglistXMLImport'
-
-const useStyles = makeStyles(theme => ({
-}));
+import LonglistBoard from './LonglistBoard';
 
 export default function Longlist(props) {
-  const classes = useStyles();
-
   return (
-    <Container maxWidth='sm'>
-        <LonglistXMLImport/>
+    <Container>
+      <LonglistBoard openSnackbar={props.openSnackbar} />
     </Container>
   );
 }
