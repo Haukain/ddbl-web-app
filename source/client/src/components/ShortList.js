@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ShortListingBoard from './ShortListingBoard'
+import ShortListBoard from './ShortListBoard'
 import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -9,13 +9,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ShortListing(props) {
+export default function ShortList(props) {
   const classes = useStyles();
 
   return (
     <Container>
       <div className={classes.board}>
-        <ShortListingBoard/>
+        <ShortListBoard/>
       </div>
     </Container>
   );

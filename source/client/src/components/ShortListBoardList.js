@@ -36,7 +36,7 @@ function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler) 
     return listItems
 }
 
-export default function ShortListingBoardList(props) {
+export default function ShortListBoardList(props) {
   const classes = useStyles();
 
   return (

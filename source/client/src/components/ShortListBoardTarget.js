@@ -64,7 +64,7 @@ function generateTargetTokens(classes,items,positionHandler) {
   return targetTokens
 }
 
-export default function ShortListingBoardTarget(props) {
+export default function ShortListBoardTarget(props) {
   const classes = useStyles();
 
   return (

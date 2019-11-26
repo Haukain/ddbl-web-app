@@ -43,7 +43,7 @@ export default function SignIn(props) {
               />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant='h5' component='h2'>
-                  Longlisting
+                  Longlist
                 </Typography>
                 <Typography>
                   Import an existing KPI tree or create one to begin the project
@@ -67,10 +67,10 @@ export default function SignIn(props) {
               />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant='h5' component='h2'>
-                  Shortlisting
+                  Shortlist
                 </Typography>
                 <Typography>
-                  Through the shortlisting step, you will reduce your amount of
+                  Through the shortlist step, you will reduce your amount of
                   KPIs
                 </Typography>
               </CardContent>

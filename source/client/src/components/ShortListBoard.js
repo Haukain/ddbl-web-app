@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import ShortListingBoardTarget from './ShortListingBoardTarget';
-import ShortListingBoardList from './ShortListingBoardList';
+import ShortListBoardTarget from './ShortListBoardTarget';
+import ShortListBoardList from './ShortListBoardList';
 import { Grid, Button } from '@material-ui/core';
 import update from 'immutability-helper';
 
@@ -11,7 +11,7 @@ const styles = theme => ({
     }
   });
 
-class ShortListingBoard extends React.Component {
+class ShortListBoard extends React.Component {
   
   constructor(props) {
     super(props);
@@ -92,13 +92,13 @@ class ShortListingBoard extends React.Component {
         <div>
           <Grid container spacing={3}>
             <Grid item>
-              <ShortListingBoardList items={this.state.kpis.map(e => e.name)}
+              <ShortListBoardList items={this.state.kpis.map(e => e.name)}
               addHandler={this.addHandler}
               deleteHandler={this.deleteHandler}
               hoverHandler={this.hoverHandler}/>
             </Grid>
             <Grid item>
-              <ShortListingBoardTarget items={this.state.kpis.map(e => ({hidden:e.hidden,hovered:e.hovered}))} positionHandler={this.positionHandler}/>
+              <ShortListBoardTarget items={this.state.kpis.map(e => ({hidden:e.hidden,hovered:e.hovered}))} positionHandler={this.positionHandler}/>
             </Grid>
             <Grid item xs={12} className={classes.buttonRow}>
               <Button variant='contained' color='primary' onClick={this.saveHandler}>save</Button>
@@ -109,4 +109,4 @@ class ShortListingBoard extends React.Component {
   }
 }
 
-export default withStyles(styles)(ShortListingBoard);
+export default withStyles(styles)(ShortListBoard);
