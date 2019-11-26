@@ -31,7 +31,19 @@ class ShortListingBoard extends React.Component {
 
   componentDidMount() {
     // TODO: Remove this manual insertion
-    let kpiList = JSON.parse(localStorage.getItem('kpiList'))
+    let kpiList = [
+      'test1',
+      'test2',
+      'test3',
+      'test4',
+      'test5',
+      'test6',
+      'test7',
+      'test8',
+      'test9',
+      'test10',
+      'test11',
+    ]
     let kpisToInsert = []
     for(let i of kpiList){
       kpisToInsert.push(

@@ -23,28 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <HomePage/>
-            </Route>
-            <Route exact path="/signin">
-              <SignIn/>
-            </Route>
-            <Route exact path="/signup">
-              <SignUp/>
-            </Route>
-            <Route exact path="/longlist">
-              <Longlist/>
-            </Route>
-            <Route exact path="/shortListing">
-              <ShortListing/>
-            </Route>
-            <Route path="*">
-              <NoMatch/>
-            </Route>
-          </Switch>
-        </Router>
+        <ShortListing/>
       </div>
     );
   }
