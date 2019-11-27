@@ -23,8 +23,7 @@ const styles = theme => ({
   gridContainer: {
     float: 'left',
     width: '70%',
-    height: "650px",
-    overflow: 'hidden',
+    height: "650px"
   },
   button: {
     left: '50%',

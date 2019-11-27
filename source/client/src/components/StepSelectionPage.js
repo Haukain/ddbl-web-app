@@ -36,7 +36,7 @@ export default function SignIn(props) {
   return (
     <Container>
       <Grid container spacing={10} className={classes.root}>
-        <Grid item key={1} xs={4}>
+        <Grid item xs={4}>
           <Card className={classes.card}>
             <CardActionArea component={RouterLink} to='/longlist'>
               <CardMedia
@@ -60,7 +60,7 @@ export default function SignIn(props) {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item key={1} xs={4}>
+        <Grid item xs={4}>
           <Card className={classes.card}>
             <CardActionArea component={RouterLink} to='/shortlist'>
               <CardMedia
@@ -85,7 +85,7 @@ export default function SignIn(props) {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item key={1} xs={4}>
+        <Grid item xs={4}>
           <Card className={classes.card}>
             <CardActionArea component={RouterLink} to='/definition'>
               <CardMedia
