@@ -13,10 +13,10 @@ export default function ShortList(props) {
   const classes = useStyles();
 
   return (
-    <Container>
+    <div>
       <div className={classes.board}>
         <ShortListBoard/>
       </div>
-    </Container>
+    </div>
   );
 }

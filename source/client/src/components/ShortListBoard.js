@@ -8,6 +8,12 @@ import update from 'immutability-helper';
 const styles = theme => ({
     buttonRow : {
       textAlign : 'right'
+    },
+    list: {
+      marginRight: 25,
+      float: 'left',
+      width: '25%',
+      overflow: 'auto'
     }
   });
 
@@ -90,20 +96,18 @@ class ShortListBoard extends React.Component {
 
     return (
         <div>
-          <Grid container spacing={3}>
-            <Grid item>
-              <ShortListBoardList items={this.state.kpis.map(e => e.name)}
+            <div className={classes.list}>
+              <ShortListBoardList items={this.state.kpis.map(e => ({name:e.name,hidden:e.hidden}))}
               addHandler={this.addHandler}
               deleteHandler={this.deleteHandler}
               hoverHandler={this.hoverHandler}/>
-            </Grid>
-            <Grid item>
-              <ShortListBoardTarget items={this.state.kpis.map(e => ({hidden:e.hidden,hovered:e.hovered}))} positionHandler={this.positionHandler}/>
-            </Grid>
+            </div>
+            <div>
+              <ShortListBoardTarget items={this.state.kpis.map(e => ({name:e.name,hidden:e.hidden,hovered:e.hovered}))} positionHandler={this.positionHandler}/>
+            </div>
             <Grid item xs={12} className={classes.buttonRow}>
               <Button variant='contained' color='primary' onClick={this.saveHandler}>save</Button>
             </Grid>
-          </Grid>
         </div>
     );
   }

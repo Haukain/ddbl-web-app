@@ -20,9 +20,9 @@ function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler) 
     let listItems = []
     for (let i =0; i<items.length; i++) {
         listItems.push(
-            <ListItem key={i} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)}>
+            <ListItem key={i} selected={!items[i].hidden} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)}>
                 <ListItemText
-                primary={(i+1)+": "+items[i]}
+                primary={(i+1)+": "+items[i].name}
                 />
                 <IconButton onClick={() => addHandler(i)}>
                     <AddCircleIcon />
