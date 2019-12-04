@@ -6,7 +6,7 @@ import Fab from '@material-ui/core/Fab';
 
 const useStyles = makeStyles(theme => ({
   board : {
-    maxHeight: "655px",
+    maxHeight: "650px",
   },
   saveButton: {
     margin: 0,

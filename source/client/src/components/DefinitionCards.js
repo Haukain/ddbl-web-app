@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 import {
   Card,
@@ -82,7 +82,7 @@ class DefinitionCards extends React.Component {
           {this.createCard(
             'formula',
             'Definition or Formula',
-            "If there's any calculation, how the measure is worked out? What is and is not included in the values used?"
+            "If there's any calculation, how the measure is worked out?"
           )}
         </Grid>
         <Grid item xs={4}>

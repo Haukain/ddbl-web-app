@@ -14,13 +14,16 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    paddingTop : theme.spacing(10)
+  },
   card: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column'
   },
   cardMedia: {
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '56.25%', // 16:9
   },
   cardContent: {
     flexGrow: 1
@@ -32,14 +35,14 @@ export default function SignIn(props) {
 
   return (
     <Container>
-      <Grid container spacing={10}>
-        <Grid item key={1} xs={4}>
+      <Grid container spacing={10} className={classes.root}>
+        <Grid item xs={4}>
           <Card className={classes.card}>
             <CardActionArea component={RouterLink} to='/longlist'>
               <CardMedia
                 className={classes.cardMedia}
                 image='/content/images/longlist.png'
-                title='Image title'
+                title='Longlist step'
               />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant='h5' component='h2'>
@@ -57,13 +60,13 @@ export default function SignIn(props) {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item key={1} xs={4}>
+        <Grid item xs={4}>
           <Card className={classes.card}>
             <CardActionArea component={RouterLink} to='/shortlist'>
               <CardMedia
                 className={classes.cardMedia}
                 image='/content/images/shortlist.png'
-                title='Image title'
+                title='Shortlist step'
               />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant='h5' component='h2'>
@@ -82,13 +85,13 @@ export default function SignIn(props) {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item key={1} xs={4}>
+        <Grid item xs={4}>
           <Card className={classes.card}>
             <CardActionArea component={RouterLink} to='/definition'>
               <CardMedia
                 className={classes.cardMedia}
                 image='/content/images/definition.png'
-                title='Image title'
+                title='Definition step'
               />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant='h5' component='h2'>
