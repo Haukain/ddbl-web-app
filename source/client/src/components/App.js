@@ -1,13 +1,13 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import HomePage from './HomePage';
-import NoMatch from './NoMatch';
+import NoMatch from './utils/NoMatch';
 import StepSelectionPage from './StepSelectionPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Longlist from './Longlist';
-import Definition from './Definition';
-import Snackbar from './Snackbar';
-import Header from './Header';
+import Longlist from './LonglistStep/Longlist';
+import Definition from './DefinitionStep/Definition';
+import Snackbar from './utils/Snackbar';
+import Header from './utils/Header';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,6 +36,7 @@ class App extends React.Component {
 
   generateSnackbars() {
     let snackbars = [];
+    // eslint-disable-next-line
     for (let [i, s] of this.state.snackbars.entries()) {
       snackbars.push(
         <Snackbar

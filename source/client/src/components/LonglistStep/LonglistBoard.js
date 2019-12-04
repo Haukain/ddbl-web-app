@@ -13,7 +13,7 @@ import { Button } from '@material-ui/core';
 import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport';
-import Api from '../utils/Api';
+import Api from '../../utils/Api';
 
 const styles = theme => ({
   listRoot: {
@@ -50,6 +50,7 @@ class LonglistBoard extends React.Component {
 
   generateKpiList() {
     let kpiList = [];
+    // eslint-disable-next-line
     for (let [i, k] of this.state.kpiList.entries()) {
       kpiList.push(
         <ListItem key={i}>

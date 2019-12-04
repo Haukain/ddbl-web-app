@@ -1,13 +1,12 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Button } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import DefinitionList from './DefinitionList';
 import DefinitionCards from './DefinitionCards';
 import update from 'immutability-helper';
-import Api from '../utils/Api';
-import KpiDefinitionState from '../utils/utils'
+import Api from '../../utils/Api';
+import KpiDefinitionState from '../../utils/utils'
 import Fab from '@material-ui/core/Fab';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const styles = theme => ({
   form: {
@@ -59,6 +58,7 @@ class DefinitionBoard extends React.Component {
     let userId=1;
     Api.get(`/kpi/${companyId}/${userId}/`)
     .then(data => {
+      // eslint-disable-next-line
       for(let k of data){
         kpisToInsert.push({
           id:k.id,

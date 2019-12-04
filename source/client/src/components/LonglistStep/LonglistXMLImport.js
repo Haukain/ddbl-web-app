@@ -30,6 +30,7 @@ class LonglistXMLImport extends React.Component {
           return a;
         }, []);
 
+        // eslint-disable-next-line
         for (let i of previousIndexes) {
           kpiList.push(
             schema.Report['VisRpt:VisioReport'][0].Group[0].GroupField[0]

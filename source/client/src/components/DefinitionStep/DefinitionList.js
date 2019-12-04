@@ -1,10 +1,11 @@
 import React from 'react';
 import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
-import KpiDefinitionState from '../utils/utils'
+import KpiDefinitionState from '../../utils/utils'
 
 class DefinitionList extends React.Component {
   generateKpiList() {
     let kpiList = [];
+    // eslint-disable-next-line
     for (let [i, k] of this.props.kpiList.entries()) {
       kpiList.push(
         <ListItem

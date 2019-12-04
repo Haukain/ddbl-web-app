@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Button } from '@material-ui/core';
 import DefinitionBoard from './DefinitionBoard';
 import Fab from '@material-ui/core/Fab';
 
