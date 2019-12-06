@@ -16,6 +16,9 @@ import {
 } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop : theme.spacing(10)

@@ -1,0 +1,232 @@
+{
+  "coverage": "30.47%",
+  "expectCount": 105,
+  "actualCount": 32,
+  "files": {
+    "source/client/src/components/App.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        12,
+        13,
+        16,
+        25,
+        31,
+        37,
+        52
+      ]
+    },
+    "source/client/src/components/DefinitionStep/Definition.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        23
+      ]
+    },
+    "source/client/src/components/DefinitionStep/DefinitionBoard.js": {
+      "expectCount": 10,
+      "actualCount": 1,
+      "undocumentLines": [
+        44,
+        45,
+        48,
+        54,
+        58,
+        91,
+        114,
+        129,
+        182
+      ]
+    },
+    "source/client/src/components/DefinitionStep/DefinitionCards.js": {
+      "expectCount": 6,
+      "actualCount": 1,
+      "undocumentLines": [
+        26,
+        27,
+        31,
+        60,
+        140
+      ]
+    },
+    "source/client/src/components/DefinitionStep/DefinitionList.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        6,
+        39
+      ]
+    },
+    "source/client/src/components/HomePage.js": {
+      "expectCount": 9,
+      "actualCount": 1,
+      "undocumentLines": [
+        27,
+        28,
+        35,
+        40,
+        44,
+        48,
+        52,
+        65
+      ]
+    },
+    "source/client/src/components/LonglistStep/Longlist.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        26
+      ]
+    },
+    "source/client/src/components/LonglistStep/LonglistBoard.js": {
+      "expectCount": 10,
+      "actualCount": 1,
+      "undocumentLines": [
+        32,
+        33,
+        36,
+        45,
+        54,
+        74,
+        98,
+        106,
+        111
+      ]
+    },
+    "source/client/src/components/LonglistStep/LonglistManualImport.js": {
+      "expectCount": 8,
+      "actualCount": 1,
+      "undocumentLines": [
+        16,
+        17,
+        20,
+        25,
+        28,
+        39,
+        44
+      ]
+    },
+    "source/client/src/components/LonglistStep/LonglistXMLImport.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        7,
+        14,
+        53,
+        71
+      ]
+    },
+    "source/client/src/components/SignIn.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        37
+      ]
+    },
+    "source/client/src/components/SignUp.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        38
+      ]
+    },
+    "source/client/src/components/StepSelectionPage.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        36
+      ]
+    },
+    "source/client/src/components/utils/Header.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "source/client/src/components/utils/NoMatch.js": {
+      "expectCount": 5,
+      "actualCount": 1,
+      "undocumentLines": [
+        21,
+        22,
+        25,
+        28
+      ]
+    },
+    "source/client/src/components/utils/Snackbar.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        24
+      ]
+    },
+    "source/client/src/utils/Api.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        21,
+        33
+      ]
+    },
+    "source/client/src/utils/utils.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "source/models/company.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "source/models/kpi.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "source/models/role.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "source/models/user.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "source/routes/company.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "source/routes/kpi.js": {
+      "expectCount": 7,
+      "actualCount": 6,
+      "undocumentLines": [
+        43
+      ]
+    },
+    "source/routes/role.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "source/routes/user.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    }
+  }
+}

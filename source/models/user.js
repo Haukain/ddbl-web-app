@@ -1,6 +1,9 @@
+/**
+ * @ignore
+ */
 const Sequelize = require('sequelize');
 
-module.exports = function(sequelize, DataTypes) {
+let User =  function(sequelize, DataTypes) {
   var User = sequelize.define(
     'user',
     {
@@ -20,3 +23,5 @@ module.exports = function(sequelize, DataTypes) {
 
   return User;
 };
+
+module.exports = User

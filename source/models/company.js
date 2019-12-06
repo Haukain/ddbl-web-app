@@ -1,6 +1,9 @@
+/**
+ * @ignore
+ */
 const Sequelize = require('sequelize');
 
-module.exports = function(sequelize, DataTypes) {
+let Company = function(sequelize, DataTypes) {
   var Company = sequelize.define(
     'company',
     {
@@ -11,3 +14,5 @@ module.exports = function(sequelize, DataTypes) {
   );
   return Company;
 };
+
+module.exports = Company

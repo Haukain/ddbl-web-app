@@ -3,6 +3,9 @@ import Container from '@material-ui/core/Container';
 import LonglistBoard from './LonglistBoard';
 import { makeStyles } from '@material-ui/core/styles';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop : theme.spacing(10)

@@ -7,6 +7,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import red from '@material-ui/core/colors/red';
 import clsx from 'clsx';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme =>
   createStyles({
     close: {

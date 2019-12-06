@@ -8,6 +8,9 @@ import { withStyles } from '@material-ui/core/styles';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   root: {
     height: '100vh',

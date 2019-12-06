@@ -5,6 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   root: {
     paddingTop : theme.spacing(10),

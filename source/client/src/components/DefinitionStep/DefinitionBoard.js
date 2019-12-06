@@ -8,6 +8,9 @@ import Api from '../../utils/Api';
 import utils from '../../utils/utils'
 import Fab from '@material-ui/core/Fab';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   form: {
     paddingTop: theme.spacing(1)

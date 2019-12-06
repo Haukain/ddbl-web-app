@@ -18,6 +18,9 @@ import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport';
 import Api from '../../utils/Api';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   listRoot: {
     textAlign: 'center'

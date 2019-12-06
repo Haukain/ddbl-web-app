@@ -4,6 +4,9 @@ import DefinitionBoard from './DefinitionBoard';
 import Fab from '@material-ui/core/Fab';
 import { Link as RouterLink } from 'react-router-dom';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   board : {
     maxHeight: "650px",

@@ -3,6 +3,9 @@ import { withStyles } from '@material-ui/core/styles';
 import { TextField, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   element: {
     'vertical-align': 'bottom',

@@ -10,6 +10,9 @@ import {
   Icon
 } from '@material-ui/core';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   img: {
     width: 30,

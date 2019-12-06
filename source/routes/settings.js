@@ -1,5 +1,10 @@
+/**
+ * @ignore
+ */
 var express = require('express');
-var router = express.Router();
+/**
+ * @ignore
+ */
 const Company = require('../models').company;
 const Role = require('../models').role;
 const User = require('../models').user;
@@ -7,5 +12,9 @@ const User = require('../models').user;
 //
 // Authentication, rights, invitations routes
 //
+/**
+ * This is the router for the company related routes
+ */
+var companyRouter = express.Router();
 
-module.exports = router;
+module.exports = companyRouter;
