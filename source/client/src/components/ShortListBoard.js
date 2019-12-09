@@ -33,6 +33,7 @@ class ShortListBoard extends React.Component {
     this.deleteHandler = this.deleteHandler.bind(this)
     this.hoverHandler = this.hoverHandler.bind(this)
     this.saveHandler = this.saveHandler.bind(this)
+    this.commentHandler = this.commentHandler.bind(this)
   }
 
   componentDidMount() {
@@ -58,7 +59,8 @@ class ShortListBoard extends React.Component {
           name : i,
           hidden : true,
           hovered : false,
-          position : {x: 0, y:0}
+          position : {x: 0, y:0},
+          comment: null
         }
       )
     }
@@ -82,11 +84,18 @@ class ShortListBoard extends React.Component {
     this.setState({kpis : update(this.state.kpis, {[id]: {hovered: {$set: hover}}})});
   }
 
+  //TODO
+  commentHandler(id, event) {
+    this.setState({kpis : update(this.state.kpis, {[id]: {comment: {$set: event.target.value}}})});
+  }
+
   saveHandler() {
     let kpisToSave = this.state.kpis.filter(e => !e.hidden)
     let message = `Saving ${kpisToSave.length} KPIs to the Database`
     for(const  k of kpisToSave){
-      message += `\n${k.name} : ${k.position.x},${k.position.y}`
+      let position_x = (k.position.x * 10)/800
+      let position_y = ((500 - k.position.y)*10)/500
+      message += `\n${k.name} : ${position_x.toPrecision(2)},${position_y.toPrecision(2)}`
     }
     alert(message)
   }

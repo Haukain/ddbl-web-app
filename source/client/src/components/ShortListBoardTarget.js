@@ -12,28 +12,21 @@ const useStyles = makeStyles(theme => ({
     height : 500,
     width : 800,
     gridTemplateColumns : `400px 400px`,
+    backgroundImage: `url('/content/images/shortlisting_background.png')`
   },
 
-  cell00 : {
-    backgroundColor : '#FFFC85'
-  },
-  cell01 : {
-    backgroundColor : '#8BFF79'
-  },
-  cell10 : {
-    backgroundColor : '#FF7F8C'
-  },
-  cell11 : {
-    backgroundColor : '#FFFC85'
-  },
   targetToken : {
     position: 'absolute',
-    //borderRadius : 2020,
-    backgroundColor : '#FF3A44',
+    backgroundColor : '#3f51b5',
     height : 30,
     width : 30,
-    '&:hover,&:active':{
-      backgroundColor: 'blue'
+    '&:hover':{
+      backgroundColor: '#2c387e',
+      cursor: 'pointer'
+    },
+    '&:active':{
+      backgroundColor: '#2c387e',
+      cursor: 'grabbing'
     }
   },
   targetTokenText : {
@@ -45,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     display : 'none'
   },
   hovered : {
-    backgroundColor : 'blue',
+    backgroundColor : '#2c387e',
   }
 }));
 
@@ -59,9 +52,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-
 function generateTargetTokens(classes,items,positionHandler) {
-  console.log(items)
   let targetTokens = []
   for (let [i,k] of items.entries()) {
     targetTokens.push(
@@ -88,14 +79,7 @@ export default function ShortListBoardTarget(props) {
 
   return (
     <div className={classes.targetRoot}>
-        <div className={clsx(classes.targetCell,classes.cell00)}>
-        </div>
-        <div className={clsx(classes.targetCell,classes.cell01)}>
-        </div>
-        <div className={clsx(classes.targetCell,classes.cell10)}>
-        </div>
-        <div className={clsx(classes.targetCell,classes.cell11)}>
-        </div>
+        
         {generateTargetTokens(classes,props.items,props.positionHandler)}
     </div>
     
