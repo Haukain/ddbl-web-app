@@ -54,7 +54,8 @@ class ShortListBoard extends React.Component {
       'test10',
       'test11',
     ]
-    let kpisToInsert = []
+    let kpisToInsert = []   
+    // eslint-disable-next-line
     for(let i of kpiList){
       kpisToInsert.push(
         
@@ -89,6 +90,7 @@ class ShortListBoard extends React.Component {
   saveHandler() {
     let kpisToSave = this.state.kpis.filter(e => !e.hidden)
     let message = `Saving ${kpisToSave.length} KPIs to the Database`
+    // eslint-disable-next-line
     for(const  k of kpisToSave){
       let position_x = 5 + (k.position.x*10)/boardWidth
       let position_y = 5 - (k.position.y*10)/boardHeight

@@ -17,6 +17,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeight,tokenSize) {
   let targetTokens = []
+  // eslint-disable-next-line
   for (let [i,k] of items.entries()) {
     targetTokens.push(
       <Draggable key={i} onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent' defaultPosition={{x: boardWidth/2 - tokenSize/2, y: boardHeight/2 - tokenSize/2}}>
