@@ -39,7 +39,7 @@ class ShortListBoard extends React.Component {
   componentDidMount() {
     // TODO: Remove this manual insertion
     let kpiList = [
-      'test1',
+      'testgfu gsfhjsvcscddcv dfgd fgd fu fu gdgudgsgdgd d dgfyudsgf f gsduyf1',
       'test2',
       'test3',
       'test4',
@@ -60,7 +60,7 @@ class ShortListBoard extends React.Component {
           hidden : true,
           hovered : false,
           position : {x: 0, y:0},
-          comment: null
+          comment: ""
         }
       )
     }
@@ -86,6 +86,7 @@ class ShortListBoard extends React.Component {
 
   //TODO
   commentHandler(id, event) {
+    console.log(event.target.value)
     this.setState({kpis : update(this.state.kpis, {[id]: {comment: {$set: event.target.value}}})});
   }
 
@@ -95,7 +96,7 @@ class ShortListBoard extends React.Component {
     for(const  k of kpisToSave){
       let position_x = (k.position.x * 10)/800
       let position_y = ((500 - k.position.y)*10)/500
-      message += `\n${k.name} : ${position_x.toPrecision(2)},${position_y.toPrecision(2)}`
+      message += `\n${k.name} : ${position_x.toPrecision(2)},${position_y.toPrecision(2)}, ${k.comment}`
     }
     alert(message)
   }
@@ -105,18 +106,18 @@ class ShortListBoard extends React.Component {
 
     return (
         <div>
-            <div className={classes.list}>
-              <ShortListBoardList items={this.state.kpis.map(e => ({name:e.name,hidden:e.hidden}))}
-              addHandler={this.addHandler}
-              deleteHandler={this.deleteHandler}
-              hoverHandler={this.hoverHandler}/>
-            </div>
-            <div>
-              <ShortListBoardTarget items={this.state.kpis.map(e => ({name:e.name,hidden:e.hidden,hovered:e.hovered}))} positionHandler={this.positionHandler}/>
-            </div>
-            <Grid item xs={12} className={classes.buttonRow}>
-              <Button variant='contained' color='primary' onClick={this.saveHandler}>save</Button>
-            </Grid>
+          <div className={classes.list}>
+            <ShortListBoardList items={this.state.kpis.map(e => ({name:e.name,hidden:e.hidden}))}
+            addHandler={this.addHandler}
+            deleteHandler={this.deleteHandler}
+            hoverHandler={this.hoverHandler}/>
+          </div>
+          <div>
+            <ShortListBoardTarget items={this.state.kpis.map(e => ({name:e.name,hidden:e.hidden,hovered:e.hovered,comment:e.comment}))} positionHandler={this.positionHandler} commentHandler={this.commentHandler}/>
+          </div>
+          <Grid item xs={12} className={classes.buttonRow}>
+            <Button variant='contained' color='primary' onClick={this.saveHandler}>save</Button>
+          </Grid>
         </div>
     );
   }

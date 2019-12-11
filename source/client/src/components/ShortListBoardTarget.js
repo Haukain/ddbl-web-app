@@ -4,6 +4,8 @@ import Draggable from 'react-draggable';
 import clsx from 'clsx';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import { TextField } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   targetRoot : {
@@ -39,6 +41,16 @@ const useStyles = makeStyles(theme => ({
   },
   hovered : {
     backgroundColor : '#2c387e',
+  },
+  commentDiv : {
+    float:'right',
+    borderStyle: 'solid', 
+    width: 250, 
+    height : 400
+  },
+  commentElement :{
+    margin:10, 
+    width:'90%'
   }
 }));
 
@@ -74,14 +86,60 @@ function generateTargetTokens(classes,items,positionHandler) {
   return targetTokens
 }
 
+function generateComment(classes,items,commentHandler,kpi,setKpi) {
+  let comment = []
+  let dataId = [];
+  let dataName = [];
+  for (let [i,k] of items.entries()) {
+    if(!items[i].hidden){
+      dataId.push(i)
+      dataName.push(k.name)
+    }
+  }
+  function MakeItem(X) {
+      return <option>{X}</option>;
+  };
+    comment.push(
+      <div>
+      <Select 
+          className={classes.commentElement}
+          native
+          value={kpi.name}
+          onChange={ev=> setKpi({id : dataId[dataName.indexOf(ev.target.value)],name : ev.target.value})}
+        >
+          <option value="" />
+          {dataName.map(MakeItem)}
+        </Select>
+        {(kpi.id !== null)&&(kpi.id !== undefined) ? (
+        <TextField 
+          className={classes.commentElement}
+          multiline
+          rows="4"
+          rowsMax="15"
+          label="comment"
+          variant="outlined" 
+          value={(kpi.id !== null)&&(items.length > 0)  ? (items[kpi.id].comment) : ("") }
+          onChange={e=> commentHandler(kpi.id,e)}
+          />
+          ):(null)}
+      </div>
+      )
+  return comment
+}
+
 export default function ShortListBoardTarget(props) {
   const classes = useStyles();
-
+  const [kpi,setKpi] = React.useState({id:null,name:null});
+  console.log(kpi)
   return (
-    <div className={classes.targetRoot}>
-        
+    <div>
+      <div className={classes.commentDiv}>
+        {generateComment(classes,props.items,props.commentHandler,kpi,setKpi)}
+      </div>
+      <div className={classes.targetRoot}>
+          
         {generateTargetTokens(classes,props.items,props.positionHandler)}
+      </div>
     </div>
-    
   );
 }
