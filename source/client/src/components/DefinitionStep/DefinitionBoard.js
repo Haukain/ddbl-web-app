@@ -5,7 +5,7 @@ import DefinitionList from './DefinitionList';
 import DefinitionCards from './DefinitionCards';
 import update from 'immutability-helper';
 import Api from '../../utils/Api';
-import KpiDefinitionState from '../../utils/utils'
+import utils from '../../utils/utils'
 import Fab from '@material-ui/core/Fab';
 
 const styles = theme => ({
@@ -98,13 +98,13 @@ class DefinitionBoard extends React.Component {
     ]
     
     if(fields.every((e)=>e!==null)){
-      return KpiDefinitionState.DEFINED
+      return utils.KpiDefinitionState.DEFINED
     }
     else if(fields.every((e)=>e===null)){
-      return KpiDefinitionState.UNDEFINED
+      return utils.KpiDefinitionState.UNDEFINED
     }
     else {
-      return KpiDefinitionState.PARTIALLY_DEFINED
+      return utils.KpiDefinitionState.PARTIALLY_DEFINED
     }
   }
 

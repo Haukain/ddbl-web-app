@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
-import KpiDefinitionState from '../../utils/utils'
+import utils from '../../utils/utils'
 
 class DefinitionList extends React.Component {
   generateKpiList() {
@@ -16,11 +16,11 @@ class DefinitionList extends React.Component {
         >
           <ListItemText primary={k.name} />
           {
-            this.props.kpiList[i].defined === KpiDefinitionState.DEFINED ? (
+            this.props.kpiList[i].defined === utils.KpiDefinitionState.DEFINED ? (
               <Typography align='right' color='textSecondary'>
                 Defined
               </Typography>
-            ) : this.props.kpiList[i].defined === KpiDefinitionState.PARTIALLY_DEFINED ? (
+            ) : this.props.kpiList[i].defined === utils.KpiDefinitionState.PARTIALLY_DEFINED ? (
               <Typography align='right' color='textSecondary'>
                 Partially defined
               </Typography>

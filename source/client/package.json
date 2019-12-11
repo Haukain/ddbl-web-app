@@ -5,8 +5,10 @@
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
+    "chart.js": "^2.9.2",
     "immutability-helper": "^3.0.1",
     "react": "^16.9.0",
+    "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.9.0",
     "react-draggable": "^4.0.3",
     "react-router-dom": "^5.1.2",

@@ -7,7 +7,9 @@ var cors = require('cors');
 
 const db = require('./models').sequelize;
 
-var kpiRouter = require('./routes/kpi');
+var kpisRouter = require('./routes/kpis');
+var chartsRouter = require('./routes/charts');
+var settingsRouter = require('./routes/settings');
 
 var app = express();
 
@@ -24,7 +26,9 @@ if (app.settings.env === 'production') {
   });
 }
 
-app.use('/kpi', kpiRouter);
+app.use('/kpi', kpisRouter);
+app.use('/chart', chartsRouter);
+app.use('/setting', settingsRouter);
 
 db.authenticate()
   .then(() => {

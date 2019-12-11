@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Longlist from './LonglistStep/Longlist';
 import Definition from './DefinitionStep/Definition';
 import ShortList from './ShortlistStep/ShortList';
+import VisualizationPanel from './VisualizationStep/VisualizationPanel';
 import Snackbar from './utils/Snackbar';
 import Header from './utils/Header';
 
@@ -69,11 +70,14 @@ class App extends React.Component {
             <Route exact path='/definition'>
               <Definition openSnackbar={this.handleSnackbarOpening} />
             </Route>
+            <Route exact path="/visualization">
+              <VisualizationPanel/>
+            </Route>
             <Route exact path='/steps'>
               <StepSelectionPage />
             </Route>
-            <Route path='*'>
-              <NoMatch />
+            <Route path="*">
+              <NoMatch/>
             </Route>
           </Switch>
         </Router>
