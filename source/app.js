@@ -18,6 +18,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use('/kpi', kpisRouter);
+app.use('/chart', chartsRouter);
+app.use('/setting', settingsRouter);
+
 // for production
 if (app.settings.env === 'production') {
   app.use(express.static(path.join(__dirname, './client/build')));
@@ -25,10 +30,6 @@ if (app.settings.env === 'production') {
     res.sendFile(path.join(__dirname, './client/build', 'index.html'));
   });
 }
-
-app.use('/kpi', kpisRouter);
-app.use('/chart', chartsRouter);
-app.use('/setting', settingsRouter);
 
 db.authenticate()
   .then(() => {
