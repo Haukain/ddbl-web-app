@@ -34,8 +34,10 @@ class LonglistManualImport extends React.Component {
   };
 
   addField(event) {
-    this.props.addKpis(this.state.name);
-    this.setState({ name: '' });
+    if(this.state.name!==''){
+      this.props.addKpis(this.state.name);
+      this.setState({ name: '' });
+    }
   }
 
   render() {

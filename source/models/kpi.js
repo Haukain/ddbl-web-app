@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   var Kpi = sequelize.define(
     'kpi',
     {
-      name: { type: Sequelize.STRING, allowNull: false },
+      name: { type: Sequelize.STRING, allowNull: false, unique : true},
       description: { type: Sequelize.TEXT, allowNull: true },
       status: { type: Sequelize.INTEGER, allowNull: false },
       easeOfMeasure: { type: Sequelize.INTEGER, allowNull: true },

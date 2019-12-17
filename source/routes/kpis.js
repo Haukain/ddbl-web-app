@@ -9,29 +9,72 @@ check(router)
 // Longlist, shortlist, definition step routes
 //
 
+function checkForInListNameDuplicates(list){
+  for(let [i,x] of list.entries())
+    for(let [j,y] of list.entries()){
+      if(i !== j && x.name===y.name){
+        return true
+      }
+    }
+  return false
+}
+
+function checkForInDatabaseNameDuplicates(list){
+  let promises = []
+  for(let k of list){
+    promises.push(
+      Kpi.findOne({ where: { name: k.name }} )
+    )
+  }
+  return Promise.all(promises)
+  .then( res => {
+    console.log(res)
+    if(res.every(e => e===null)) return false
+    else return true
+  })
+  .catch( err => {
+    console.error(err)
+    return true
+  })
+}
+
 router.post('/', function(req, res, next) {
   let promises = [];
-  //TODO: Don't save KPI if it has the same company and name
-  for (let k of req.body.kpis) {
-    promises.push(
-      Kpi.create({
-        name: k.name,
-        description: null,
-        status: 0,
-        easeOfMeasure: null,
-        importance: null,
-        companyId: req.body.companyId,
-        createdByUserId: req.body.userId
-      })
-    );
-  }
-  Promise.all(promises)
-    .then(function(e) {
-      res.send({ success: e });
-    })
-    .catch(function(err) {
-      next(err);
-    });
+  checkForInDatabaseNameDuplicates(req.body.kpis).then(
+    dbCheck => {
+      let listCheck = checkForInListNameDuplicates(req.body.kpis)
+      
+      let bothChecks = listCheck || dbCheck
+
+      if(bothChecks){
+        res.status(400);
+        res.send({ error: 'List contains duplicated kpis' });
+      }
+      else{
+        for (let k of req.body.kpis) {
+          promises.push(
+            Kpi.create({
+              name: k.name,
+              description: null,
+              status: 0,
+              easeOfMeasure: null,
+              importance: null,
+              companyId: req.body.companyId,
+              createdByUserId: req.body.userId
+            })
+          );
+        }
+      
+        Promise.all(promises)
+          .then(function(e) {
+            res.send({ success: e });
+          })
+          .catch(function(err) {
+            next(err);
+          });   
+      }
+    }
+  )
 });
 
 router.get('/:companyId/:userId', function(req, res) {
