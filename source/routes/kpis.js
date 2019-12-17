@@ -114,7 +114,8 @@ router.post('/definition', function(req, res, next) {
             targets: req.body.definition.targets,
             outcomes: req.body.definition.outcomes,
             cost: req.body.definition.cost,
-            definedByUserId : req.body.userId
+            definedByUserId : req.body.userId,
+            status: 3,
           })
           .then(function(k) {
             res.send({ success: k });
@@ -139,6 +140,40 @@ router.post('/definition', function(req, res, next) {
     res.status(400);
     res.send({ error: 'No kpi definition provided' });
   }
+});
+
+router.post('/shortlist', function(req, res, next) {
+  let findPromises = []
+  let updatePromises = []
+  for(let o of req.body.kpisToSave){
+    if (o.kpiId) {
+      findPromises.push(
+        Kpi.findOne({ where: { id: o.kpiId } })
+        .then(function(k) {
+          updatePromises.push(
+            k.update({
+              easeOfMeasure: o.score.easeOfMeasure,
+              importance: o.score.importance,
+              status: o.shortlisted?2:1,
+            })
+          );
+        })
+      )
+    }
+  }
+  Promise.all(findPromises)
+    .then(function(found) {
+      Promise.all(updatePromises)
+      .then(function(updated) {
+        res.send({ success: updated });
+      })
+      .catch(function(err) {
+        next(err);
+      });
+    })
+    .catch(function(err) {
+      next(err);
+    });
 });
 
 module.exports = router;

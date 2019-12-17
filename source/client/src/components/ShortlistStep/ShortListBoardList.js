@@ -16,12 +16,12 @@ const useStyles = makeStyles(theme => ({
 function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler) {
 
     let listItems = []
-    for (let i =0; i<items.length; i++) {
+    for (let [i,k] of items.entries()) {
         listItems.push(
-            <ListItem key={i} button selected={!items[i].hidden} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)} 
-                        onClick={() => items[i].hidden ? addHandler(i): deleteHandler(i)}>
+            <ListItem key={i} button selected={!k.hidden} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)} 
+                        onClick={() => k.hidden ? addHandler(i): deleteHandler(i)}>
                 <ListItemText
-                primary={(i+1)+": "+items[i].name}
+                primary={k.id+": "+k.name}
                 />
             </ListItem>
         )

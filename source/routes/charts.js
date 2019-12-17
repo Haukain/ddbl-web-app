@@ -54,29 +54,11 @@ router.get('/completion-percentage/:companyId/:userId', function(req, res) {
 
 router.get('/kpi-score/:companyId/:userId', function(req, res) {
   Kpi.findAll().then((kpis) => {
-      //TODO : remove this
-      // placeholder until shortlisting is implemented
-      for(let k of kpis){
-        k.importance = Math.round(Math.random()*10)
-        k.easeofmeasure = Math.round(Math.random()*10)
-        k.status = Math.random()<0.75?0:1
-      }
       scores = kpis
       .filter(k => k.status>=1)
-      .map(k => ({name:k.name,score:(k.importance!=null&&k.easeofmeasure!=null)?k.importance*k.easeofmeasure:null}))
+      .map(k => ({name:k.name,score:(k.importance!=null&&k.easeOfMeasure!=null)?k.importance*k.easeOfMeasure:null}))
       .filter(k => k.score!=null)
       .sort(function(a, b){return b.score-a.score});
-      res.send({success:scores})
-    }
-  );
-});
-
-router.get('/kpi-score/:companyId/:userId', function(req, res) {
-  Kpi.findAll().then((kpis) => {
-      kpis[1].importance = 5
-      kpis[1].easeofmeasure = 7
-      scores = kpis.map(k => ({name:k.name,score:(k.importance!=null&&k.easeofmeasure!=null)?k.importance*k.easeofmeasure:null}))
-      .filter(k => k.score!=null)
       res.send({success:scores})
     }
   );

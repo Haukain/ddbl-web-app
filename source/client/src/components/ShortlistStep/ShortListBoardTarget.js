@@ -20,7 +20,7 @@ function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeig
   // eslint-disable-next-line
   for (let [i,k] of items.entries()) {
     targetTokens.push(
-      <Draggable key={i} onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent' defaultPosition={{x: boardWidth/2 - tokenSize/2, y: boardHeight/2 - tokenSize/2}}>
+      <Draggable key={i} onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent' defaultPosition={{x: boardWidth/2 - tokenSize/2 + k.position.x, y: boardHeight/2 - tokenSize/2 + k.position.y}}>
         <HtmlTooltip enterDelay={500}
           title={
             <React.Fragment>
@@ -29,7 +29,7 @@ function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeig
           }
         >
           <div className={clsx(classes.targetToken,items[i].hidden && classes.hidden,items[i].hovered && classes.hovered)}>
-            <p className={classes.targetTokenText}>{i+1}</p>
+            <p className={classes.targetTokenText}>{k.id}</p>
           </div>
         </HtmlTooltip>
        </Draggable>

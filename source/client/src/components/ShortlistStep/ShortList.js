@@ -14,7 +14,7 @@ export default function ShortList(props) {
   return (
     <div>
       <div className={classes.board}>
-        <ShortListBoard/>
+        <ShortListBoard openSnackbar={props.openSnackbar} />
       </div>
     </div>
   );

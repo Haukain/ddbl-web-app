@@ -5,10 +5,10 @@ module.exports = function(sequelize, DataTypes) {
     'kpi',
     {
       name: { type: Sequelize.STRING, allowNull: false, unique : true},
-      description: { type: Sequelize.TEXT, allowNull: true },
       status: { type: Sequelize.INTEGER, allowNull: false },
-      easeOfMeasure: { type: Sequelize.INTEGER, allowNull: true },
-      importance: { type: Sequelize.INTEGER, allowNull: true },
+      easeOfMeasure: { type: Sequelize.FLOAT, allowNull: true },
+      importance: { type: Sequelize.FLOAT, allowNull: true },
+      comment: { type: Sequelize.TEXT, allowNull: true },
 
       purpose: { type: Sequelize.TEXT, allowNull: true },
       customers: { type: Sequelize.TEXT, allowNull: true },

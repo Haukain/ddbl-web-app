@@ -37,8 +37,8 @@ class TotalScoreKPIChart extends Component {
                                 yAxes: [{
                                     stacked: true,
                                     ticks: {
-                                        min: 0,
-                                        max:100                                    
+                                        beginAtZero: true,
+                                        min : 0
                                     }
                                 }]
                         }                       

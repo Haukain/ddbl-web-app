@@ -59,7 +59,8 @@ class DefinitionBoard extends React.Component {
     Api.get(`/kpi/${companyId}/${userId}/`)
     .then(data => {
       // eslint-disable-next-line
-      for(let k of data){
+      let shortlistedKpis = data.filter(k => k.status>=2)
+      for(let k of shortlistedKpis){
         kpisToInsert.push({
           id:k.id,
           name:k.name,
