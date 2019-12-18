@@ -47,6 +47,7 @@ class ShortListBoard extends React.Component {
     Api.get(`/kpi/${companyId}/${userId}`)
     .then( data => {
       // eslint-disable-next-line
+      data.sort((a, b) => (a.id > b.id) ? 1 : -1)
       for(let k of data){
         let positionX = k.easeOfMeasure!=null?(k.easeOfMeasure-5)*boardWidth/10:0
         let positionY = k.importance!=null?-(k.importance-5)*boardHeight/10:0
