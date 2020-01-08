@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, List, ListItemText } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import { IconButton,ListItemSecondaryAction } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     listRoot : {
@@ -13,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler) {
+function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler,selectKpi) {
 
     let listItems = []
     for (let [i,k] of items.entries()) {
@@ -23,6 +25,11 @@ function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler) 
                 <ListItemText
                 primary={k.id+": "+k.name}
                 />
+                <ListItemSecondaryAction>
+                    <IconButton disabled={k.hidden} onClick={() => selectKpi(i)}>
+                        <EditIcon/>
+                    </IconButton>
+                </ListItemSecondaryAction>    
             </ListItem>
         )
     }
@@ -35,7 +42,7 @@ export default function ShortListBoardList(props) {
   return (
     <div className={classes.listRoot}>
         <List disablePadding className={classes.list}> 
-            {generateListItems(classes,props.items,props.addHandler,props.deleteHandler,props.hoverHandler)}
+            {generateListItems(classes,props.items,props.addHandler,props.deleteHandler,props.hoverHandler,props.selectKpi)}
         </List>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import ShortListBoardTarget from './ShortListBoardTarget';
 import ShortListBoardList from './ShortListBoardList';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, TextField } from '@material-ui/core';
 import update from 'immutability-helper';
 import Api from '../../utils/Api';
 
@@ -19,7 +19,12 @@ const styles = theme => ({
       float: 'left',
       width: '25%',
       overflow: 'auto'
-    }
+    },
+    commentDiv : {
+      float:'right',
+      width: 250, 
+      height : 400
+    },
   });
 
 class ShortListBoard extends React.Component {
@@ -30,7 +35,8 @@ class ShortListBoard extends React.Component {
     this.state = {
         kpis :
           [
-          ]
+          ],
+        selected : null
     }
 
     this.positionHandler = this.positionHandler.bind(this)
@@ -38,6 +44,8 @@ class ShortListBoard extends React.Component {
     this.deleteHandler = this.deleteHandler.bind(this)
     this.hoverHandler = this.hoverHandler.bind(this)
     this.saveHandler = this.saveHandler.bind(this)
+    this.selectKpi = this.selectKpi.bind(this)
+    this.commentHandler = this.commentHandler.bind(this)
   }
 
   componentDidMount() { 
@@ -57,7 +65,8 @@ class ShortListBoard extends React.Component {
             name : k.name,
             hidden : k.status>0?false:true,
             hovered : false,
-            position : {x: positionX, y: positionY}
+            position : {x: positionX, y: positionY},
+            comment : k.comment
           }
         )
       }
@@ -86,6 +95,37 @@ class ShortListBoard extends React.Component {
     this.setState({kpis : update(this.state.kpis, {[id]: {hovered: {$set: hover}}})});
   }
 
+  selectKpi(id) {
+    this.setState({selected : update(this.state.selected, {$set: id})});
+  }
+
+  commentHandler(id,e){
+    this.setState({kpis : update(this.state.kpis, {[id]: {comment: {$set: e.target.value}}})});
+  }
+
+  generateComment(id){
+    let comment =[]
+    comment.push(
+      <div>
+        {(this.state.kpis[id] !== undefined) ? (
+          <div>
+            <p>{this.state.kpis[id].name}</p>
+            <TextField 
+            multiline
+            rows="4"
+            rowsMax="15"
+            label= "Enter a comment"
+            variant="outlined" 
+            value={(id !== null)&&(this.state.kpis[id].comment!==null) ? (this.state.kpis[id].comment) : ("") }
+            onChange={e=> this.commentHandler(id,e)}
+            />
+          </div>
+          ):(null)}
+        </div>
+    )
+    return comment
+  }
+
   saveHandler() {
     let enabledKpis = this.state.kpis.filter(e => !e.hidden)
     let kpisToSave = []
@@ -101,7 +141,8 @@ class ShortListBoard extends React.Component {
             score : {
               easeOfMeasure: easeOfMeasure,
               importance: importance
-            }
+            },
+            comment:k.comment
           }
       )
     }
@@ -130,16 +171,19 @@ class ShortListBoard extends React.Component {
 
   render() {
     const { classes } = this.props;
-
     return (
         <div>
             <div className={classes.list}>
               <ShortListBoardList items={this.state.kpis}
               addHandler={this.addHandler}
               deleteHandler={this.deleteHandler}
-              hoverHandler={this.hoverHandler}/>
+              hoverHandler={this.hoverHandler}
+              selectKpi={this.selectKpi}/>
             </div>
             <div>
+              <div className={classes.commentDiv}>
+                  {this.generateComment(this.state.selected)}
+              </div>
               <ShortListBoardTarget boardWidth={boardWidth} boardHeight={boardHeight} tokenSize={tokenSize} items={this.state.kpis} positionHandler={this.positionHandler}/>
             </div>
             <Grid item xs={12} className={classes.buttonRow}>
