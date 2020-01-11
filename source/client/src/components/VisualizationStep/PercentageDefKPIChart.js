@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {HorizontalBar} from 'react-chartjs-2';
 
 /**
- * Number of KPIs per person - horizontal bar chart
+ * Definition percentage of KPIs
  */
 /*class PercentageDefKPIChart extends Component {
     

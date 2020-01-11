@@ -7,7 +7,8 @@ This is the Github repository for the ROKS method application made by the studen
 2. [The ROKS method](#method)
 3. [Documentation](#documentation)
 4. [Technical stuff](#technical)
-4. [Setup](#setup)
+5. [Setup](#setup)
+6. [Content and features](#content)
 
 ## The project <a name="project"></a>
 
@@ -32,6 +33,8 @@ It consists of 7 steps to design a KPI system for a company. This project create
 ## Documentation <a name="documentation"></a>
 
 The documentation of this application can be found [here](*TBD*)
+
+Note: The documentation is generated automatically by the comments in the projects files by the [esdoc](https://esdoc.org/) plugin. Its settings are available in `source/.esdoc.json` and the generated files are available `docs`
 
 ## Technical stuff <a name="technical"></a>
 
@@ -63,11 +66,17 @@ Some other library are used for some parts of the front-end :
 
 ### The back-end 
 
-*TBD*
+This application runs on [NodeJS](https://nodejs.org/en/) >v10.15.1 using the [Express](https://expressjs.com/) >v4.16.1 framework.
+
+To create, synchronize and use the database models, we use [Sequelize](https://sequelize.org/) v5.21.2 and the drivers to connect to a PostgreSQL database.
 
 #### File structure:
 
-*TBD*
+- **bin/**
+- **client/**
+- **models/**
+- **routes/**
+    - **utils/**
 
 ## Setup <a name="setup"></a>
 
@@ -98,3 +107,38 @@ Then [follow this guide](https://devcenter.heroku.com/articles/git) from Heroku 
 Go to your Heroku dashboard and add a PostgreSQL database plugin to your application
 
 Once the process is done you should be able to go to the url of your heroku-hosted application and use the production version of the ROKS method application.
+
+## Content and features <a name="content"></a>
+
+The user can use the three main parts of the application : The `Longlist`, `Shortlist` and `Definition` steps.
+
+In the `Longlist`, the application allows the user to import its KPI tree as an XML file or enter KPIs manually. The user can then check which KPIs he wants to save in the database by checking / unchecking them, he can also rename the KPIs by double-clicking on the item in the list.
+
+In the `Shortlist`, the user can place the imported KPI on a board based on their importance and their ease of measure. He can add a comment to the KPI to add notes about their ranking. On saving, the shortlisted KPIs are the one scoring above five in the two criteria.
+
+In the `Definition`, the user can define the shortlisted KPI on multiple topics. He can also use the visualization panel to see have some insights about the KPI in the application.
+
+### To be developed
+
+- The authentication of user
+
+For now the authentication of user is done by sending a default company and user in the API requests (companyId 1, userId 1) created in the synchronization with the database. The SignIn and SignUp form are already created and the model for the User table in the database already exists. A backend authentication and login sessions have to be created as well as better check on API calls.
+
+- A better shortlisting
+
+For now, the shortlist phase only consists of placing KPIs on a board based on their Ease of Measure and Importance. Only the KPIs which score above 5 in the 2 criteria are shortlisted and go to the definition phase.
+A better shortlisting phase would include a second page after the currently existing one featuring 3 columns, a "To be discarded" (left), "To be Shortlisted" (right) and to be decided KPIs (middle). Only the KPIs present in the right column would be kept after this step.
+The left column would be pre-filled with KPIs which were in the bottom left corner of the board and the right colum with KPIs from the up-right corner. KPIs which were in the two other corners (in other words, more than 5 in a criteria but below 5 in the other) would be placed in the middle column. Every KPIs could be moved from one column to another so the user can decide more precesily and per KPI which one to keep to the definition phase.
+
+- A better definition and visualization
+
+The 2 charts which currently exists show the definition completion percentage and score ranking of the KPIs. Other charts ideas would be to display to the number of KPI assigned per person of the company, the workload per employee (using a frequency of update of a KPI field in the definition and the ease of measure score, a workload score can be calculated), and the average completion of partially defined KPIs.
+New optional fields could be added to the Definition screen for more infos about the KPIs to be used in the visualization
+
+- Multiple projects per user
+
+Now, the application only supports one project per company, so each user can only have one project. Multiple projects per user could be allowed so the users of a company can work on multiple KPIs trees for multiple departments.
+
+- KPI tree creation
+
+The application currently relies on exports from the visio software for its KPI trees. Next versions of the application should allow the users to import from others sources of diagramming software (Omnigraffle, Draw.io...) as well as allowing them to create and edit KPI trees in a in-app tool.
