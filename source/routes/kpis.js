@@ -155,6 +155,7 @@ router.post('/shortlist', function(req, res, next) {
               easeOfMeasure: o.score.easeOfMeasure,
               importance: o.score.importance,
               status: o.shortlisted?2:1,
+              comment: o.comment,
             })
           );
         })
