@@ -27,11 +27,15 @@ const styles = theme => ({
     buttonRow : {
       textAlign : 'right'
     },
+    search: {
+      width: '100%',
+    },
     list: {
       marginRight: 25,
       float: 'left',
-      width: '25%',
-      overflow: 'auto'
+      width: '300px',
+      overflow: 'auto',
+      height : 500,
     },
     commentDiv : {
       float:'right',
@@ -55,7 +59,8 @@ class ShortListBoard extends React.Component {
         kpis :
           [
           ],
-        selected : null
+        selected : null,
+        filterKpi: ''
     }
 
     this.positionHandler = this.positionHandler.bind(this)
@@ -65,6 +70,7 @@ class ShortListBoard extends React.Component {
     this.saveHandler = this.saveHandler.bind(this)
     this.selectKpi = this.selectKpi.bind(this)
     this.commentHandler = this.commentHandler.bind(this)
+    this.searchKPI = this.searchKPI.bind(this)
   }
   /**
    * @ignore
@@ -102,32 +108,37 @@ class ShortListBoard extends React.Component {
    * TODO
    */
   positionHandler(id,ui) {
-    let {x, y} = this.state.kpis[id].position;
-    this.setState({kpis : update(this.state.kpis, {[id]: {position: {$set: {x:(x + ui.deltaX),y:(y + ui.deltaY)}}}})});
+    let index = this.state.kpis.findIndex(k => k.id === id)
+    let {x, y} = this.state.kpis[index].position;
+    this.setState({kpis : update(this.state.kpis, {[index]: {position: {$set: {x:(x + ui.deltaX),y:(y + ui.deltaY)}}}})});
   }
   /**
    * TODO
    */
   addHandler(id) {
-    this.setState({kpis : update(this.state.kpis, {[id]: {hidden: {$set: false}}})});
+    let index = this.state.kpis.findIndex(k => k.id === id)
+    this.setState({kpis : update(this.state.kpis, {[index]: {hidden: {$set: false}}})});
   }
   /**
    * TODO
    */
   deleteHandler(id) {
-    this.setState({kpis : update(this.state.kpis, {[id]: {hidden: {$set: true}}})});
+    let index = this.state.kpis.findIndex(k => k.id === id)
+    this.setState({kpis : update(this.state.kpis, {[index]: {hidden: {$set: true}}})});
   }
   /**
    * TODO
    */
   hoverHandler(id,hover) {
-    this.setState({kpis : update(this.state.kpis, {[id]: {hovered: {$set: hover}}})});
+    let index = this.state.kpis.findIndex(k => k.id === id)
+    this.setState({kpis : update(this.state.kpis, {[index]: {hovered: {$set: hover}}})});
   }
   /**
    * TODO
    */
   selectKpi(id) {
-    this.setState({selected : update(this.state.selected, {$set: id})});
+    let index = this.state.kpis.findIndex(k => k.id === id)
+    this.setState({selected : update(this.state.selected, {$set: (index)})});
   }
   /**
    * TODO
@@ -140,7 +151,7 @@ class ShortListBoard extends React.Component {
    */
   generateComment(id){
     return (<div>
-      {(this.state.kpis[id] !== undefined) ? (
+      {(this.state.kpis[id]!== undefined) ? (
         <div>
           <p>{this.state.kpis[id].name}</p>
           <TextField 
@@ -201,6 +212,17 @@ class ShortListBoard extends React.Component {
       this.props.openSnackbar('An error ocurred while loading the KPIs', true);
     })
   }
+
+  /**
+   * @ignore
+   */
+  searchKPI() {
+    let val = this.myValue.value;
+    this.setState({
+      filterKpi:val
+    })   
+  }
+
   /**
    * @ignore
    */
@@ -209,11 +231,26 @@ class ShortListBoard extends React.Component {
     return (
         <div>
             <div className={classes.list}>
-              <ShortListBoardList items={this.state.kpis}
-              addHandler={this.addHandler}
-              deleteHandler={this.deleteHandler}
-              hoverHandler={this.hoverHandler}
-              selectKpi={this.selectKpi}/>
+              <TextField
+                id="filled-search" 
+                label="Search a KPI" 
+                type="search" 
+                variant="filled"
+                inputRef={value => this.myValue = value}
+                onChange={this.searchKPI.bind(this)}
+                className={classes.search}      
+              />
+              <ShortListBoardList 
+                items={this.state.kpis                  
+                  .filter(k => {  
+                   return k.name.toLowerCase().indexOf(this.state.filterKpi.toLowerCase())>=0
+                  })
+                  
+                }
+                addHandler={this.addHandler}
+                deleteHandler={this.deleteHandler}
+                hoverHandler={this.hoverHandler}
+                selectKpi={this.selectKpi}/>
             </div>
             <div>
               <div className={classes.commentDiv}>

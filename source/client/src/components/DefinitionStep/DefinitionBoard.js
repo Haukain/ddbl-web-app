@@ -1,8 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { Typography, TextField } from '@material-ui/core';
 import DefinitionList from './DefinitionList';
-import DefinitionCards from './DefinitionCards';
+import DefinitionCardsGrid from './DefinitionCardsGrid';
 import update from 'immutability-helper';
 import Api from '../../utils/Api';
 import utils from '../../utils/utils'
@@ -14,6 +14,9 @@ import Fab from '@material-ui/core/Fab';
 const styles = theme => ({
   form: {
     paddingTop: theme.spacing(1)
+  },
+  search: {
+    width: '100%',
   },
   list: {
     float: 'left',
@@ -55,7 +58,8 @@ class DefinitionBoard extends React.Component {
      */
     this.state = {
       kpiList: [],
-      selectedKpi: null
+      selectedKpi: null,
+      filterKpi: ''
     };
 
     this.updateSelected = this.updateSelected.bind(this);
@@ -64,6 +68,7 @@ class DefinitionBoard extends React.Component {
      */
     this.handleChange = this.handleChange.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
+    this.searchKPI = this.searchKPI.bind(this);
   }
   /**
    * @ignore
@@ -74,9 +79,8 @@ class DefinitionBoard extends React.Component {
     let userId=1;
     Api.get(`/kpi/${companyId}/${userId}/`)
     .then(data => {
-      // eslint-disable-next-line
       let shortlistedKpis = data.filter(k => k.status>=2)
-      shortlistedKpis.sort((a, b) => (a.id > b.id) ? 1 : -1)
+      shortlistedKpis.sort((a, b) => (a.easeOfMeasure*a.importance < b.easeOfMeasure*b.importance) ? 1 : -1)
       // eslint-disable-next-line
       for(let k of shortlistedKpis){
         kpisToInsert.push({
@@ -131,15 +135,16 @@ class DefinitionBoard extends React.Component {
   /**
    * TODO
    */
-  updateSelected(selectedIndex) {
+  updateSelected(id) {
     this.setState({
-      selectedKpi: update(this.state.selectedKpi, { $set: selectedIndex })
+      selectedKpi: update(this.state.selectedKpi, { $set: id })
     });
   }
   /**
    * TODO
    */
-  handleChange = (e, i, n) => {
+  handleChange = (e, id, n) => { 
+    let i = this.state.kpiList.findIndex(k=>  k.id===this.state.selectedKpi)
     let newValue = e.target.value===''?null:e.target.value
     this.setState({
       kpiList: update(this.state.kpiList, {
@@ -151,7 +156,8 @@ class DefinitionBoard extends React.Component {
    * TODO
    */
   saveHandler() {
-    let kpiToSave = this.state.kpiList[this.state.selectedKpi];
+    let i = this.state.kpiList.findIndex(k=>  k.id===this.state.selectedKpi)
+    let kpiToSave = this.state.kpiList[i];
 
     let jsonPayload = JSON.stringify({
       companyId: "1",
@@ -169,6 +175,8 @@ class DefinitionBoard extends React.Component {
         cost: kpiToSave.definitionField.get('cost')
       }
     })
+
+
 
     Api.post('/kpi/definition',jsonPayload)
     .then(data=>{
@@ -190,7 +198,7 @@ class DefinitionBoard extends React.Component {
       }
       this.setState({
         kpiList: update(this.state.kpiList, {
-          [this.state.selectedKpi]:  { $set: updatedKpi }
+          [i]:  { $set: updatedKpi }
         })
       })
       this.props.openSnackbar('KPI definition saved');
@@ -198,9 +206,15 @@ class DefinitionBoard extends React.Component {
     .catch(err=>{
       console.error(err)
       this.props.openSnackbar('An error ocurred while saving this KPI definition', true);
-    })
+    })   
+  }
 
-    
+
+  searchKPI() {
+    let val = this.myValue.value;
+    this.setState({
+      filterKpi:val
+    })   
   }
   /**
    * @ignore
@@ -208,23 +222,42 @@ class DefinitionBoard extends React.Component {
   render() {
     const { classes } = this.props;
     return (
+      
       <div>
+        
         <div className={classes.list}>
+          <TextField
+            className={classes.search}
+            id="filled-search" 
+            label="Search a KPI" 
+            type="search" 
+            variant="filled"
+            inputRef={value => this.myValue = value}
+            onChange={this.searchKPI.bind(this)}        
+          />        
           <DefinitionList
-            kpiList={this.state.kpiList.map(k => ({name:k.name,defined:k.defined}))}
+            kpiList={this.state.kpiList
+              .filter(k => { 
+                 return k.name.toLowerCase().indexOf(this.state.filterKpi.toLowerCase())>=0
+                 
+               })                          
+              .map(k => ({id:k.id,name:k.name,defined:k.defined}))}
             selectedKpi={this.state.selectedKpi}
-            updateSelected={this.updateSelected}
+            updateSelected={this.updateSelected}                         
           />
         </div>
         <div className={classes.form}>
           {this.state.selectedKpi !== null ? (
             <div className={classes.gridContainer}>
-              <DefinitionCards
-                kpiList={this.state.kpiList[this.state.selectedKpi]}
+              
+              <DefinitionCardsGrid
+                currentKpi={this.state.kpiList[this.state.kpiList.findIndex(k => k.id===this.state.selectedKpi)] }
                 handleChange={(e, name) => {
-                  this.handleChange(e, this.state.selectedKpi, name);
-                }}
-              />
+                  this.handleChange(e, this.state.selectedKpi, name); 
+                }} 
+                
+              /> 
+               
             </div>
           ) : (
             <Typography variant='h2' gutterBottom align='center'>

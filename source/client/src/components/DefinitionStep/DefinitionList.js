@@ -17,16 +17,16 @@ class DefinitionList extends React.Component {
         <ListItem
           key={i}
           button
-          selected={this.props.selectedKpi === i}
-          onClick={() => this.props.updateSelected(i)}
+          selected={this.props.selectedKpi === k.id}
+          onClick={() => this.props.updateSelected(k.id)}
         >
           <ListItemText primary={k.name} />
           {
-            this.props.kpiList[i].defined === utils.KpiDefinitionState.DEFINED ? (
+            k.defined === utils.KpiDefinitionState.DEFINED ? (
               <Typography align='right' color='textSecondary'>
                 Defined
               </Typography>
-            ) : this.props.kpiList[i].defined === utils.KpiDefinitionState.PARTIALLY_DEFINED ? (
+            ) : k.defined === utils.KpiDefinitionState.PARTIALLY_DEFINED ? (
               <Typography align='right' color='textSecondary'>
                 Partially defined
               </Typography>
@@ -45,6 +45,7 @@ class DefinitionList extends React.Component {
    * @ignore
    */
   render() {
+    
     return <List>{this.generateKpiList()}</List>;
   }
 }

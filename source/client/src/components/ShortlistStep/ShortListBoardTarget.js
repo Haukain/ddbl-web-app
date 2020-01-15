@@ -26,7 +26,7 @@ function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeig
   // eslint-disable-next-line
   for (let [i,k] of items.entries()) {
     targetTokens.push(
-      <Draggable key={i} onDrag={(_,ui) => positionHandler(i,ui)} bounds='parent' defaultPosition={{x: boardWidth/2 - tokenSize/2 + k.position.x, y: boardHeight/2 - tokenSize/2 + k.position.y}}>
+      <Draggable key={i} onDrag={(_,ui) => positionHandler(k.id,ui)} bounds='parent' defaultPosition={{x: boardWidth/2 - tokenSize/2 + k.position.x, y: boardHeight/2 - tokenSize/2 + k.position.y}}>
         <HtmlTooltip enterDelay={500}
           title={
             <React.Fragment>
