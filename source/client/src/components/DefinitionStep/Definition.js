@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   board : {
     maxHeight: "650px",
   },
-  saveButton: {
+  visualizationButton: {
     margin: 0,
     top: 7,
     right: 20,
@@ -23,7 +23,7 @@ export default function Definition(props) {
   return (
     <div>
         <DefinitionBoard openSnackbar={props.openSnackbar} />
-        <Fab color="secondary" component={RouterLink} to='/visualization' className={classes.saveButton} variant="extended">
+        <Fab color="secondary" component={RouterLink} to='/visualization' className={classes.visualizationButton} variant="extended">
           Open Visualization
         </Fab>
     </div>

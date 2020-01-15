@@ -16,7 +16,7 @@ const styles = theme => ({
       padding: '5px',
       margin: '10px',
     },
-    saveButton: {
+    definitionButton: {
       margin: 0,
       top: 7,
       right: 20,
@@ -92,7 +92,7 @@ class VisualizationPanel extends Component {
                         labelsData={this.state.totalScoreLabel}                                                                         
                     />                                        
                 </div>
-                <Fab color="secondary" component={RouterLink} to='/definition'  className={classes.saveButton} variant="extended">
+                <Fab color="secondary" component={RouterLink} to='/definition'  className={classes.definitionButton} variant="extended">
                     Open Definition form
                 </Fab>              
             </div>
