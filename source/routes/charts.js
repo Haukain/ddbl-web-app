@@ -57,9 +57,23 @@ function completionState(kpi){
   }
 }
 
+router.get('/shortlisted-percentage/:companyId/:userId', function(req, res) {
+  Kpi.findAll().then((kpis) => {
+      states = kpis.map(k => k.status)
+      data = {
+        imported:states.filter(s=>s<=1).length,
+        shortlisted:states.filter(s=>s>1).length,
+      }
+      res.send({success:data}) 
+    }
+  );
+});
+
 router.get('/completion-percentage/:companyId/:userId', function(req, res) {
   Kpi.findAll().then((kpis) => {
-      states = kpis.map(k => completionState(k))
+      states = kpis
+        .filter(k => k.status>1)
+        .map(k => completionState(k))        
       data = {
         defined:states.filter(s=>s==KpiDefinitionState.DEFINED).length,
         partially:states.filter(s=>s==KpiDefinitionState.PARTIALLY_DEFINED).length,

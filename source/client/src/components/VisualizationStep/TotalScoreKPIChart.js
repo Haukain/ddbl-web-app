@@ -28,7 +28,7 @@ class TotalScoreKPIChart extends Component {
                         maintainAspectRatio: false,
                         title:{
                             display:true,
-                            text:"Total score per KPIs",
+                            text:"Top 10 total score per KPIs",
                             fontSize:15,
                             fontColor:"#000",
                             responsive:true

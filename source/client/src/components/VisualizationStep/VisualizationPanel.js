@@ -6,6 +6,7 @@ import Api from '../../utils/Api';
 import utils from '../../utils/utils';
 import Fab from '@material-ui/core/Fab';
 import { Link as RouterLink } from 'react-router-dom';
+import PercentageShortlisted from './PercentageShortlisted';
 
 /**
  * @ignore
@@ -45,7 +46,8 @@ class VisualizationPanel extends Component {
             definedKPIData: [],
             numberKPIData:[],
             totalScoreLabel:[],
-            totalScoreData: []
+            totalScoreData: [],
+            shortlistedKPIData: []
         }
     }
     
@@ -63,10 +65,22 @@ class VisualizationPanel extends Component {
         let definedKPIData= [];
         let totalScoreData= [];
         let totalScoreLabel= [];
+        let shortlistedKPIData = [];
     
+         //chart - percentage of shortlisted KPI
+         Api.get('/chart/shortlisted-percentage/1/1')
+         .then(data => { 
+            shortlistedKPIData.push(data.imported);
+            shortlistedKPIData.push(data.shortlisted)
+             
+             this.setState({ 
+                 shortlistedKPIData: shortlistedKPIData        
+             })  
+         });        
+        
         //chart - number of KPI defined/undefined/partially
         Api.get('/chart/completion-percentage/1/1')
-        .then(data => {           
+        .then(data => { 
             definedKPIData.push(data.defined);
             definedKPIData.push(data.partially)
             definedKPIData.push(data.undefined)
@@ -76,14 +90,23 @@ class VisualizationPanel extends Component {
             })  
         });    
         
-        //chart - total score per KPI    
+        //chart - top 10 total score per KPI    
         Api.get('/chart/kpi-score/1/1')
         .then(data => {
             //eslint-disable-next-line
-            for (let k in data) {
-                totalScoreLabel.push(utils.trimStringToFit(data[k].name));
-                totalScoreData.push(data[k].score);               
+            if (data.length >=10) {
+                for (let k=0; k<10; k++) {
+                    totalScoreLabel.push(utils.trimStringToFit(data[k].name));
+                    totalScoreData.push(data[k].score);               
+                }
             }
+            else {
+                for (let k in data) {
+                    totalScoreLabel.push(utils.trimStringToFit(data[k].name));
+                    totalScoreData.push(data[k].score);               
+                }
+            }
+
             this.setState({ 
                 totalScoreLabel:totalScoreLabel,
                 totalScoreData: totalScoreData        
@@ -99,6 +122,11 @@ class VisualizationPanel extends Component {
         
         return(
             <div>            
+                <div className={classes.size}>                    
+                    <PercentageShortlisted 
+                        rawData={this.state.shortlistedKPIData}                                                                         
+                    />                                        
+                </div> 
                 <div className={classes.size}>                    
                     <DefinedKPIChart 
                         rawData={this.state.definedKPIData}                                                                         

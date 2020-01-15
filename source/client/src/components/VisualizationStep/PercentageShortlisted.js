@@ -2,22 +2,25 @@ import React, {Component} from 'react';
 import {Doughnut} from 'react-chartjs-2';
 
 /**
- * Number of KPI fully, partially and non defined (shortlisted ones)- Pie chart
+ * Percentage of KPIs shortlisted - Pie chart
  */
-class DefinedKPIChart extends Component {
-    /**
-     * @ignore
-     */
+class PercentageShortlisted extends Component {
+    
+    static defaultProps = {
+        displayTitle:true,
+        displayLegends:true,
+        legendPosition:'bottom',
+    }
+    
     render(){
         return(
-            <div className="definedKPIChart">      
+            <div className="percentageShortlisted">      
                 <Doughnut
                     width={600} height={300} 
                     data={ {
                         labels:[
-                            "KPI completely defined",
-                            "KPI partially defined",
-                            "KPI non defined"
+                            "KPI non-shortlisted",
+                            "KPI shortlisted"
                         ],
                         datasets:[ {
                             label: 'Number of KPIs',
@@ -35,15 +38,15 @@ class DefinedKPIChart extends Component {
                     options={{
                         maintainAspectRatio: false,
                         title:{
-                            display:true,
-                            text:"Display of defined KPIs",
+                            display:this.props.displayTitle,
+                            text:"Display of shortlisted KPIs",
                             fontSize:15,
                             fontColor:"#000",
                             responsive:true
                         },
                         legend:{
-                            display:true,
-                            position:'bottom',
+                            display:this.props.displayLegends,
+                            position:this.props.legendPosition,
                             labels:{
                             fontColor:"#000"
                             }
@@ -70,4 +73,4 @@ class DefinedKPIChart extends Component {
     }
 }
 
-export default DefinedKPIChart;
+export default PercentageShortlisted;
