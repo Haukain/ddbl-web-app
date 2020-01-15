@@ -27,14 +27,14 @@ The team was made of 7 Fontys students for their Data Driven Business Lab semest
 
 ### The ROKS method <a name="method"></a>
 
-The Result Orient KPI System (ROKS) is a KPI definition mathod created by Bernie Smith, you can learn more about it [on this website](https://madetomeasurekpis.com/roks-kpi-method-overview/)
+The Result Orient KPI System (ROKS) is a KPI definition method created by Bernie Smith, you can learn more about it [on this website.](https://madetomeasurekpis.com/roks-kpi-method-overview/)
 It consists of 7 steps to design a KPI system for a company. This project creates a digital tool for the Longlist, Shortlist and Definition (3rd, 4th and 5th) steps of the method.
 
 ## Documentation <a name="documentation"></a>
 
 The documentation of this application can be found [here](*TBD*)
 
-Note: The documentation is generated automatically by the comments in the projects files by the [esdoc](https://esdoc.org/) plugin. Its settings are available in `source/.esdoc.json` and the generated files are available `docs`
+Note: The documentation is generated automatically by the comments in the projects files by the [esdoc](https://esdoc.org/) plugin. Its settings are available in `source/.esdoc.json` and the generated files are available in `docs`
 
 ## Technical stuff <a name="technical"></a>
 
@@ -86,13 +86,13 @@ Please install locally:
 - [NodeJS](https://nodejs.org/en/) (>v10.15.1) and npm (>v6.4.1)
 - [PostgreSQL](https://www.postgresql.org/) (>v11)
 
-On a local PostgreSQL server, create a database called `ddbl_web_app` and a user `ddbl_web_app` (password: `ddbl`) and give him the rights to read and write on the previously create database.
+On a local PostgreSQL server, create a database called `ddbl_web_app` and a user `ddbl_web_app` (password: `ddbl`) and give him the rights to read and write on the previously created database.
 
 Clone this repository on your computer, open tabs in your terminal and move to the `source/` folder in the first one and to the `source/client/` folder in the second.
 
 Run the command `npm install` in both tabs, this will install the dependencies of the project.
 
-Once the installation done you can run `npm start` in both tabs. You can then go to http://localhost:3000 to access the web application or http://localhost:4000 to access the API.
+Once the installation is done you can run `npm start` in both tabs. You can then go to http://localhost:3000 to access the web application or http://localhost:4000 to access the API.
 
 ### Deployment
 
@@ -104,7 +104,7 @@ Move to the `source/` folder and run `npm run-script build`, this will build the
 
 Then [follow this guide](https://devcenter.heroku.com/articles/git) from Heroku for creating and deploying an application using Git.
 
-Go to your Heroku dashboard and add a PostgreSQL database plugin to your application
+Go to your Heroku dashboard and add a PostgreSQL database plugin to your application.
 
 Once the process is done you should be able to go to the url of your heroku-hosted application and use the production version of the ROKS method application.
 
@@ -116,19 +116,19 @@ In the `Longlist`, the application allows the user to import its KPI tree as an 
 
 In the `Shortlist`, the user can place the imported KPI on a board based on their importance and their ease of measure. He can add a comment to the KPI to add notes about their ranking. On saving, the shortlisted KPIs are the one scoring above five in the two criteria.
 
-In the `Definition`, the user can define the shortlisted KPI on multiple topics. He can also use the visualization panel to see have some insights about the KPI in the application.
+In the `Definition`, the user can define the shortlisted KPI on multiple topics. He can also use the visualization panel to see and have some insights about the KPI in the application.
 
 ### To be developed
 
 - The authentication of user
 
-For now the authentication of user is done by sending a default company and user in the API requests (companyId 1, userId 1) created in the synchronization with the database. The SignIn and SignUp form are already created and the model for the User table in the database already exists. A backend authentication and login sessions have to be created as well as better check on API calls.
+For now the authentication of user is done by sending a default company and user in the API requests (companyId 1, userId 1) created in the synchronization with the database. The SignIn and SignUp forms are already created and the model for the User table in the database already exists. A backend authentication and login sessions have to be created as well as a better check on API calls.
 
 - A better shortlisting
 
-For now, the shortlist phase only consists of placing KPIs on a board based on their Ease of Measure and Importance. Only the KPIs which score above 5 in the 2 criteria are shortlisted and go to the definition phase.
+For now, the shortlist phase only consists of placing KPIs on a board based on their Ease of Measure and Importance. Only the KPIs which have a score above 5 in the 2 criteria are shortlisted and go to the definition phase.
 A better shortlisting phase would include a second page after the currently existing one featuring 3 columns, a "To be discarded" (left), "To be Shortlisted" (right) and to be decided KPIs (middle). Only the KPIs present in the right column would be kept after this step.
-The left column would be pre-filled with KPIs which were in the bottom left corner of the board and the right colum with KPIs from the up-right corner. KPIs which were in the two other corners (in other words, more than 5 in a criteria but below 5 in the other) would be placed in the middle column. Every KPIs could be moved from one column to another so the user can decide more precesily and per KPI which one to keep to the definition phase.
+The left column would be pre-filled with KPIs which were in the bottom left corner of the board and the right colum with KPIs from the top-right corner. KPIs which were in the two other corners (in other words, more than 5 in a criteria but below 5 in the other) would be placed in the middle column. Every KPIs could be moved from one column to another so the user can decide more precisely and for each KPI which one to keep to the definition phase.
 
 - A better definition and visualization
 
