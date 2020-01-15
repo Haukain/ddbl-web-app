@@ -1,6 +1,18 @@
+/**
+ * @ignore
+ */
 var express = require('express');
+/**
+ * @ignore
+ */
 var router = express.Router();
+/**
+ * @ignore
+ */
 const Kpi = require('../models').kpi;
+/**
+ * @ignore
+ */
 const check = require('./utils/check');
 
 check(router)
@@ -9,12 +21,18 @@ check(router)
 // Visualization panel routes
 //
 
+/**
+ * TODO
+ */
 const KpiDefinitionState = {
   UNDEFINED: 0,
   PARTIALLY_DEFINED: 1,
   DEFINED: 2
 };
 
+/**
+ * TODO
+ */
 function completionState(kpi){
   fields = [
     kpi.purpose,

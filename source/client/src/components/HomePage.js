@@ -8,6 +8,9 @@ import { withStyles } from '@material-ui/core/styles';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   root: {
     height: '100vh',
@@ -21,7 +24,13 @@ const styles = theme => ({
   }
 });
 
+/**
+ * TODO
+ */
 class HomePage extends React.Component{
+  /**
+   * @ignore
+   */
   constructor(props){
     super(props)
 
@@ -29,23 +38,34 @@ class HomePage extends React.Component{
     this.generateSignUp = this.generateSignUp.bind(this)
     this.generateSignIn = this.generateSignIn.bind(this)
     
+    /**
+     * TODO
+     */
     this.state = {
       form : this.generateSignUp
     }
   }
-
+  /**
+   * TODO
+   */
   switchForm() {
     this.setState({form:this.state.form===this.generateSignUp?this.generateSignIn:this.generateSignUp})
   }
-
+  /**
+   * TODO
+   */
   generateSignUp() {
     return <SignUp switchForm={this.switchForm}/>
   }
-
+  /**
+   * TODO
+   */
   generateSignIn() {
     return <SignIn switchForm={this.switchForm}/>
   }
-
+  /**
+   * TODO
+   */
   copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
@@ -58,7 +78,9 @@ class HomePage extends React.Component{
       </Typography>
     );
   }
-
+  /**
+   * @ignore
+   */
   render(){
     const { classes } = this.props;
 

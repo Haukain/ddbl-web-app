@@ -5,13 +5,9 @@ import {Doughnut} from 'react-chartjs-2';
  * Number of KPI fully, partially and non defined - Pie chart
  */
 class DefinedKPIChart extends Component {
-    
-    static defaultProps = {
-        displayTitle:true,
-        displayLegends:true,
-        legendPosition:'bottom',
-    }
-    
+    /**
+     * @ignore
+     */
     render(){
         return(
             <div className="definedKPIChart">      
@@ -39,15 +35,15 @@ class DefinedKPIChart extends Component {
                     options={{
                         maintainAspectRatio: false,
                         title:{
-                            display:this.props.displayTitle,
+                            display:true,
                             text:"Display of defined KPIs",
                             fontSize:15,
                             fontColor:"#000",
                             responsive:true
                         },
                         legend:{
-                            display:this.props.displayLegends,
-                            position:this.props.legendPosition,
+                            display:true,
+                            position:'bottom',
                             labels:{
                             fontColor:"#000"
                             }

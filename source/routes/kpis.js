@@ -1,6 +1,18 @@
+/**
+ * @ignore
+ */
 var express = require('express');
+/**
+ * @ignore
+ */
 var router = express.Router();
+/**
+ * @ignore
+ */
 const Kpi = require('../models').kpi;
+/**
+ * @ignore
+ */
 const check = require('./utils/check');
 
 check(router)
@@ -9,6 +21,9 @@ check(router)
 // Longlist, shortlist, definition step routes
 //
 
+/**
+ * TODO
+ */
 function checkForInListNameDuplicates(list){
   for(let [i,x] of list.entries())
     for(let [j,y] of list.entries()){
@@ -19,6 +34,9 @@ function checkForInListNameDuplicates(list){
   return false
 }
 
+/**
+ * TODO
+ */
 function checkForInDatabaseNameDuplicates(list){
   let promises = []
   for(let k of list){

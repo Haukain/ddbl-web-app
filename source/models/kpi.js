@@ -1,6 +1,12 @@
+/**
+ * @ignore
+ */
 const Sequelize = require('sequelize');
 
-module.exports = function(sequelize, DataTypes) {
+/**
+ * TODO
+ */
+let Kpi = function(sequelize, DataTypes) {
   var Kpi = sequelize.define(
     'kpi',
     {
@@ -37,3 +43,5 @@ module.exports = function(sequelize, DataTypes) {
 
   return Kpi;
 };
+
+module.exports = Kpi

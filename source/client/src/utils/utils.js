@@ -1,5 +1,11 @@
+/**
+ * @ignore
+ */
 const utils = {}
 
+/**
+ * @ignore
+ */
 const KpiDefinitionState = {
     UNDEFINED: 0,
     PARTIALLY_DEFINED: 1,
@@ -7,6 +13,9 @@ const KpiDefinitionState = {
 };
 utils.KpiDefinitionState = KpiDefinitionState
 
+/**
+ * TODO
+ */
 function trimStringToFit(str){
     return str.length<=15?str:str.substring(0,15)+'...'
 }

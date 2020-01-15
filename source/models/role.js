@@ -1,6 +1,12 @@
+/**
+ * @ignore
+ */
 const Sequelize = require('sequelize');
 
-module.exports = function(sequelize, DataTypes) {
+/**
+ * TODO
+ */
+let Role = function(sequelize, DataTypes) {
   var Role = sequelize.define(
     'role',
     {
@@ -11,3 +17,5 @@ module.exports = function(sequelize, DataTypes) {
   );
   return Role;
 };
+
+module.exports = Role

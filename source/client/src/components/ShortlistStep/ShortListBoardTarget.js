@@ -5,6 +5,9 @@ import clsx from 'clsx';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
+/**
+ * @ignore
+ */
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: theme.palette.grey[100],
@@ -15,6 +18,9 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
+/**
+ * TODO
+ */
 function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeight,tokenSize) {
   let targetTokens = []
   // eslint-disable-next-line
@@ -38,6 +44,9 @@ function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeig
   return targetTokens
 }
 
+/**
+ * TODO
+ */
 export default function ShortListBoardTarget(props) {
 
   const useStyles = makeStyles(theme => ({

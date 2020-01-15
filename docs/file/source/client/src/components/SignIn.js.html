@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">source/client/src/components/SignIn.js | expressapp</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components">client/src/components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/HomePage.js~HomePage.html">HomePage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignIn">SignIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignUp">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-StepSelectionPage">StepSelectionPage</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-definitionstep">client/src/components/DefinitionStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html">DefinitionBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionCards.js~DefinitionCards.html">DefinitionCards</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionList.js~DefinitionList.html">DefinitionList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Definition">Definition</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-longliststep">client/src/components/LonglistStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html">LonglistBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html">LonglistManualImport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport.html">LonglistXMLImport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Longlist">Longlist</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-shortliststep">client/src/components/ShortlistStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html">ShortListBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortList">ShortList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortListBoardList">ShortListBoardList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateListItems">generateListItems</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortListBoardTarget">ShortListBoardTarget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateTargetTokens">generateTargetTokens</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-visualizationstep">client/src/components/VisualizationStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/DefinedKPIChart.js~DefinedKPIChart.html">DefinedKPIChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/TotalScoreKPIChart.js~TotalScoreKPIChart.html">TotalScoreKPIChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel.html">VisualizationPanel</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-utils">client/src/components/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/utils/NoMatch.js~NoMatch.html">NoMatch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Header">Header</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SimpleSnackbar">SimpleSnackbar</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-utils">client/src/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/utils/Api.js~Api.html">Api</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-trimStringToFit">trimStringToFit</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#models">models</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Company">Company</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Kpi">Kpi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Role">Role</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-User">User</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes">routes</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-completionState">completionState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkForInDatabaseNameDuplicates">checkForInDatabaseNameDuplicates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkForInListNameDuplicates">checkForInListNameDuplicates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KpiDefinitionState">KpiDefinitionState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-companyRouter">companyRouter</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-utils">routes/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkCompany">checkCompany</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkUser">checkUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-exports">exports</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">source/client/src/components/SignIn.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import Avatar from &apos;@material-ui/core/Avatar&apos;;
+import Button from &apos;@material-ui/core/Button&apos;;
+import TextField from &apos;@material-ui/core/TextField&apos;;
+import FormControlLabel from &apos;@material-ui/core/FormControlLabel&apos;;
+import Checkbox from &apos;@material-ui/core/Checkbox&apos;;
+import LockOutlinedIcon from &apos;@material-ui/icons/LockOutlined&apos;;
+import Grid from &apos;@material-ui/core/Grid&apos;;
+import Link from &apos;@material-ui/core/Link&apos;;
+import Typography from &apos;@material-ui/core/Typography&apos;;
+import { makeStyles } from &apos;@material-ui/core/styles&apos;;
+import { Link as RouterLink } from &apos;react-router-dom&apos;;
+
+/**
+ * @ignore
+ */
+const useStyles = makeStyles(theme =&gt; ({
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: &apos;flex&apos;,
+    flexDirection: &apos;column&apos;,
+    alignItems: &apos;center&apos;,
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: &apos;100%&apos;, // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+/**
+ * TODO
+ */
+export default function SignIn(props) {
+  const classes = useStyles();
+
+  return (
+    &lt;div className={classes.paper}&gt;
+      &lt;Avatar className={classes.avatar}&gt;
+        &lt;LockOutlinedIcon /&gt;
+      &lt;/Avatar&gt;
+      &lt;Typography component=&quot;h1&quot; variant=&quot;h5&quot;&gt;
+        Sign in
+      &lt;/Typography&gt;
+      &lt;form className={classes.form} noValidate&gt;
+        &lt;TextField
+          variant=&quot;outlined&quot;
+          margin=&quot;normal&quot;
+          required
+          fullWidth
+          id=&quot;email&quot;
+          label=&quot;Email Address&quot;
+          name=&quot;email&quot;
+          autoComplete=&quot;email&quot;
+          autoFocus
+        /&gt;
+        &lt;TextField
+          variant=&quot;outlined&quot;
+          margin=&quot;normal&quot;
+          required
+          fullWidth
+          name=&quot;password&quot;
+          label=&quot;Password&quot;
+          type=&quot;password&quot;
+          id=&quot;password&quot;
+          autoComplete=&quot;current-password&quot;
+        /&gt;
+        &lt;FormControlLabel
+          control={&lt;Checkbox value=&quot;remember&quot; color=&quot;primary&quot; /&gt;}
+          label=&quot;Remember me&quot;
+        /&gt;
+        &lt;Button
+          component={RouterLink}
+          to=&apos;/steps&apos;
+          type=&quot;submit&quot;
+          fullWidth
+          variant=&quot;contained&quot;
+          color=&quot;primary&quot;
+          className={classes.submit}
+        &gt;
+          Sign In
+        &lt;/Button&gt;
+        &lt;Grid container&gt;
+          &lt;Grid item xs&gt;
+            &lt;Link href=&quot;#&quot; variant=&quot;body2&quot;&gt;
+              Forgot password?
+            &lt;/Link&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            &lt;Link href=&quot;#&quot; variant=&quot;body2&quot; onClick={props.switchForm}&gt;
+              {&quot;Don&apos;t have an account? Sign Up&quot;}
+            &lt;/Link&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

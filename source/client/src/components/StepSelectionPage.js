@@ -16,6 +16,9 @@ import {
 } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop : theme.spacing(10)
@@ -33,6 +36,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+/**
+ * @ignore
+ */
 const summaries = [
   {
       "title" : "Longlist",
@@ -56,6 +62,9 @@ const summaries = [
   }
 ]
 
+/**
+ * TODO
+ */
 export default function StepSelectionPage(props) {
   const classes = useStyles();
 

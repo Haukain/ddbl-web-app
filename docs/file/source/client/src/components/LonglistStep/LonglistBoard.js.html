@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../../">
+  <title data-ice="title">source/client/src/components/LonglistStep/LonglistBoard.js | expressapp</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components">client/src/components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/HomePage.js~HomePage.html">HomePage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignIn">SignIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignUp">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-StepSelectionPage">StepSelectionPage</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-definitionstep">client/src/components/DefinitionStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html">DefinitionBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionCards.js~DefinitionCards.html">DefinitionCards</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionList.js~DefinitionList.html">DefinitionList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Definition">Definition</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-longliststep">client/src/components/LonglistStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html">LonglistBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html">LonglistManualImport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport.html">LonglistXMLImport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Longlist">Longlist</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-shortliststep">client/src/components/ShortlistStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html">ShortListBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortList">ShortList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortListBoardList">ShortListBoardList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateListItems">generateListItems</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortListBoardTarget">ShortListBoardTarget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateTargetTokens">generateTargetTokens</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-visualizationstep">client/src/components/VisualizationStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/DefinedKPIChart.js~DefinedKPIChart.html">DefinedKPIChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/TotalScoreKPIChart.js~TotalScoreKPIChart.html">TotalScoreKPIChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel.html">VisualizationPanel</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-utils">client/src/components/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/utils/NoMatch.js~NoMatch.html">NoMatch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Header">Header</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SimpleSnackbar">SimpleSnackbar</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-utils">client/src/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/utils/Api.js~Api.html">Api</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-trimStringToFit">trimStringToFit</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#models">models</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Company">Company</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Kpi">Kpi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Role">Role</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-User">User</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes">routes</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-completionState">completionState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkForInDatabaseNameDuplicates">checkForInDatabaseNameDuplicates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkForInListNameDuplicates">checkForInListNameDuplicates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KpiDefinitionState">KpiDefinitionState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-companyRouter">companyRouter</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-utils">routes/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkCompany">checkCompany</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkUser">checkUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-exports">exports</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">source/client/src/components/LonglistStep/LonglistBoard.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import { withStyles } from &apos;@material-ui/core/styles&apos;;
+import {
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Checkbox,
+  Typography,
+  ListSubheader,
+  FormControlLabel,
+  TextField
+} from &apos;@material-ui/core&apos;;
+import { Button } from &apos;@material-ui/core&apos;;
+import update from &apos;immutability-helper&apos;;
+import LonglistXMLImport from &apos;./LonglistXMLImport&apos;;
+import LonglistManualImport from &apos;./LonglistManualImport&apos;;
+import Api from &apos;../../utils/Api&apos;;
+
+/**
+ * @ignore
+ */
+const styles = theme =&gt; ({
+  listRoot: {
+    textAlign: &apos;center&apos;
+  },
+  list: {
+    overflow: &apos;auto&apos;,
+    maxHeight: 400,
+    marginBottom: theme.spacing(2)
+  }
+});
+
+/**
+ * TODO
+ */
+class LonglistBoard extends React.Component {
+  /**
+   * @ignore
+   */
+  constructor(props) {
+    super(props);
+    /**
+     * TODO
+     */
+    this.state = {
+      kpiList: [],
+      batchCheck: true,
+    };
+    this.handleChecked = this.handleChecked.bind(this);
+    this.handleBatchCheck = this.handleBatchCheck.bind(this);
+    this.handleKpiToggleEdition = this.handleKpiToggleEdition.bind(this);
+    this.handleValidateKpiEdition = this.handleValidateKpiEdition.bind(this);
+    this.saveHandler = this.saveHandler.bind(this);
+    this.importKpis = this.importKpis.bind(this);
+    this.addKpis = this.addKpis.bind(this);
+  }
+  /**
+   * TODO
+   */
+  handleChecked(id) {
+    let currentState = this.state.kpiList[id].isChecked;
+    this.setState({
+      kpiList: update(this.state.kpiList, {
+        [id]: { isChecked: { $set: !currentState } }
+      })
+    });
+  }
+  /**
+   * TODO
+   */
+  handleBatchCheck() {
+    let newState = !this.state.batchCheck
+    this.setState({batchCheck:newState})
+    let kpiList = this.state.kpiList
+    for(let k of kpiList){
+      k.isChecked = newState
+    }
+    this.setState({kpiList:kpiList})
+  }
+  /**
+   * TODO
+   */
+  handleKpiToggleEdition(id){
+    this.setState({
+      kpiList: update(this.state.kpiList, {
+        [id]: { isBeingEdited: { $set: true } }
+      })
+    });
+  }
+  /**
+   * TODO
+   */
+  handleKpiEdition(event,id){
+    this.setState({
+      kpiList: update(this.state.kpiList, {
+        [id]: { name : { $set: event.target.value } }
+      })
+    });
+  }
+  /**
+   * TODO
+   */
+  handleEnterValidateKpiEdition(event,id) {
+    if(event.key===&apos;Enter&apos;){
+      this.handleValidateKpiEdition(id)
+    }
+  }
+  /**
+   * TODO
+   */
+  handleValidateKpiEdition(id){
+    this.setState({
+      kpiList: update(this.state.kpiList, {
+        [id]: { isBeingEdited: { $set: false } }
+      })
+    });
+  }
+  /**
+   * TODO
+   */
+  generateKpiList() {
+    let kpiList = [];
+    // eslint-disable-next-line
+    for (let [i, k] of this.state.kpiList.entries()) {
+      kpiList.push(
+        &lt;ListItem key={i}&gt;
+          {k.isBeingEdited?&lt;TextField autoFocus value={this.state.kpiList[i].name} onKeyDown={(e) =&gt; this.handleEnterValidateKpiEdition(e,i)} onChange={(e) =&gt; this.handleKpiEdition(e,i)} onBlur={() =&gt; this.handleValidateKpiEdition(i)}/&gt;:&lt;ListItemText primary={k.name} onDoubleClick={() =&gt; this.handleKpiToggleEdition(i)}/&gt;}
+          &lt;ListItemIcon&gt;
+            &lt;Checkbox
+              disableRipple
+              onChange={() =&gt; this.handleChecked(i)}
+              checked={k.isChecked}
+            /&gt;
+          &lt;/ListItemIcon&gt;
+        &lt;/ListItem&gt;
+      );
+    }
+    return kpiList;
+  }
+  /**
+   * TODO
+   */
+  saveHandler() {
+    let kpisToSave = this.state.kpiList
+      .filter(e =&gt; e.isChecked)
+      .map(e =&gt; ({ name: e.name }));
+    let jsonPayload = JSON.stringify({
+      companyId: 1,
+      userId: 1,
+      kpis: kpisToSave
+    });
+
+    Api.post(&apos;/kpi&apos;, jsonPayload)
+      .then(data =&gt; {
+        this.props.openSnackbar(
+          `${data.length} KPI(s) have been saved`,
+          false
+        );
+        this.setState({ kpiList: [] });
+      })
+      .catch(error =&gt; {
+        console.error(error);
+        this.props.openSnackbar(&apos;An error ocurred while saving the KPIs&apos;, true);
+      });
+  }
+  /**
+   * TODO
+   */
+  importKpis(list) {
+    this.setState({
+      kpiList: update(this.state.kpiList, {
+        $push: list.map(e =&gt; ({ name: e, isChecked: this.state.batchCheck, isBeingEdited : false }))
+      })
+    });
+  }
+  /**
+   * TODO
+   */
+  addKpis(name) {
+    let newKpi = { name: name, isChecked: this.state.batchCheck, isBeingEdited : false };
+    this.setState({ kpiList: update(this.state.kpiList, { $push: [newKpi] }) });
+  }
+  /**
+   * @ignore
+   */
+  render() {
+    const { classes } = this.props;
+
+    return (
+      &lt;div className={classes.listRoot}&gt;
+        &lt;Typography variant=&apos;h2&apos; gutterBottom&gt;
+          {this.state.kpiList.length !== 0
+            ? this.state.kpiList.length + &apos; KPIs found&apos;
+            : &apos;Please import some KPIs&apos;}
+        &lt;/Typography&gt;
+        &lt;Grid container spacing={10}&gt;
+          &lt;Grid item xs={4}&gt;
+            &lt;Typography variant=&apos;h5&apos; gutterBottom&gt;
+              {&apos;Add KPI manually&apos;}
+            &lt;/Typography&gt;
+            &lt;LonglistManualImport addKpis={this.addKpis} /&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item xs={4}&gt;
+            &lt;List className={classes.list}&gt;
+              &lt;ListSubheader
+              disableSticky
+              &gt;
+                &lt;FormControlLabel
+                  control={&lt;Checkbox color=&quot;primary&quot; checked={this.state.batchCheck} onClick={this.handleBatchCheck}/&gt;}
+                  label={&apos;Check All&apos;}
+                  labelPlacement=&quot;start&quot;
+                /&gt;
+              &lt;/ListSubheader&gt;
+              {this.generateKpiList()}
+            &lt;/List&gt;
+            &lt;Button
+              variant=&apos;contained&apos;
+              disabled={this.state.kpiList.length === 0}
+              color=&apos;primary&apos;
+              onClick={this.saveHandler}
+            &gt;
+              save
+            &lt;/Button&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item xs={4}&gt;
+            &lt;Typography variant=&apos;h5&apos; gutterBottom&gt;
+              {&apos;Import a KPI file&apos;}
+            &lt;/Typography&gt;
+            &lt;LonglistXMLImport
+              importKpis={this.importKpis}
+              openSnackbar={this.props.openSnackbar}
+            /&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default withStyles(styles)(LonglistBoard);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

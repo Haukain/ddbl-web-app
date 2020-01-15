@@ -10,6 +10,9 @@ import {
   Icon
 } from '@material-ui/core';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   img: {
     width: 30,
@@ -20,11 +23,19 @@ const styles = theme => ({
   }
 });
 
+/**
+ * TODO
+ */
 class DefinitionCards extends React.Component {
+  /**
+   * TODO
+   */
   handleChange(e, name) {
     this.props.handleChange(e, name);
   }
-
+  /**
+   * TODO
+   */
   createCard(key, name, text) {
     const { classes } = this.props;
     return (
@@ -53,7 +64,9 @@ class DefinitionCards extends React.Component {
       </Card>
     );
   }
-
+  /**
+   * TODO
+   */
   generateCards() {
     const { classes } = this.props;
     return (
@@ -133,7 +146,9 @@ class DefinitionCards extends React.Component {
       </Grid>
     );
   }
-
+  /**
+   * @ignore
+   */
   render() {
     return <div>{this.generateCards()}</div>;
   }
