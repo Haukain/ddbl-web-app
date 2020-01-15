@@ -11,10 +11,18 @@ import VisualizationPanel from './VisualizationStep/VisualizationPanel';
 import Snackbar from './utils/Snackbar';
 import Header from './utils/Header';
 
+/**
+ * TODO
+ */
 class App extends React.Component {
+  /**
+   * @ignore
+   */
   constructor(props) {
     super(props);
-
+    /**
+     * TODO
+     */
     this.state = {
       snackbars: []
     };
@@ -23,19 +31,25 @@ class App extends React.Component {
     this.handleSnackbarClosing = this.handleSnackbarClosing.bind(this);
     this.generateSnackbars = this.generateSnackbars.bind(this);
   }
-
+  /**
+   * TODO
+   */
   handleSnackbarOpening(msg, error) {
     let snackbars = this.state.snackbars;
     snackbars.push({ msg: msg, error: error });
     this.setState({ snackbars: snackbars });
   }
-
+  /**
+   * TODO
+   */
   handleSnackbarClosing(i) {
     let snackbars = this.state.snackbars;
     snackbars.splice(i);
     this.setState({ snackbars: snackbars });
   }
-
+  /**
+   * TODO
+   */
   generateSnackbars() {
     let snackbars = [];
     // eslint-disable-next-line
@@ -50,7 +64,9 @@ class App extends React.Component {
     }
     return snackbars;
   }
-
+  /**
+   * @ignore
+   */ 
   render() {
     return (
       <div className='App'>

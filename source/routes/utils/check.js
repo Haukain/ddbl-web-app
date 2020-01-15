@@ -1,6 +1,16 @@
+/**
+ * @ignore
+ */
 const Company = require('../../models').company;
+/**
+ * @ignore
+ */
 const User = require('../../models').user;
 
+/**
+ * Check if the company exists.
+ * @param {number} companyId - This is the id of the company
+ */
 function checkCompany(companyId, res, next) {
     Company.findOne({ where: { id: companyId } })
       .then(function(c) {
@@ -15,7 +25,11 @@ function checkCompany(companyId, res, next) {
         next(err);
       });
   }
-  
+ 
+/**
+ * Check if the user exists.
+ * @param {number} userId - This is the id of the user
+ */  
 function checkUser(userId, res, next) {
     User.findOne({ where: { id: userId } })
       .then(function(u) {
@@ -32,6 +46,10 @@ function checkUser(userId, res, next) {
   }
 
 // Check company on get routes
+
+/**
+ * TODO
+ */
 module.exports = function addChecksOnRouter(router){
     router.param('companyId', function(req, res, next, param) {
     checkCompany(param, res, next);

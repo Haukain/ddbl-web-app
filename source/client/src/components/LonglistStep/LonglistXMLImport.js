@@ -3,14 +3,22 @@ import Parser from 'xml2js';
 import Fab from '@material-ui/core/Fab';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
+/**
+ * TODO
+ */
 class LonglistXMLImport extends React.Component {
+  /**
+   * @ignore
+   */
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
     this.extractSchema = this.extractSchema.bind(this);
   }
-
+  /**
+   * TODO
+   */
   extractSchema(schema) {
     let kpiList = [];
     try {
@@ -49,7 +57,9 @@ class LonglistXMLImport extends React.Component {
       );
     }
   }
-
+  /**
+   * TODO
+   */
   handleChange(event) {
     try {
       let reader = new FileReader();
@@ -67,7 +77,9 @@ class LonglistXMLImport extends React.Component {
       console.error(`Error while reading the imported file: ${error}`);
     }
   }
-
+  /**
+   * @ignore
+   */
   render() {
     return (
       <div>

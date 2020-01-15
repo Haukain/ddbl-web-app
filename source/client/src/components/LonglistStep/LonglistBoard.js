@@ -19,6 +19,9 @@ import LonglistManualImport from './LonglistManualImport';
 import Api from '../../utils/Api';
 import { withRouter } from "react-router";
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   listRoot: {
     textAlign: 'center'
@@ -30,10 +33,18 @@ const styles = theme => ({
   }
 });
 
+/**
+ * TODO
+ */
 class LonglistBoard extends React.Component {
+  /**
+   * @ignore
+   */
   constructor(props) {
     super(props);
-
+    /**
+     * TODO
+     */
     this.state = {
       kpiList: [],
       batchCheck: true,
@@ -46,7 +57,9 @@ class LonglistBoard extends React.Component {
     this.importKpis = this.importKpis.bind(this);
     this.addKpis = this.addKpis.bind(this);
   }
-
+  /**
+   * TODO
+   */
   handleChecked(id) {
     let currentState = this.state.kpiList[id].isChecked;
     this.setState({
@@ -55,7 +68,9 @@ class LonglistBoard extends React.Component {
       })
     });
   }
-
+  /**
+   * TODO
+   */
   handleBatchCheck() {
     let newState = !this.state.batchCheck
     this.setState({batchCheck:newState})
@@ -66,7 +81,9 @@ class LonglistBoard extends React.Component {
     }
     this.setState({kpiList:kpiList})
   }
-
+  /**
+   * TODO
+   */
   handleKpiToggleEdition(id){
     this.setState({
       kpiList: update(this.state.kpiList, {
@@ -74,7 +91,9 @@ class LonglistBoard extends React.Component {
       })
     });
   }
-
+  /**
+   * TODO
+   */
   handleKpiEdition(event,id){
     this.setState({
       kpiList: update(this.state.kpiList, {
@@ -82,13 +101,17 @@ class LonglistBoard extends React.Component {
       })
     });
   }
-
+  /**
+   * TODO
+   */
   handleEnterValidateKpiEdition(event,id) {
     if(event.key==='Enter'){
       this.handleValidateKpiEdition(id)
     }
   }
-
+  /**
+   * TODO
+   */
   handleValidateKpiEdition(id){
     this.setState({
       kpiList: update(this.state.kpiList, {
@@ -96,7 +119,9 @@ class LonglistBoard extends React.Component {
       })
     });
   }
-
+  /**
+   * TODO
+   */
   generateKpiList() {
     let kpiList = [];
     // eslint-disable-next-line
@@ -116,7 +141,9 @@ class LonglistBoard extends React.Component {
     }
     return kpiList;
   }
-
+  /**
+   * TODO
+   */
   saveHandler() {
     let kpisToSave = this.state.kpiList
       .filter(e => e.isChecked)
@@ -141,7 +168,9 @@ class LonglistBoard extends React.Component {
         this.props.openSnackbar('An error ocurred while saving the KPIs', true);
       });
   }
-
+  /**
+   * TODO
+   */
   importKpis(list) {
     this.setState({
       kpiList: update(this.state.kpiList, {
@@ -149,12 +178,16 @@ class LonglistBoard extends React.Component {
       })
     });
   }
-
+  /**
+   * TODO
+   */
   addKpis(name) {
     let newKpi = { name: name, isChecked: this.state.batchCheck, isBeingEdited : false };
     this.setState({ kpiList: update(this.state.kpiList, { $push: [newKpi] }) });
   }
-
+  /**
+   * @ignore
+   */
   render() {
     const { classes } = this.props;
 

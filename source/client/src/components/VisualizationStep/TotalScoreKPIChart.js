@@ -6,6 +6,9 @@ import {HorizontalBar} from 'react-chartjs-2';
  */
 class TotalScoreKPIChart extends Component {
     
+    /**
+     * @ignore
+     */
     render(){
         // this.props.labelsData.forEarch(console.log)
         return(

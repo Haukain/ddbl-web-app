@@ -7,6 +7,9 @@ import HelpIcon from '@material-ui/icons/Help';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   board : {
     maxHeight: "650px",
@@ -35,6 +38,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+/**
+ * TODO
+ */
 export default function Definition(props) {
   const classes = useStyles();
 

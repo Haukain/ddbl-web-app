@@ -1,0 +1,17 @@
+{
+    "source": ".",
+    "includes": ["\\.js$"],
+    "excludes": ["(node_modules|build|test|app.js|index.js)"],
+    "destination": "../docs",
+    "plugins": [
+      {
+        "name": "esdoc-standard-plugin",
+        "option": {
+          "unexportedIdentifier": {"enable": true}
+        }
+      },
+      {"name": "esdoc-react-plugin"},
+      {"name": "esdoc-jsx-plugin", "option": {"enable": true}},
+      {"name": "esdoc-ecmascript-proposal-plugin", "option": {"all": true}}
+    ]
+  }

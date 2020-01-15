@@ -1,0 +1,784 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 2165,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 63,
+      "column": 0
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 2165,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 63,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start": 0,
+        "end": 39,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 39
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 7,
+            "end": 12,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 7
+              },
+              "end": {
+                "line": 1,
+                "column": 12
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 7,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 7
+                },
+                "end": {
+                  "line": 1,
+                  "column": 12
+                },
+                "identifierName": "React"
+              },
+              "name": "React"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 15,
+            "end": 24,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 15
+              },
+              "end": {
+                "line": 1,
+                "column": 24
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 15,
+              "end": 24,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 15
+                },
+                "end": {
+                  "line": 1,
+                  "column": 24
+                },
+                "identifierName": "Component"
+              },
+              "name": "Component"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 15,
+              "end": 24,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 15
+                },
+                "end": {
+                  "line": 1,
+                  "column": 24
+                },
+                "identifierName": "Component"
+              },
+              "name": "Component"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 31,
+          "end": 38,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 31
+            },
+            "end": {
+              "line": 1,
+              "column": 38
+            }
+          },
+          "extra": {
+            "rawValue": "react",
+            "raw": "'react'"
+          },
+          "value": "react"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 41,
+        "end": 87,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 46
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start": 49,
+            "end": 62,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8
+              },
+              "end": {
+                "line": 2,
+                "column": 21
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 49,
+              "end": 62,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 8
+                },
+                "end": {
+                  "line": 2,
+                  "column": 21
+                },
+                "identifierName": "HorizontalBar"
+              },
+              "name": "HorizontalBar"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 49,
+              "end": 62,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 8
+                },
+                "end": {
+                  "line": 2,
+                  "column": 21
+                },
+                "identifierName": "HorizontalBar"
+              },
+              "name": "HorizontalBar"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 69,
+          "end": 86,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 28
+            },
+            "end": {
+              "line": 2,
+              "column": 45
+            }
+          },
+          "extra": {
+            "rawValue": "react-chartjs-2",
+            "raw": "'react-chartjs-2'"
+          },
+          "value": "react-chartjs-2"
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * Number of KPIs per person - horizontal bar chart\r\n ",
+            "start": 91,
+            "end": 152,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "class NumberKPIChart extends Component {\r\n    \r\n    static defaultProps = {\r\n        displayTitle:true,\r\n        displayLegends:false,\r\n        legendPosition:'bottom',\r\n    } \r\n    \r\n    render(){\r\n        return(\r\n            <div className=\"numberKPIChart\">\r\n                <HorizontalBar\r\n                    width={600} height={200} \r\n                   data={ {\r\n                    labels:labelsData,\r\n                    datasets:[ {\r\n                        label: 'Number of KPIs',\r\n                        data:rawData,\r\n                        backgroundColor: [\r\n                            'rgba(255, 99, 132, 0.6)',\r\n                            'rgba(54, 162, 235, 0.6)',\r\n                            'rgba(255, 206, 86, 0.6)',\r\n                            'rgba(75, 192, 192, 0.6)',\r\n                            'rgba(153, 102, 255, 0.6)',\r\n                            'rgba(255, 159, 64, 0.6)'\r\n                        ],\r\n                        borderWidth:1,\r\n                        borderColor:'#777',\r\n                        hoverBorderWidth:1,\r\n                        hoverBorderColor:'#000'                                              \r\n                       }]\r\n                   }}\r\n                   options={{\r\n                       maintainAspectRatio: false,\r\n                       title:{\r\n                           display:this.props.displayTitle,\r\n                           text:\"Number of KPIs per person\",\r\n                           fontSize:15,\r\n                           responsive:true\r\n                       },\r\n                       legend:{\r\n                           display:this.props.displayLegends,\r\n                           position:this.props.legendPosition,\r\n                           labels:{\r\n                           fontColor:\"#000\"\r\n                           }\r\n                       }                       \r\n                   }}\r\n                />\r\n            </div>\r\n        )\r\n    }\r\n}\r\n\r\nexport default NumberKPIChart;\r\n",
+            "start": 154,
+            "end": 2163,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0
+              },
+              "end": {
+                "line": 62,
+                "column": 2
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * Number of KPIs per person - horizontal bar chart\r\n ",
+      "start": 91,
+      "end": 152,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "class NumberKPIChart extends Component {\r\n    \r\n    static defaultProps = {\r\n        displayTitle:true,\r\n        displayLegends:false,\r\n        legendPosition:'bottom',\r\n    } \r\n    \r\n    render(){\r\n        return(\r\n            <div className=\"numberKPIChart\">\r\n                <HorizontalBar\r\n                    width={600} height={200} \r\n                   data={ {\r\n                    labels:labelsData,\r\n                    datasets:[ {\r\n                        label: 'Number of KPIs',\r\n                        data:rawData,\r\n                        backgroundColor: [\r\n                            'rgba(255, 99, 132, 0.6)',\r\n                            'rgba(54, 162, 235, 0.6)',\r\n                            'rgba(255, 206, 86, 0.6)',\r\n                            'rgba(75, 192, 192, 0.6)',\r\n                            'rgba(153, 102, 255, 0.6)',\r\n                            'rgba(255, 159, 64, 0.6)'\r\n                        ],\r\n                        borderWidth:1,\r\n                        borderColor:'#777',\r\n                        hoverBorderWidth:1,\r\n                        hoverBorderColor:'#000'                                              \r\n                       }]\r\n                   }}\r\n                   options={{\r\n                       maintainAspectRatio: false,\r\n                       title:{\r\n                           display:this.props.displayTitle,\r\n                           text:\"Number of KPIs per person\",\r\n                           fontSize:15,\r\n                           responsive:true\r\n                       },\r\n                       legend:{\r\n                           display:this.props.displayLegends,\r\n                           position:this.props.legendPosition,\r\n                           labels:{\r\n                           fontColor:\"#000\"\r\n                           }\r\n                       }                       \r\n                   }}\r\n                />\r\n            </div>\r\n        )\r\n    }\r\n}\r\n\r\nexport default NumberKPIChart;\r\n",
+      "start": 154,
+      "end": 2163,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 0,
+      "end": 6,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "React",
+      "start": 7,
+      "end": 12,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 7
+        },
+        "end": {
+          "line": 1,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 12,
+      "end": 13,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 12
+        },
+        "end": {
+          "line": 1,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 14,
+      "end": 15,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 14
+        },
+        "end": {
+          "line": 1,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Component",
+      "start": 15,
+      "end": 24,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 15
+        },
+        "end": {
+          "line": 1,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 24,
+      "end": 25,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 24
+        },
+        "end": {
+          "line": 1,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 26,
+      "end": 30,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 26
+        },
+        "end": {
+          "line": 1,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "react",
+      "start": 31,
+      "end": 38,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 31
+        },
+        "end": {
+          "line": 1,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 38,
+      "end": 39,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 38
+        },
+        "end": {
+          "line": 1,
+          "column": 39
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 41,
+      "end": 47,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 48,
+      "end": 49,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 2,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "HorizontalBar",
+      "start": 49,
+      "end": 62,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 8
+        },
+        "end": {
+          "line": 2,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 62,
+      "end": 63,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 21
+        },
+        "end": {
+          "line": 2,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 64,
+      "end": 68,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 23
+        },
+        "end": {
+          "line": 2,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "react-chartjs-2",
+      "start": 69,
+      "end": 86,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 28
+        },
+        "end": {
+          "line": 2,
+          "column": 45
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 86,
+      "end": 87,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 45
+        },
+        "end": {
+          "line": 2,
+          "column": 46
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * Number of KPIs per person - horizontal bar chart\r\n ",
+      "start": 91,
+      "end": 152,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "class NumberKPIChart extends Component {\r\n    \r\n    static defaultProps = {\r\n        displayTitle:true,\r\n        displayLegends:false,\r\n        legendPosition:'bottom',\r\n    } \r\n    \r\n    render(){\r\n        return(\r\n            <div className=\"numberKPIChart\">\r\n                <HorizontalBar\r\n                    width={600} height={200} \r\n                   data={ {\r\n                    labels:labelsData,\r\n                    datasets:[ {\r\n                        label: 'Number of KPIs',\r\n                        data:rawData,\r\n                        backgroundColor: [\r\n                            'rgba(255, 99, 132, 0.6)',\r\n                            'rgba(54, 162, 235, 0.6)',\r\n                            'rgba(255, 206, 86, 0.6)',\r\n                            'rgba(75, 192, 192, 0.6)',\r\n                            'rgba(153, 102, 255, 0.6)',\r\n                            'rgba(255, 159, 64, 0.6)'\r\n                        ],\r\n                        borderWidth:1,\r\n                        borderColor:'#777',\r\n                        hoverBorderWidth:1,\r\n                        hoverBorderColor:'#000'                                              \r\n                       }]\r\n                   }}\r\n                   options={{\r\n                       maintainAspectRatio: false,\r\n                       title:{\r\n                           display:this.props.displayTitle,\r\n                           text:\"Number of KPIs per person\",\r\n                           fontSize:15,\r\n                           responsive:true\r\n                       },\r\n                       legend:{\r\n                           display:this.props.displayLegends,\r\n                           position:this.props.legendPosition,\r\n                           labels:{\r\n                           fontColor:\"#000\"\r\n                           }\r\n                       }                       \r\n                   }}\r\n                />\r\n            </div>\r\n        )\r\n    }\r\n}\r\n\r\nexport default NumberKPIChart;\r\n",
+      "start": 154,
+      "end": 2163,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2165,
+      "end": 2165,
+      "loc": {
+        "start": {
+          "line": 63,
+          "column": 0
+        },
+        "end": {
+          "line": 63,
+          "column": 0
+        }
+      }
+    }
+  ]
+}

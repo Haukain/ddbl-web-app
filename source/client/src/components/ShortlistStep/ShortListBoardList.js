@@ -4,6 +4,9 @@ import { ListItem, List, ListItemText } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { IconButton,ListItemSecondaryAction } from '@material-ui/core';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
     listRoot : {
         height : 500
@@ -15,6 +18,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+/**
+ * TODO
+ */
 function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler,selectKpi) {
 
     let listItems = []
@@ -37,6 +43,9 @@ function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler,s
     return listItems
 }
 
+/**
+ * TODO
+ */
 export default function ShortListBoardList(props) {
   const classes = useStyles();
 

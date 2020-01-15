@@ -3,6 +3,9 @@ import { withStyles } from '@material-ui/core/styles';
 import { TextField, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
   element: {
     'vertical-align': 'bottom',
@@ -10,36 +13,55 @@ const styles = theme => ({
   }
 });
 
+/**
+ * TODO
+ */
 class LonglistManualImport extends React.Component {
+  /**
+   * @ignore
+   */
   constructor(props) {
     super(props);
-
+    /**
+     * TODO
+     */
     this.state = {
       name: ''
     };
 
     this.addField = this.addField.bind(this);
+    /**
+     * @ignore
+     */
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
-
+  /**
+   * TODO
+   */
   handleChange = e =>
     this.setState({
       name: e.target.value
     });
-
+  /**
+   * TODO
+   */
   handleKeyPress = event => {
     if (event.key === 'Enter') {
       this.addField();
     }
   };
-
+  /**
+   * TODO
+   */
   addField(event) {
     if(this.state.name!==''){
       this.props.addKpis(this.state.name);
       this.setState({ name: '' });
     }
   }
-
+  /**
+   * @ignore
+   */
   render() {
     const { classes } = this.props;
 

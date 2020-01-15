@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">source/routes/charts.js | expressapp</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components">client/src/components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/HomePage.js~HomePage.html">HomePage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignIn">SignIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignUp">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-StepSelectionPage">StepSelectionPage</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-definitionstep">client/src/components/DefinitionStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html">DefinitionBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionCards.js~DefinitionCards.html">DefinitionCards</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/DefinitionStep/DefinitionList.js~DefinitionList.html">DefinitionList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Definition">Definition</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-longliststep">client/src/components/LonglistStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html">LonglistBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html">LonglistManualImport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport.html">LonglistXMLImport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Longlist">Longlist</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-shortliststep">client/src/components/ShortlistStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html">ShortListBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortList">ShortList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortListBoardList">ShortListBoardList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateListItems">generateListItems</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ShortListBoardTarget">ShortListBoardTarget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateTargetTokens">generateTargetTokens</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-visualizationstep">client/src/components/VisualizationStep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/DefinedKPIChart.js~DefinedKPIChart.html">DefinedKPIChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/TotalScoreKPIChart.js~TotalScoreKPIChart.html">TotalScoreKPIChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel.html">VisualizationPanel</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-components-utils">client/src/components/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/components/utils/NoMatch.js~NoMatch.html">NoMatch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Header">Header</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SimpleSnackbar">SimpleSnackbar</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-src-utils">client/src/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/source/client/src/utils/Api.js~Api.html">Api</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-trimStringToFit">trimStringToFit</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#models">models</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Company">Company</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Kpi">Kpi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Role">Role</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-User">User</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes">routes</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-completionState">completionState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkForInDatabaseNameDuplicates">checkForInDatabaseNameDuplicates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkForInListNameDuplicates">checkForInListNameDuplicates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KpiDefinitionState">KpiDefinitionState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-companyRouter">companyRouter</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-utils">routes/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkCompany">checkCompany</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkUser">checkUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-exports">exports</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">source/routes/charts.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @ignore
+ */
+var express = require(&apos;express&apos;);
+/**
+ * @ignore
+ */
+var router = express.Router();
+/**
+ * @ignore
+ */
+const Kpi = require(&apos;../models&apos;).kpi;
+/**
+ * @ignore
+ */
+const check = require(&apos;./utils/check&apos;);
+
+check(router)
+
+//
+// Visualization panel routes
+//
+
+/**
+ * TODO
+ */
+const KpiDefinitionState = {
+  UNDEFINED: 0,
+  PARTIALLY_DEFINED: 1,
+  DEFINED: 2
+};
+
+/**
+ * TODO
+ */
+function completionState(kpi){
+  fields = [
+    kpi.purpose,
+    kpi.customers,
+    kpi.datasources,
+    kpi.formula,
+    kpi.resources,
+    kpi.problems,
+    kpi.targets,
+    kpi.outcomes,
+    kpi.cost
+  ]
+
+  if(fields.every((e)=&gt;e!==null)){
+    return KpiDefinitionState.DEFINED
+  }
+  else if(fields.every((e)=&gt;e===null)){
+    return KpiDefinitionState.UNDEFINED
+  }
+  else {
+    return KpiDefinitionState.PARTIALLY_DEFINED
+  }
+}
+
+router.get(&apos;/completion-percentage/:companyId/:userId&apos;, function(req, res) {
+  Kpi.findAll().then((kpis) =&gt; {
+      states = kpis.map(k =&gt; completionState(k))
+      data = {
+        defined:states.filter(s=&gt;s==KpiDefinitionState.DEFINED).length,
+        partially:states.filter(s=&gt;s==KpiDefinitionState.PARTIALLY_DEFINED).length,
+        undefined:states.filter(s=&gt;s==KpiDefinitionState.UNDEFINED).length
+      }
+      res.send({success:data}) 
+    }
+  );
+});
+
+router.get(&apos;/kpi-score/:companyId/:userId&apos;, function(req, res) {
+  Kpi.findAll().then((kpis) =&gt; {
+      scores = kpis
+      .filter(k =&gt; k.status&gt;=1)
+      .map(k =&gt; ({name:k.name,score:(k.importance!=null&amp;&amp;k.easeOfMeasure!=null)?k.importance*k.easeOfMeasure:null}))
+      .filter(k =&gt; k.score!=null)
+      .sort(function(a, b){return b.score-a.score});
+      res.send({success:scores})
+    }
+  );
+});
+
+module.exports = router;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

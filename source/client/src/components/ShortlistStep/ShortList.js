@@ -6,6 +6,9 @@ import Fab from '@material-ui/core/Fab';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   board : {
     padding : theme.spacing(3)
@@ -25,7 +28,9 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
   }
 }));
-
+/**
+ * TODO
+ */
 export default function ShortList(props) {
   const classes = useStyles();
 

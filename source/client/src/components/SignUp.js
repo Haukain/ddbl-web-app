@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
+/**
+ * @ignore
+ */
 const useStyles = makeStyles(theme => ({
   paper: {
     margin: theme.spacing(8, 4),
@@ -31,7 +34,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
+/**
+ * TODO
+ */
 export default function SignUp(props){
   const classes = useStyles();
 
