@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "expressapp/source/client/src/components/visualizationstep/definedkpichart.js~definedkpichart",
+    "class/source/client/src/components/VisualizationStep/DefinedKPIChart.js~DefinedKPIChart.html",
+    "<span>DefinedKPIChart</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/VisualizationStep/DefinedKPIChart.js</span>",
+    "class"
+  ],
+  [
     "expressapp/source/client/src/components/definitionstep/definition.js~definition",
     "function/index.html#static-function-Definition",
     "<span>Definition</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/DefinitionStep/Definition.js</span>",
@@ -60,9 +66,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "expressapp/source/client/src/utils/utils.js~kpidefinitionstate",
+    "expressapp/source/routes/charts.js~kpidefinitionstate",
     "variable/index.html#static-variable-KpiDefinitionState",
-    "<span>KpiDefinitionState</span> <span class=\"search-result-import-path\">expressapp/source/client/src/utils/utils.js</span>",
+    "<span>KpiDefinitionState</span> <span class=\"search-result-import-path\">expressapp/source/routes/charts.js</span>",
     "variable"
   ],
   [
@@ -102,6 +108,30 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "expressapp/source/client/src/components/shortliststep/shortlist.js~shortlist",
+    "function/index.html#static-function-ShortList",
+    "<span>ShortList</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/ShortlistStep/ShortList.js</span>",
+    "function"
+  ],
+  [
+    "expressapp/source/client/src/components/shortliststep/shortlistboard.js~shortlistboard",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html",
+    "<span>ShortListBoard</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/ShortlistStep/ShortListBoard.js</span>",
+    "class"
+  ],
+  [
+    "expressapp/source/client/src/components/shortliststep/shortlistboardlist.js~shortlistboardlist",
+    "function/index.html#static-function-ShortListBoardList",
+    "<span>ShortListBoardList</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/ShortlistStep/ShortListBoardList.js</span>",
+    "function"
+  ],
+  [
+    "expressapp/source/client/src/components/shortliststep/shortlistboardtarget.js~shortlistboardtarget",
+    "function/index.html#static-function-ShortListBoardTarget",
+    "<span>ShortListBoardTarget</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/ShortlistStep/ShortListBoardTarget.js</span>",
+    "function"
+  ],
+  [
     "expressapp/source/client/src/components/signin.js~signin",
     "function/index.html#static-function-SignIn",
     "<span>SignIn</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/SignIn.js</span>",
@@ -126,46 +156,82 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "expressapp/source/client/src/components/visualizationstep/totalscorekpichart.js~totalscorekpichart",
+    "class/source/client/src/components/VisualizationStep/TotalScoreKPIChart.js~TotalScoreKPIChart.html",
+    "<span>TotalScoreKPIChart</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/VisualizationStep/TotalScoreKPIChart.js</span>",
+    "class"
+  ],
+  [
     "expressapp/source/models/user.js~user",
     "function/index.html#static-function-User",
     "<span>User</span> <span class=\"search-result-import-path\">expressapp/source/models/user.js</span>",
     "function"
   ],
   [
-    "expressapp/source/routes/kpi.js~checkcompany",
+    "expressapp/source/client/src/components/visualizationstep/visualizationpanel.js~visualizationpanel",
+    "class/source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel.html",
+    "<span>VisualizationPanel</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/VisualizationStep/VisualizationPanel.js</span>",
+    "class"
+  ],
+  [
+    "expressapp/source/routes/utils/check.js~checkcompany",
     "function/index.html#static-function-checkCompany",
-    "<span>checkCompany</span> <span class=\"search-result-import-path\">expressapp/source/routes/kpi.js</span>",
+    "<span>checkCompany</span> <span class=\"search-result-import-path\">expressapp/source/routes/utils/check.js</span>",
     "function"
   ],
   [
-    "expressapp/source/routes/kpi.js~checkuser",
+    "expressapp/source/routes/kpis.js~checkforindatabasenameduplicates",
+    "function/index.html#static-function-checkForInDatabaseNameDuplicates",
+    "<span>checkForInDatabaseNameDuplicates</span> <span class=\"search-result-import-path\">expressapp/source/routes/kpis.js</span>",
+    "function"
+  ],
+  [
+    "expressapp/source/routes/kpis.js~checkforinlistnameduplicates",
+    "function/index.html#static-function-checkForInListNameDuplicates",
+    "<span>checkForInListNameDuplicates</span> <span class=\"search-result-import-path\">expressapp/source/routes/kpis.js</span>",
+    "function"
+  ],
+  [
+    "expressapp/source/routes/utils/check.js~checkuser",
     "function/index.html#static-function-checkUser",
-    "<span>checkUser</span> <span class=\"search-result-import-path\">expressapp/source/routes/kpi.js</span>",
+    "<span>checkUser</span> <span class=\"search-result-import-path\">expressapp/source/routes/utils/check.js</span>",
     "function"
   ],
   [
-    "expressapp/source/routes/company.js~companyrouter",
+    "expressapp/source/routes/settings.js~companyrouter",
     "variable/index.html#static-variable-companyRouter",
-    "<span>companyRouter</span> <span class=\"search-result-import-path\">expressapp/source/routes/company.js</span>",
+    "<span>companyRouter</span> <span class=\"search-result-import-path\">expressapp/source/routes/settings.js</span>",
     "variable"
   ],
   [
-    "expressapp/source/routes/kpi.js~kpirouter",
-    "variable/index.html#static-variable-kpiRouter",
-    "<span>kpiRouter</span> <span class=\"search-result-import-path\">expressapp/source/routes/kpi.js</span>",
-    "variable"
+    "expressapp/source/routes/charts.js~completionstate",
+    "function/index.html#static-function-completionState",
+    "<span>completionState</span> <span class=\"search-result-import-path\">expressapp/source/routes/charts.js</span>",
+    "function"
   ],
   [
-    "expressapp/source/routes/role.js~rolerouter",
-    "variable/index.html#static-variable-roleRouter",
-    "<span>roleRouter</span> <span class=\"search-result-import-path\">expressapp/source/routes/role.js</span>",
-    "variable"
+    "expressapp/source/routes/utils/check.js~exports",
+    "function/index.html#static-function-exports",
+    "<span>exports</span> <span class=\"search-result-import-path\">expressapp/source/routes/utils/check.js</span>",
+    "function"
   ],
   [
-    "expressapp/source/routes/user.js~userrouter",
-    "variable/index.html#static-variable-userRouter",
-    "<span>userRouter</span> <span class=\"search-result-import-path\">expressapp/source/routes/user.js</span>",
-    "variable"
+    "expressapp/source/client/src/components/shortliststep/shortlistboardlist.js~generatelistitems",
+    "function/index.html#static-function-generateListItems",
+    "<span>generateListItems</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/ShortlistStep/ShortListBoardList.js</span>",
+    "function"
+  ],
+  [
+    "expressapp/source/client/src/components/shortliststep/shortlistboardtarget.js~generatetargettokens",
+    "function/index.html#static-function-generateTargetTokens",
+    "<span>generateTargetTokens</span> <span class=\"search-result-import-path\">expressapp/source/client/src/components/ShortlistStep/ShortListBoardTarget.js</span>",
+    "function"
+  ],
+  [
+    "expressapp/source/client/src/utils/utils.js~trimstringtofit",
+    "function/index.html#static-function-trimStringToFit",
+    "<span>trimStringToFit</span> <span class=\"search-result-import-path\">expressapp/source/client/src/utils/utils.js</span>",
+    "function"
   ],
   [
     "source/.external-ecmascript.js~array",
@@ -456,12 +522,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "source/client/src/components/app.js~app#constructor",
-    "class/source/client/src/components/App.js~App.html#instance-constructor-constructor",
-    "source/client/src/components/App.js~App#constructor",
-    "method"
-  ],
-  [
     "source/client/src/components/app.js~app#generatesnackbars",
     "class/source/client/src/components/App.js~App.html#instance-method-generateSnackbars",
     "source/client/src/components/App.js~App#generateSnackbars",
@@ -477,12 +537,6 @@ window.esdocSearchIndex = [
     "source/client/src/components/app.js~app#handlesnackbaropening",
     "class/source/client/src/components/App.js~App.html#instance-method-handleSnackbarOpening",
     "source/client/src/components/App.js~App#handleSnackbarOpening",
-    "method"
-  ],
-  [
-    "source/client/src/components/app.js~app#render",
-    "class/source/client/src/components/App.js~App.html#instance-method-render",
-    "source/client/src/components/App.js~App#render",
     "method"
   ],
   [
@@ -504,33 +558,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "source/client/src/components/definitionstep/definitionboard.js~definitionboard#componentdidmount",
-    "class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html#instance-method-componentDidMount",
-    "source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard#componentDidMount",
-    "method"
-  ],
-  [
-    "source/client/src/components/definitionstep/definitionboard.js~definitionboard#constructor",
-    "class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html#instance-constructor-constructor",
-    "source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard#constructor",
-    "method"
-  ],
-  [
     "source/client/src/components/definitionstep/definitionboard.js~definitionboard#getdefinitionstate",
     "class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html#instance-method-getDefinitionState",
     "source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard#getDefinitionState",
-    "method"
-  ],
-  [
-    "source/client/src/components/definitionstep/definitionboard.js~definitionboard#handlechange",
-    "class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html#instance-member-handleChange",
-    "source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard#handleChange",
-    "member"
-  ],
-  [
-    "source/client/src/components/definitionstep/definitionboard.js~definitionboard#render",
-    "class/source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard.html#instance-method-render",
-    "source/client/src/components/DefinitionStep/DefinitionBoard.js~DefinitionBoard#render",
     "method"
   ],
   [
@@ -576,12 +606,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "source/client/src/components/definitionstep/definitioncards.js~definitioncards#render",
-    "class/source/client/src/components/DefinitionStep/DefinitionCards.js~DefinitionCards.html#instance-method-render",
-    "source/client/src/components/DefinitionStep/DefinitionCards.js~DefinitionCards#render",
-    "method"
-  ],
-  [
     "source/client/src/components/definitionstep/definitionlist.js",
     "file/source/client/src/components/DefinitionStep/DefinitionList.js.html",
     "source/client/src/components/DefinitionStep/DefinitionList.js",
@@ -594,22 +618,10 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "source/client/src/components/definitionstep/definitionlist.js~definitionlist#render",
-    "class/source/client/src/components/DefinitionStep/DefinitionList.js~DefinitionList.html#instance-method-render",
-    "source/client/src/components/DefinitionStep/DefinitionList.js~DefinitionList#render",
-    "method"
-  ],
-  [
     "source/client/src/components/homepage.js",
     "file/source/client/src/components/HomePage.js.html",
     "source/client/src/components/HomePage.js",
     "file"
-  ],
-  [
-    "source/client/src/components/homepage.js~homepage#constructor",
-    "class/source/client/src/components/HomePage.js~HomePage.html#instance-constructor-constructor",
-    "source/client/src/components/HomePage.js~HomePage#constructor",
-    "method"
   ],
   [
     "source/client/src/components/homepage.js~homepage#copyright",
@@ -627,12 +639,6 @@ window.esdocSearchIndex = [
     "source/client/src/components/homepage.js~homepage#generatesignup",
     "class/source/client/src/components/HomePage.js~HomePage.html#instance-method-generateSignUp",
     "source/client/src/components/HomePage.js~HomePage#generateSignUp",
-    "method"
-  ],
-  [
-    "source/client/src/components/homepage.js~homepage#render",
-    "class/source/client/src/components/HomePage.js~HomePage.html#instance-method-render",
-    "source/client/src/components/HomePage.js~HomePage#render",
     "method"
   ],
   [
@@ -666,15 +672,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "source/client/src/components/longliststep/longlistboard.js~longlistboard#constructor",
-    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-constructor-constructor",
-    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#constructor",
-    "method"
-  ],
-  [
     "source/client/src/components/longliststep/longlistboard.js~longlistboard#generatekpilist",
     "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-generateKpiList",
     "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#generateKpiList",
+    "method"
+  ],
+  [
+    "source/client/src/components/longliststep/longlistboard.js~longlistboard#handlebatchcheck",
+    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-handleBatchCheck",
+    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#handleBatchCheck",
     "method"
   ],
   [
@@ -684,15 +690,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "source/client/src/components/longliststep/longlistboard.js~longlistboard#importkpis",
-    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-importKpis",
-    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#importKpis",
+    "source/client/src/components/longliststep/longlistboard.js~longlistboard#handleentervalidatekpiedition",
+    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-handleEnterValidateKpiEdition",
+    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#handleEnterValidateKpiEdition",
     "method"
   ],
   [
-    "source/client/src/components/longliststep/longlistboard.js~longlistboard#render",
-    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-render",
-    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#render",
+    "source/client/src/components/longliststep/longlistboard.js~longlistboard#handlekpiedition",
+    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-handleKpiEdition",
+    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#handleKpiEdition",
+    "method"
+  ],
+  [
+    "source/client/src/components/longliststep/longlistboard.js~longlistboard#handlekpitoggleedition",
+    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-handleKpiToggleEdition",
+    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#handleKpiToggleEdition",
+    "method"
+  ],
+  [
+    "source/client/src/components/longliststep/longlistboard.js~longlistboard#handlevalidatekpiedition",
+    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-handleValidateKpiEdition",
+    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#handleValidateKpiEdition",
+    "method"
+  ],
+  [
+    "source/client/src/components/longliststep/longlistboard.js~longlistboard#importkpis",
+    "class/source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard.html#instance-method-importKpis",
+    "source/client/src/components/LonglistStep/LonglistBoard.js~LonglistBoard#importKpis",
     "method"
   ],
   [
@@ -720,28 +744,10 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "source/client/src/components/longliststep/longlistmanualimport.js~longlistmanualimport#constructor",
-    "class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html#instance-constructor-constructor",
-    "source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport#constructor",
-    "method"
-  ],
-  [
     "source/client/src/components/longliststep/longlistmanualimport.js~longlistmanualimport#handlechange",
     "class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html#instance-member-handleChange",
     "source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport#handleChange",
     "member"
-  ],
-  [
-    "source/client/src/components/longliststep/longlistmanualimport.js~longlistmanualimport#handlekeypress",
-    "class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html#instance-member-handleKeyPress",
-    "source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport#handleKeyPress",
-    "member"
-  ],
-  [
-    "source/client/src/components/longliststep/longlistmanualimport.js~longlistmanualimport#render",
-    "class/source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport.html#instance-method-render",
-    "source/client/src/components/LonglistStep/LonglistManualImport.js~LonglistManualImport#render",
-    "method"
   ],
   [
     "source/client/src/components/longliststep/longlistmanualimport.js~longlistmanualimport#state",
@@ -756,12 +762,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "source/client/src/components/longliststep/longlistxmlimport.js~longlistxmlimport#constructor",
-    "class/source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport.html#instance-constructor-constructor",
-    "source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport#constructor",
-    "method"
-  ],
-  [
     "source/client/src/components/longliststep/longlistxmlimport.js~longlistxmlimport#extractschema",
     "class/source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport.html#instance-method-extractSchema",
     "source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport#extractSchema",
@@ -774,10 +774,82 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "source/client/src/components/longliststep/longlistxmlimport.js~longlistxmlimport#render",
-    "class/source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport.html#instance-method-render",
-    "source/client/src/components/LonglistStep/LonglistXMLImport.js~LonglistXMLImport#render",
+    "source/client/src/components/shortliststep/shortlist.js",
+    "file/source/client/src/components/ShortlistStep/ShortList.js.html",
+    "source/client/src/components/ShortlistStep/ShortList.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js",
+    "file/source/client/src/components/ShortlistStep/ShortListBoard.js.html",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#addhandler",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-addHandler",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#addHandler",
     "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#commenthandler",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-commentHandler",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#commentHandler",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#deletehandler",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-deleteHandler",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#deleteHandler",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#generatecomment",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-generateComment",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#generateComment",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#hoverhandler",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-hoverHandler",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#hoverHandler",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#positionhandler",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-positionHandler",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#positionHandler",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#savehandler",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-saveHandler",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#saveHandler",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#selectkpi",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-method-selectKpi",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#selectKpi",
+    "method"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboard.js~shortlistboard#state",
+    "class/source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard.html#instance-member-state",
+    "source/client/src/components/ShortlistStep/ShortListBoard.js~ShortListBoard#state",
+    "member"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboardlist.js",
+    "file/source/client/src/components/ShortlistStep/ShortListBoardList.js.html",
+    "source/client/src/components/ShortlistStep/ShortListBoardList.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/shortliststep/shortlistboardtarget.js",
+    "file/source/client/src/components/ShortlistStep/ShortListBoardTarget.js.html",
+    "source/client/src/components/ShortlistStep/ShortListBoardTarget.js",
+    "file"
   ],
   [
     "source/client/src/components/signin.js",
@@ -798,6 +870,54 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "source/client/src/components/visualizationstep/definedkpichart.js",
+    "file/source/client/src/components/VisualizationStep/DefinedKPIChart.js.html",
+    "source/client/src/components/VisualizationStep/DefinedKPIChart.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/visualizationstep/definedkpichart.js~definedkpichart#render",
+    "class/source/client/src/components/VisualizationStep/DefinedKPIChart.js~DefinedKPIChart.html#instance-method-render",
+    "source/client/src/components/VisualizationStep/DefinedKPIChart.js~DefinedKPIChart#render",
+    "method"
+  ],
+  [
+    "source/client/src/components/visualizationstep/numberkpichart.js",
+    "file/source/client/src/components/VisualizationStep/NumberKPIChart.js.html",
+    "source/client/src/components/VisualizationStep/NumberKPIChart.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/visualizationstep/percentagedefkpichart.js",
+    "file/source/client/src/components/VisualizationStep/PercentageDefKPIChart.js.html",
+    "source/client/src/components/VisualizationStep/PercentageDefKPIChart.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/visualizationstep/totalscorekpichart.js",
+    "file/source/client/src/components/VisualizationStep/TotalScoreKPIChart.js.html",
+    "source/client/src/components/VisualizationStep/TotalScoreKPIChart.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/visualizationstep/visualizationpanel.js",
+    "file/source/client/src/components/VisualizationStep/VisualizationPanel.js.html",
+    "source/client/src/components/VisualizationStep/VisualizationPanel.js",
+    "file"
+  ],
+  [
+    "source/client/src/components/visualizationstep/visualizationpanel.js~visualizationpanel#getchartdata",
+    "class/source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel.html#instance-method-getChartData",
+    "source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel#getChartData",
+    "method"
+  ],
+  [
+    "source/client/src/components/visualizationstep/visualizationpanel.js~visualizationpanel#state",
+    "class/source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel.html#instance-member-state",
+    "source/client/src/components/VisualizationStep/VisualizationPanel.js~VisualizationPanel#state",
+    "member"
+  ],
+  [
     "source/client/src/components/utils/header.js",
     "file/source/client/src/components/utils/Header.js.html",
     "source/client/src/components/utils/Header.js",
@@ -808,18 +928,6 @@ window.esdocSearchIndex = [
     "file/source/client/src/components/utils/NoMatch.js.html",
     "source/client/src/components/utils/NoMatch.js",
     "file"
-  ],
-  [
-    "source/client/src/components/utils/nomatch.js~nomatch#constructor",
-    "class/source/client/src/components/utils/NoMatch.js~NoMatch.html#instance-constructor-constructor",
-    "source/client/src/components/utils/NoMatch.js~NoMatch#constructor",
-    "method"
-  ],
-  [
-    "source/client/src/components/utils/nomatch.js~nomatch#render",
-    "class/source/client/src/components/utils/NoMatch.js~NoMatch.html#instance-method-render",
-    "source/client/src/components/utils/NoMatch.js~NoMatch#render",
-    "method"
   ],
   [
     "source/client/src/components/utils/nomatch.js~nomatch#state",
@@ -888,27 +996,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "source/routes/company.js",
-    "file/source/routes/company.js.html",
-    "source/routes/company.js",
+    "source/routes/charts.js",
+    "file/source/routes/charts.js.html",
+    "source/routes/charts.js",
     "file"
   ],
   [
-    "source/routes/kpi.js",
-    "file/source/routes/kpi.js.html",
-    "source/routes/kpi.js",
+    "source/routes/kpis.js",
+    "file/source/routes/kpis.js.html",
+    "source/routes/kpis.js",
     "file"
   ],
   [
-    "source/routes/role.js",
-    "file/source/routes/role.js.html",
-    "source/routes/role.js",
+    "source/routes/settings.js",
+    "file/source/routes/settings.js.html",
+    "source/routes/settings.js",
     "file"
   ],
   [
-    "source/routes/user.js",
-    "file/source/routes/user.js.html",
-    "source/routes/user.js",
+    "source/routes/utils/check.js",
+    "file/source/routes/utils/check.js.html",
+    "source/routes/utils/check.js",
     "file"
   ]
 ]

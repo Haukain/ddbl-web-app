@@ -3,6 +3,9 @@
  */
 const Sequelize = require('sequelize');
 
+/**
+ * TODO
+ */
 let Kpi = function(sequelize, DataTypes) {
   var Kpi = sequelize.define(
     'kpi',

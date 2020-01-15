@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme =>
   })
 );
 
+/**
+ * This is a function which display a message of success or failure in a snackbar  
+ */
 export default function SimpleSnackbar(props) {
   const classes = useStyles();
 

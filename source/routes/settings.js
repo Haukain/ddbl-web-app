@@ -6,7 +6,13 @@ var express = require('express');
  * @ignore
  */
 const Company = require('../models').company;
+/**
+ * @ignore
+ */
 const Role = require('../models').role;
+/**
+ * @ignore
+ */
 const User = require('../models').user;
 
 //

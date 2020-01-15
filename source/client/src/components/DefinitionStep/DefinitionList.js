@@ -2,7 +2,13 @@ import React from 'react';
 import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import utils from '../../utils/utils'
 
+/**
+ * TODO
+ */
 class DefinitionList extends React.Component {
+  /**
+   * TODO
+   */
   generateKpiList() {
     let kpiList = [];
     // eslint-disable-next-line
@@ -35,7 +41,9 @@ class DefinitionList extends React.Component {
     }
     return kpiList;
   }
-
+  /**
+   * @ignore
+   */
   render() {
     return <List>{this.generateKpiList()}</List>;
   }

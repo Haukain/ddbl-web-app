@@ -36,6 +36,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+/**
+ * @ignore
+ */
 const summaries = [
   {
       "title" : "Longlist",
@@ -59,6 +62,9 @@ const summaries = [
   }
 ]
 
+/**
+ * TODO
+ */
 export default function StepSelectionPage(props) {
   const classes = useStyles();
 

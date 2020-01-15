@@ -1,4 +1,10 @@
+/**
+ * TODO
+ */
 export default class Api {
+  /**
+   * TODO
+   */
   static connect(uri, options) {
     return new Promise((resolve, reject) => {
       fetch(uri, options)
@@ -18,6 +24,9 @@ export default class Api {
     });
   }
 
+  /**
+   * TODO
+   */
   static post(uri, body) {
     let options = {
       method: 'POST',
@@ -29,7 +38,9 @@ export default class Api {
     };
     return this.connect(uri, options);
   }
-
+  /**
+   * TODO
+   */
   static get(uri) {
     let options = {
       method: 'get',

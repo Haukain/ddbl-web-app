@@ -6,10 +6,22 @@ import { Grid, Button, TextField } from '@material-ui/core';
 import update from 'immutability-helper';
 import Api from '../../utils/Api';
 
+/**
+ * @ignore
+ */
 const boardWidth = 800;
+/**
+ * @ignore
+ */
 const boardHeight = 500;
+/**
+ * @ignore
+ */
 const tokenSize = 30;
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
     buttonRow : {
       textAlign : 'right'
@@ -26,12 +38,18 @@ const styles = theme => ({
       height : 400
     },
   });
-
+/**
+ * TODO
+ */
 class ShortListBoard extends React.Component {
-  
+  /**
+   * @ignore
+   */
   constructor(props) {
     super(props);
-
+    /**
+     * TODO
+     */
     this.state = {
         kpis :
           [
@@ -47,7 +65,9 @@ class ShortListBoard extends React.Component {
     this.selectKpi = this.selectKpi.bind(this)
     this.commentHandler = this.commentHandler.bind(this)
   }
-
+  /**
+   * @ignore
+   */
   componentDidMount() { 
     let kpisToInsert = [];
     const companyId = 1;
@@ -77,32 +97,46 @@ class ShortListBoard extends React.Component {
       this.props.openSnackbar('An error ocurred while loading the KPIs', true);
     })
   }
-
+  /**
+   * TODO
+   */
   positionHandler(id,ui) {
     let {x, y} = this.state.kpis[id].position;
     this.setState({kpis : update(this.state.kpis, {[id]: {position: {$set: {x:(x + ui.deltaX),y:(y + ui.deltaY)}}}})});
   }
-
+  /**
+   * TODO
+   */
   addHandler(id) {
     this.setState({kpis : update(this.state.kpis, {[id]: {hidden: {$set: false}}})});
   }
-
+  /**
+   * TODO
+   */
   deleteHandler(id) {
     this.setState({kpis : update(this.state.kpis, {[id]: {hidden: {$set: true}}})});
   }
-
+  /**
+   * TODO
+   */
   hoverHandler(id,hover) {
     this.setState({kpis : update(this.state.kpis, {[id]: {hovered: {$set: hover}}})});
   }
-
+  /**
+   * TODO
+   */
   selectKpi(id) {
     this.setState({selected : update(this.state.selected, {$set: id})});
   }
-
+  /**
+   * TODO
+   */
   commentHandler(id,e){
     this.setState({kpis : update(this.state.kpis, {[id]: {comment: {$set: e.target.value}}})});
   }
-
+  /**
+   * TODO
+   */
   generateComment(id){
     let comment =[]
     comment.push(
@@ -125,7 +159,9 @@ class ShortListBoard extends React.Component {
     )
     return comment
   }
-
+  /**
+   * TODO
+   */
   saveHandler() {
     let enabledKpis = this.state.kpis.filter(e => !e.hidden)
     let kpisToSave = []
@@ -168,7 +204,9 @@ class ShortListBoard extends React.Component {
       this.props.openSnackbar('An error ocurred while loading the KPIs', true);
     })
   }
-
+  /**
+   * @ignore
+   */
   render() {
     const { classes } = this.props;
     return (

@@ -3,6 +3,9 @@
  */
 const Sequelize = require('sequelize');
 
+/**
+ * TODO
+ */
 let Role = function(sequelize, DataTypes) {
   var Role = sequelize.define(
     'role',

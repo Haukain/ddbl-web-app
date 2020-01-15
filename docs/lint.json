@@ -1,1 +1,70 @@
-[]
+[
+  {
+    "name": "checkCompany",
+    "filePath": "source/routes/utils/check.js",
+    "lines": [
+      {
+        "lineNumber": 9,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 10,
+        "line": " * Check if the company exists.\r"
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param {number} companyId - This is the id of the company\r"
+      },
+      {
+        "lineNumber": 12,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 13,
+        "line": "function checkCompany(companyId, res, next) {\r"
+      }
+    ],
+    "codeParams": [
+      "companyId",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "companyId"
+    ]
+  },
+  {
+    "name": "checkUser",
+    "filePath": "source/routes/utils/check.js",
+    "lines": [
+      {
+        "lineNumber": 28,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 29,
+        "line": " * Check if the user exists.\r"
+      },
+      {
+        "lineNumber": 30,
+        "line": " * @param {number} userId - This is the id of the user\r"
+      },
+      {
+        "lineNumber": 31,
+        "line": " */  \r"
+      },
+      {
+        "lineNumber": 32,
+        "line": "function checkUser(userId, res, next) {\r"
+      }
+    ],
+    "codeParams": [
+      "userId",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "userId"
+    ]
+  }
+]

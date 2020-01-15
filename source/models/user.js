@@ -3,6 +3,9 @@
  */
 const Sequelize = require('sequelize');
 
+/**
+ * TODO
+ */
 let User =  function(sequelize, DataTypes) {
   var User = sequelize.define(
     'user',

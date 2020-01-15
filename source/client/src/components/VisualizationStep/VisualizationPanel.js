@@ -7,6 +7,9 @@ import utils from '../../utils/utils';
 import Fab from '@material-ui/core/Fab';
 import { Link as RouterLink } from 'react-router-dom';
 
+/**
+ * @ignore
+ */
 const styles = theme => ({
     size: {
       height : 210,
@@ -25,12 +28,19 @@ const styles = theme => ({
       position: 'fixed',
     }
   });
-  
+
+/**
+ * TODO
+ */
 class VisualizationPanel extends Component {
-      
+    /**
+     * @ignore
+     */  
     constructor(props) {
         super(props);
-    
+        /**
+         * TODO
+         */
         this.state = {
             definedKPIData: [],
             numberKPIData:[],
@@ -38,11 +48,17 @@ class VisualizationPanel extends Component {
             totalScoreData: []
         }
     }
-      
+    
+    /**
+     * @ignore
+     */
     componentDidMount(){
         this.getChartData();
     }
-         
+    
+    /**
+     * TODO
+     */
     getChartData(){
         let definedKPIData= [];
         let totalScoreData= [];
@@ -75,7 +91,9 @@ class VisualizationPanel extends Component {
         });
     }
 
-   
+    /**
+     * @ignore
+     */
     render(){
         const { classes } = this.props;
         

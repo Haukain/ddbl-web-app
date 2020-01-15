@@ -3,6 +3,9 @@
  */
 const Sequelize = require('sequelize');
 
+/**
+ * TODO
+ */
 let Company = function(sequelize, DataTypes) {
   var Company = sequelize.define(
     'company',

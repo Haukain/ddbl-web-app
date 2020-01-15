@@ -41,20 +41,33 @@ const styles = theme => ({
   }
 });
 
+/**
+ * TODO
+ */
 class DefinitionBoard extends React.Component {
+  /**
+   * @ignore
+   */
   constructor(props) {
     super(props);
-
+    /**
+     * TODO
+     */
     this.state = {
       kpiList: [],
       selectedKpi: null
     };
 
     this.updateSelected = this.updateSelected.bind(this);
+    /**
+     * @ignore
+     */
     this.handleChange = this.handleChange.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
   }
-
+  /**
+   * @ignore
+   */
   componentDidMount() {
     let kpisToInsert = [];
     let companyId=1;
@@ -89,7 +102,9 @@ class DefinitionBoard extends React.Component {
       this.props.openSnackbar('An error ocurred while loading the KPIs', true);
     });
   }
-
+  /**
+   * TODO
+   */
   getDefinitionState(data) {
     let fields = [data.purpose,
       data.customers,
@@ -112,13 +127,17 @@ class DefinitionBoard extends React.Component {
       return utils.KpiDefinitionState.PARTIALLY_DEFINED
     }
   }
-
+  /**
+   * TODO
+   */
   updateSelected(selectedIndex) {
     this.setState({
       selectedKpi: update(this.state.selectedKpi, { $set: selectedIndex })
     });
   }
-
+  /**
+   * TODO
+   */
   handleChange = (e, i, n) => {
     let newValue = e.target.value===''?null:e.target.value
     this.setState({
@@ -127,7 +146,9 @@ class DefinitionBoard extends React.Component {
       })
     });
   };
-
+  /**
+   * TODO
+   */
   saveHandler() {
     let kpiToSave = this.state.kpiList[this.state.selectedKpi];
 
@@ -180,7 +201,9 @@ class DefinitionBoard extends React.Component {
 
     
   }
-
+  /**
+   * @ignore
+   */ 
   render() {
     const { classes } = this.props;
     return (
