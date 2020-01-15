@@ -17,6 +17,7 @@ import update from 'immutability-helper';
 import LonglistXMLImport from './LonglistXMLImport';
 import LonglistManualImport from './LonglistManualImport';
 import Api from '../../utils/Api';
+import { withRouter } from "react-router";
 
 const styles = theme => ({
   listRoot: {
@@ -59,6 +60,7 @@ class LonglistBoard extends React.Component {
     let newState = !this.state.batchCheck
     this.setState({batchCheck:newState})
     let kpiList = this.state.kpiList
+    // eslint-disable-next-line
     for(let k of kpiList){
       k.isChecked = newState
     }
@@ -132,6 +134,7 @@ class LonglistBoard extends React.Component {
           false
         );
         this.setState({ kpiList: [] });
+        this.props.history.push(`/shortlist`);
       })
       .catch(error => {
         console.error(error);
@@ -206,4 +209,4 @@ class LonglistBoard extends React.Component {
   }
 }
 
-export default withStyles(styles)(LonglistBoard);
+export default withStyles(styles)(withRouter(LonglistBoard));

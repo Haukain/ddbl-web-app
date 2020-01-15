@@ -5,6 +5,7 @@ import ShortListBoardList from './ShortListBoardList';
 import { Grid, Button, TextField } from '@material-ui/core';
 import update from 'immutability-helper';
 import Api from '../../utils/Api';
+import { withRouter } from "react-router";
 
 const boardWidth = 800;
 const boardHeight = 500;
@@ -54,8 +55,8 @@ class ShortListBoard extends React.Component {
     const userId = 1;
     Api.get(`/kpi/${companyId}/${userId}`)
     .then( data => {
-      // eslint-disable-next-line
       data.sort((a, b) => (a.id > b.id) ? 1 : -1)
+      // eslint-disable-next-line
       for(let k of data){
         let positionX = k.easeOfMeasure!=null?(k.easeOfMeasure-5)*boardWidth/10:0
         let positionY = k.importance!=null?-(k.importance-5)*boardHeight/10:0
@@ -104,26 +105,22 @@ class ShortListBoard extends React.Component {
   }
 
   generateComment(id){
-    let comment =[]
-    comment.push(
-      <div>
-        {(this.state.kpis[id] !== undefined) ? (
-          <div>
-            <p>{this.state.kpis[id].name}</p>
-            <TextField 
-            multiline
-            rows="4"
-            rowsMax="15"
-            label= "Enter a comment"
-            variant="outlined" 
-            value={(id !== null)&&(this.state.kpis[id].comment!==null) ? (this.state.kpis[id].comment) : ("") }
-            onChange={e=> this.commentHandler(id,e)}
-            />
-          </div>
-          ):(null)}
+    return (<div>
+      {(this.state.kpis[id] !== undefined) ? (
+        <div>
+          <p>{this.state.kpis[id].name}</p>
+          <TextField 
+          multiline
+          rows="4"
+          rowsMax="15"
+          label= "Enter a comment"
+          variant="outlined" 
+          value={(id !== null)&&(this.state.kpis[id].comment!==null) ? (this.state.kpis[id].comment) : ("") }
+          onChange={e=> this.commentHandler(id,e)}
+          />
         </div>
-    )
-    return comment
+        ):(null)}
+      </div>)
   }
 
   saveHandler() {
@@ -156,11 +153,11 @@ class ShortListBoard extends React.Component {
     Api.post('/kpi/shortlist',jsonPayload)
     .then(
       data => {
-        console.log(data)
         this.props.openSnackbar(
           `${data.length} KPI(s) have been saved`,
           false
         );
+        this.props.history.push(`/definition`);
       }
     )
     .catch(error => {
@@ -194,4 +191,4 @@ class ShortListBoard extends React.Component {
   }
 }
 
-export default withStyles(styles)(ShortListBoard);
+export default withStyles(styles)(withRouter(ShortListBoard));

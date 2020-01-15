@@ -61,6 +61,7 @@ class DefinitionBoard extends React.Component {
       // eslint-disable-next-line
       let shortlistedKpis = data.filter(k => k.status>=2)
       shortlistedKpis.sort((a, b) => (a.id > b.id) ? 1 : -1)
+      // eslint-disable-next-line
       for(let k of shortlistedKpis){
         kpisToInsert.push({
           id:k.id,

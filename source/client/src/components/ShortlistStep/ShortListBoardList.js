@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
 function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler,selectKpi) {
 
     let listItems = []
+    // eslint-disable-next-line
     for (let [i,k] of items.entries()) {
         listItems.push(
             <ListItem key={i} button selected={!k.hidden} onMouseOver={() => hoverHandler(i,true)} onMouseOut={() => hoverHandler(i,false)} 

@@ -28,7 +28,6 @@ function checkForInDatabaseNameDuplicates(list){
   }
   return Promise.all(promises)
   .then( res => {
-    console.log(res)
     if(res.every(e => e===null)) return false
     else return true
   })
