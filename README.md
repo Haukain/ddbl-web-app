@@ -32,7 +32,7 @@ It consists of 7 steps to design a KPI system for a company. This project create
 
 ## Documentation <a name="documentation"></a>
 
-The documentation of this application can be found [here](*TBD*)
+The documentation of this application can be found [here](https://haukain.github.io/ddbl-web-app/index.html)
 
 Note: The documentation is generated automatically by the comments in the projects files by the [esdoc](https://esdoc.org/) plugin. Its settings are available in `source/.esdoc.json` and the generated files are available in `docs`
 
