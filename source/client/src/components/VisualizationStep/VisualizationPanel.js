@@ -19,7 +19,7 @@ const styles = theme => ({
     definitionButton: {
       margin: 0,
       top: 7,
-      right: 20,
+      right: "45%",
       bottom: 'auto',
       left: 'auto',
       position: 'fixed',
