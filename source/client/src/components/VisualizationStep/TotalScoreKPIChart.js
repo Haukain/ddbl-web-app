@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {HorizontalBar} from 'react-chartjs-2';
 
 /**
- * Total score (ease of m*importance) per KPI - bar chart
+ * Total score (ease of measure*importance) per KPI - bar chart
  */
 class TotalScoreKPIChart extends Component {
     
@@ -10,7 +10,6 @@ class TotalScoreKPIChart extends Component {
      * @ignore
      */
     render(){
-        // this.props.labelsData.forEarch(console.log)
         return(
             <div className="numberKPIChart">
                 <HorizontalBar

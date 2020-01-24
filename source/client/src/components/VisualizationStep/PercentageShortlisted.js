@@ -12,6 +12,9 @@ class PercentageShortlisted extends Component {
         legendPosition:'bottom',
     }
     
+    /**
+     * @ignore
+     */
     render(){
         return(
             <div className="percentageShortlisted">      

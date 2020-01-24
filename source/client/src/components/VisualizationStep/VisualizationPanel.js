@@ -31,7 +31,7 @@ const styles = theme => ({
   });
 
 /**
- * TODO
+ * Panel that display every chart with the data
  */
 class VisualizationPanel extends Component {
     /**
@@ -40,7 +40,7 @@ class VisualizationPanel extends Component {
     constructor(props) {
         super(props);
         /**
-         * TODO
+         * Initialisation of all the tables that will store the chart data 
          */
         this.state = {
             definedKPIData: [],
@@ -59,7 +59,7 @@ class VisualizationPanel extends Component {
     }
     
     /**
-     * TODO
+     * This is a function that get all the data for the charts from the server
      */
     getChartData(){
         let definedKPIData= [];
@@ -67,7 +67,7 @@ class VisualizationPanel extends Component {
         let totalScoreLabel= [];
         let shortlistedKPIData = [];
     
-         //chart - percentage of shortlisted KPI
+         //chart - percentage of shortlisted KPIs
          Api.get('/chart/shortlisted-percentage/1/1')
          .then(data => { 
             shortlistedKPIData.push(data.imported);
@@ -78,7 +78,7 @@ class VisualizationPanel extends Component {
              })  
          });        
         
-        //chart - number of KPI defined/undefined/partially
+        //chart - number of KPIs defined/undefined/partially defined
         Api.get('/chart/completion-percentage/1/1')
         .then(data => { 
             definedKPIData.push(data.defined);
