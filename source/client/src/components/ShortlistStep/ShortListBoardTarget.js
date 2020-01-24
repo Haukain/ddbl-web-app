@@ -19,7 +19,7 @@ const HtmlTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 /**
- * TODO
+ * This is the function generating the token on the board
  */
 function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeight,tokenSize) {
   let targetTokens = []
@@ -45,7 +45,7 @@ function generateTargetTokens(classes,items,positionHandler,boardWidth,boardHeig
 }
 
 /**
- * TODO
+ * This is the function displaying the token of all selected kpis
  */
 export default function ShortListBoardTarget(props) {
 

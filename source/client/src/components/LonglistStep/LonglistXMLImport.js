@@ -4,7 +4,7 @@ import Fab from '@material-ui/core/Fab';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 /**
- * TODO
+ * This is the class which enable to import kpis of an XML file
  */
 class LonglistXMLImport extends React.Component {
   /**
@@ -17,7 +17,7 @@ class LonglistXMLImport extends React.Component {
     this.extractSchema = this.extractSchema.bind(this);
   }
   /**
-   * TODO
+   * Function extracting kpi name found in the file
    */
   extractSchema(schema) {
     let kpiList = [];

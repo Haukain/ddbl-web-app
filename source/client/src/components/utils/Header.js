@@ -4,7 +4,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import { withRouter } from 'react-router-dom';
 
 /**
- * TODO
+ * This is the header containing the app bar
  */
 function Header(props) {
   let title = props.location.pathname.replace('/', '');

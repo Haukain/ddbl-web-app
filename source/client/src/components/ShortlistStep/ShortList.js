@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 /**
- * TODO
+ * This is the main function for the shortlisting phase
  */
 export default function ShortList(props) {
   const classes = useStyles();

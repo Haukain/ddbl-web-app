@@ -3,11 +3,11 @@ import { List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import utils from '../../utils/utils'
 
 /**
- * TODO
+ * This is the class displaying the list of shortlisted kpis 
  */
 class DefinitionList extends React.Component {
   /**
-   * TODO
+   * Function which generate the list of kpis and their state
    */
   generateKpiList() {
     let kpiList = [];

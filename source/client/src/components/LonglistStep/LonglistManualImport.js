@@ -14,7 +14,7 @@ const styles = theme => ({
 });
 
 /**
- * TODO
+ * This is the class which enable to add kpis manually
  */
 class LonglistManualImport extends React.Component {
   /**
@@ -23,7 +23,7 @@ class LonglistManualImport extends React.Component {
   constructor(props) {
     super(props);
     /**
-     * TODO
+     * State containing the kpi name
      */
     this.state = {
       name: ''

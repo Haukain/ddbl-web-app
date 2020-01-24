@@ -24,17 +24,22 @@ const styles = theme => ({
 });
 
 /**
- * TODO
+ * This is the class creating each field in the definition page
  */
 class DefinitionCards extends React.Component {
   /**
-   * TODO
+   * Function which save every change in each field
+   * @param {Object} e - This is the event contaning text entered in a field
+   * @param {string} name - This is the field name in the database
    */
   handleChange(e, name) {
     this.props.handleChange(e, name);
   }
   /**
-   * TODO
+   * Function creating one card based on a name
+   * @param {string} key - This is the field name in the database
+   * @param {string} name - This is the complete field name
+   * @param {string} text - This is a short description of the field
    */
   createCard(key, name, text) {
     const { classes } = this.props;
@@ -65,7 +70,7 @@ class DefinitionCards extends React.Component {
     );
   }
   /**
-   * TODO
+   * Function which create all the cards used in the definition step
    */
   generateCards() {
     const { classes } = this.props;

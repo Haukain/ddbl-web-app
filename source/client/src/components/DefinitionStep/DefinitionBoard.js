@@ -42,7 +42,7 @@ const styles = theme => ({
 });
 
 /**
- * TODO
+ * This is the class containing all the elements visible below the app bar
  */
 class DefinitionBoard extends React.Component {
   /**
@@ -51,7 +51,7 @@ class DefinitionBoard extends React.Component {
   constructor(props) {
     super(props);
     /**
-     * TODO
+     * State containing the list of shortlisted kpis and the index of the kpi selected in the list (no kpi selected by default)
      */
     this.state = {
       kpiList: [],
@@ -103,7 +103,8 @@ class DefinitionBoard extends React.Component {
     });
   }
   /**
-   * TODO
+   * This is the function getting the state of a kpi (defined, partially defined or undefined)
+   * @param {Object} data - This is all data get on the database
    */
   getDefinitionState(data) {
     let fields = [data.purpose,
@@ -128,7 +129,8 @@ class DefinitionBoard extends React.Component {
     }
   }
   /**
-   * TODO
+   * This is the function which update the selected kpi
+   * @param {number} selectedIndex - This the index of the kpi selected in the list
    */
   updateSelected(selectedIndex) {
     this.setState({
@@ -136,7 +138,10 @@ class DefinitionBoard extends React.Component {
     });
   }
   /**
-   * TODO
+   * This is the function which update changes in each field
+   * @param {Object} e - This is the event contaning text entered in a field
+   * @param {number} i - This is the kpi id 
+   * @param {string} n - This the field name  
    */
   handleChange = (e, i, n) => {
     let newValue = e.target.value===''?null:e.target.value
@@ -147,7 +152,7 @@ class DefinitionBoard extends React.Component {
     });
   };
   /**
-   * TODO
+   * This is the function saving all the information in the database
    */
   saveHandler() {
     let kpiToSave = this.state.kpiList[this.state.selectedKpi];

@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * TODO
+ * This is the main function for the longlist phase 
  */
 export default function Longlist(props) {
   const classes = useStyles();

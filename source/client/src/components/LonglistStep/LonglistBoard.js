@@ -33,7 +33,7 @@ const styles = theme => ({
 });
 
 /**
- * TODO
+ * This is the class containing all the elements visible below the app bar
  */
 class LonglistBoard extends React.Component {
   /**
@@ -42,7 +42,7 @@ class LonglistBoard extends React.Component {
   constructor(props) {
     super(props);
     /**
-     * TODO
+     * State containing the list of imported kpis
      */
     this.state = {
       kpiList: [],
@@ -57,7 +57,8 @@ class LonglistBoard extends React.Component {
     this.addKpis = this.addKpis.bind(this);
   }
   /**
-   * TODO
+   * Function which check if a kpi is selected in the list
+   * @param {number} id - This is the id of checked kpi
    */
   handleChecked(id) {
     let currentState = this.state.kpiList[id].isChecked;
@@ -118,7 +119,7 @@ class LonglistBoard extends React.Component {
     });
   }
   /**
-   * TODO
+   * Function which displayed a list of kpis added or imported 
    */
   generateKpiList() {
     let kpiList = [];
@@ -140,7 +141,7 @@ class LonglistBoard extends React.Component {
     return kpiList;
   }
   /**
-   * TODO
+   * Function saving the list of selected kpis in the database
    */
   saveHandler() {
     let kpisToSave = this.state.kpiList
@@ -166,7 +167,8 @@ class LonglistBoard extends React.Component {
       });
   }
   /**
-   * TODO
+   * Function which add imported kpis to the list
+   * @param {Object} list - This is the list of imported kpis
    */
   importKpis(list) {
     this.setState({
@@ -176,7 +178,8 @@ class LonglistBoard extends React.Component {
     });
   }
   /**
-   * TODO
+   * Function which add a kpi entered manually 
+   * @param {string} name - This is the kpi name
    */
   addKpis(name) {
     let newKpi = { name: name, isChecked: this.state.batchCheck, isBeingEdited : false };

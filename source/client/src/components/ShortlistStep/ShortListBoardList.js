@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * TODO
+ * Function which generate the list of kpis on the shortlisting page
  */
 function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler,selectKpi) {
 
@@ -43,7 +43,7 @@ function generateListItems(classes,items,addHandler,deleteHandler,hoverHandler,s
 }
 
 /**
- * TODO
+ * This is the function displaying the list of longlisted kpis
  */
 export default function ShortListBoardList(props) {
   const classes = useStyles();

@@ -39,7 +39,7 @@ const styles = theme => ({
     },
   });
 /**
- * TODO
+ * This is the class containing all the elements visible below the app bar
  */
 class ShortListBoard extends React.Component {
   /**
@@ -48,7 +48,7 @@ class ShortListBoard extends React.Component {
   constructor(props) {
     super(props);
     /**
-     * TODO
+     * State containing the list of shortlisted kpis and the index of the kpi selected in the list (no kpi selected by default)
      */
     this.state = {
         kpis :
@@ -98,44 +98,53 @@ class ShortListBoard extends React.Component {
     })
   }
   /**
-   * TODO
+   * Function getting the kpi position on the board
+   * @param {number} id - This is the kpi id
    */
   positionHandler(id,ui) {
     let {x, y} = this.state.kpis[id].position;
     this.setState({kpis : update(this.state.kpis, {[id]: {position: {$set: {x:(x + ui.deltaX),y:(y + ui.deltaY)}}}})});
   }
   /**
-   * TODO
+   * Function which enable to add a kpi on the board (a token is displayed)
+   * @param {number} id - This is the kpi id
    */
   addHandler(id) {
     this.setState({kpis : update(this.state.kpis, {[id]: {hidden: {$set: false}}})});
   }
   /**
-   * TODO
+   * Function which enable to delete a kpi on the board
+   * @param {number} id - This is the kpi id
    */
   deleteHandler(id) {
     this.setState({kpis : update(this.state.kpis, {[id]: {hidden: {$set: true}}})});
   }
   /**
-   * TODO
+   * Function which detect the kpi hovered on the board
+   * @param {number} id - This is the kpi id
+   * @param {boolean} hover - The value is 'true' when a kpi is hovered 
    */
   hoverHandler(id,hover) {
     this.setState({kpis : update(this.state.kpis, {[id]: {hovered: {$set: hover}}})});
   }
   /**
-   * TODO
+   * Function which identify the selected kpi
+   * @param {number} - This the kpi id
    */
   selectKpi(id) {
     this.setState({selected : update(this.state.selected, {$set: id})});
   }
   /**
-   * TODO
+   * Function detecting and saving every change in the comment field
+   * @param {number} id - This is the kpi id
+   * @param {Object} event - This is the event contaning text entered in the comment field
    */
   commentHandler(id,e){
     this.setState({kpis : update(this.state.kpis, {[id]: {comment: {$set: e.target.value}}})});
   }
   /**
-   * TODO
+   * Function displaying the comment field
+   * @param {number} id - This is the kpi id
    */
   generateComment(id){
     let comment =[]
@@ -160,7 +169,7 @@ class ShortListBoard extends React.Component {
     return comment
   }
   /**
-   * TODO
+   * Function saving all kpis position on the board in the database
    */
   saveHandler() {
     let enabledKpis = this.state.kpis.filter(e => !e.hidden)

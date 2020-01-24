@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * TODO
+ * This is the main function for the definition phase
  */
 export default function Definition(props) {
   const classes = useStyles();
