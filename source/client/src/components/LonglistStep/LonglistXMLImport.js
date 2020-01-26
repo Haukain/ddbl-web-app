@@ -27,7 +27,7 @@ class LonglistXMLImport extends React.Component {
           'VisRpt:VisioReport'
         ][0].ReportFields[0].ReportField.findIndex(
           e => e.Name[0] === 'Displayed Text'
-        ) !== undefined
+        ) !== -1
       ) {
         let previousIndexes = schema.Report[
           'VisRpt:VisioReport'
