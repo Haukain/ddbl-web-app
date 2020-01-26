@@ -22,18 +22,19 @@ class LonglistXMLImport extends React.Component {
   extractSchema(schema) {
     let kpiList = [];
     try {
+      let textIndex = schema.Report[
+        'VisRpt:VisioReport'
+      ][0].ReportFields[0].ReportField.findIndex(
+        e => e.Name[0] === 'Displayed Text'
+      )
       if (
-        schema.Report[
-          'VisRpt:VisioReport'
-        ][0].ReportFields[0].ReportField.findIndex(
-          e => e.Name[0] === 'Displayed Text'
-        ) !== -1
+        textIndex !== -1
       ) {
         let previousIndexes = schema.Report[
           'VisRpt:VisioReport'
         ][0].Group[0].GroupField[0].RowItem.reduce((a, e, i) => {
-          if (e.Field[0].Val) {
-            if (e.Field[0].Val[0]._ === 'KPI') a.push(i);
+          if (e.Field[textIndex].Val) {
+            if (e.Field[textIndex].Val[0]._ === 'KPI') a.push(i);
           }
           return a;
         }, []);
@@ -42,7 +43,7 @@ class LonglistXMLImport extends React.Component {
         for (let i of previousIndexes) {
           kpiList.push(
             schema.Report['VisRpt:VisioReport'][0].Group[0].GroupField[0]
-              .RowItem[i + 1].Field[0].Val[0]._
+              .RowItem[i + 1].Field[textIndex].Val[0]._
           );
         }
         this.props.importKpis(kpiList);
